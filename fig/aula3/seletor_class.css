@@ -1,0 +1,9 @@
+/* No HTML defina a classe do elemento*/
+<h1 class="center">Red and center-aligned</h1>
+
+/* ---- No CSS ----- */
+.center {
+    text-align: center;
+    color: red;
+}
+

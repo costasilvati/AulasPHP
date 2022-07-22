@@ -1,0 +1,9 @@
+/* No HTML */
+<p id="para1">Hello World!</p>
+
+/* ---- No CSS ----- */
+#para1 {
+    text-align: center;
+    color: red;
+}
+

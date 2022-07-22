@@ -1,0 +1,43 @@
+     
+    h1 {
+       color: navy;
+    }
+
+    <head>
+     <link rel="stylesheet" type="text/css" href="mystyle.css">
+      <style>
+        h1 {
+            color: orange;
+        }
+      </style>
+    </head>
+
+
+      <h1 style="color:blue;margin-left:30px;">This is a heading</h1>
+
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+
+h1, h2, p {
+    text-align: center;
+    color: red;
+}
+
+h1 {
+    text-align: center;
+    color: red;
+}
+
+h2 {
+    text-align: center;
+    color: red;
+}
+
+p {
+    text-align: center;
+    color: red;
+}
+
+
