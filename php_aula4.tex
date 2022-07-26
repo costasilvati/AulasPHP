@@ -18,7 +18,7 @@
 \hypersetup{pdfpagelayout=SinglePage}
  
 %Information to be included in the title page:
-\title[??]{?}
+\title[Introdução ao PHP]{Sintaxe básica da linguagem PHP}
  \subtitle{Disciplina: Desenvolvimento de Sistemas com PHP}
 \author{Juliana C. Silva}
 \institute{Universidade Positivo}
@@ -34,7 +34,7 @@
 % Configurando layout para mostrar codigos C++
 \usepackage{listings}
 \lstset{
-  language=HTML,
+  language=PHP,
   basicstyle=\ttfamily\small, 
   keywordstyle=\color{blue}, 
   stringstyle=\color{red}, 
@@ -179,6 +179,106 @@ Para executar um script PHP:
     \tiny{Código PHP no arquivo exemplo1.php}
 \end{center}
 No navegador Web, acesse \textcolor{red}{http://192.168.64.2/aulas/exemplo1.php}.
+\end{frame}
+%--------------------------------------------------------------------------
+\section{Tipos de dados PHP}
+\begin{frame}{Variáveis}
+PHP é uma linguagem \textbf{Não "tipada"}, ou seja, não é necessário determinar o tipo da variável para declara-la.\\
+\begin{block}{Declaração de variáveis}
+\begin{center}
+		\lstinputlisting[linerange={3-4}]{fig/aula4/olamundo.php}
+		\tiny Variáveis nome (texto) e idade (numérica).
+	\end{center}
+\end{block}
+\end{frame}
+%--------------------------------------------------------------------------
+\begin{frame}{Variáveis}
+\begin{block}{Exibindo variáveis}
+\begin{center}
+		\lstinputlisting[linerange={14-14}]{fig/aula4/olamundo.php}
+		\tiny Imprimindo variáveis com aspas simples e operador de concatenação '.'.\\
+		\lstinputlisting[linerange={15-15}]{fig/aula4/olamundo.php}
+		\tiny Imprimindo variáveis com aspas duplas sem a necessidade de operador de concatenação.\\
+	\end{center}
+\end{block}
+
+	\begin{center}
+		  \includegraphics[height=0.1\paperheight]{fig/aula4/php_aula4_3.png} \\
+		  \tiny Saída no navegador.
+	  \end{center}
+	  
+\end{frame}
+%--------------------------------------------------------------------------
+\begin{frame}{Comentários PHP}
+\begin{block}{Comentários}
+\begin{center}
+		\lstinputlisting[linerange={6-6}]{fig/aula4/olamundo.php}
+		\tiny Comentar uma linha.\\
+		\lstinputlisting[linerange={7-10}]{fig/aula4/olamundo.php}
+		\tiny Comentar várias linhas.\\
+	\end{center}
+\end{block}
+\end{frame}
+
+%--------------------------------------------------------------------------
+\section{Operadores}
+\begin{frame}{Operadores matemáticos}
+Soma
+\begin{center}
+		\lstinputlisting[linerange={18-19}]{fig/aula4/olamundo.php}
+		\tiny Soma.\\
+	\end{center}
+
+
+Subtração
+\begin{center}
+		\lstinputlisting[linerange={21-22}]{fig/aula4/olamundo.php}
+		\tiny Subtração.\\
+	\end{center}
+	
+Multiplicação
+\begin{center}
+		\lstinputlisting[linerange={24-25}]{fig/aula4/olamundo.php}
+		\tiny Multiplicação.\\
+\end{center}
+
+\end{frame}
+
+%--------------------------------------------------------------------------
+\begin{frame}{Operadores matemáticos [2]}
+Divisão
+\begin{center}
+		\lstinputlisting[linerange={27-28}]{fig/aula4/olamundo.php}
+		\tiny Divisão.\\
+	\end{center}
+
+
+Potenciação
+\begin{center}
+		\lstinputlisting[linerange={30-31}]{fig/aula4/olamundo.php}
+		\tiny Potenciação.\\
+	\end{center}
+Resto da divisão
+\begin{center}
+		\lstinputlisting[linerange={33-34}]{fig/aula4/olamundo.php}
+		\tiny Resto da divisão.\\
+\end{center}
+\end{frame}
+%--------------------------------------------------------------------------
+\section{Utilidades!}
+\begin{frame}{Dica!}
+Como saber o tipo da variável?
+\begin{center}
+		\lstinputlisting[linerange={38-38}]{fig/aula4/olamundo.php}
+		\tiny Função nativa do PHP para identificar o tipo da variável.\\
+	\end{center}
+
+
+Como associar um valor booleano a uma variável?
+\begin{center}
+		\lstinputlisting[linerange={36-36}]{fig/aula4/olamundo.php}
+		\tiny Declarando e inicializando uma varável booleana.\\
+	\end{center}
 \end{frame}
 %-----------------------------------------------------------------------
 \section{Referências}
