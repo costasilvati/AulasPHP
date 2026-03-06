@@ -200,9 +200,9 @@ style.css (se houver)
 Esta atividade deve ser desenvolvida **individualmente**.
 
 Cada projeto deverá possuir **tema próprio e conteúdo original**.
-```
 
 ---
+
 
 
 # Desafios Extras (Opcional)
