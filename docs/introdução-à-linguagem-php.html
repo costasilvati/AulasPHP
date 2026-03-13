@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 3 Introdução à linguagem PHP | Desenvolvimento de Sistemas</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 3 Introdução à linguagem PHP | Desenvolvimento de Sistemas" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 Introdução à linguagem PHP | Desenvolvimento de Sistemas" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Juliana Costa Silva" />
+
+
+<meta name="date" content="2026-03-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="apresentação-da-disciplina.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sobre</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#como-utilizar-este-material"><i class="fa fa-check"></i><b>1.1</b> Como utilizar este material</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#organiza%C3%A7%C3%A3o-dos-cap%C3%ADtulos"><i class="fa fa-check"></i><b>1.1.1</b> Organização dos capítulos</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#aprendizado-baseado-em-pr%C3%A1tica"><i class="fa fa-check"></i><b>1.1.2</b> Aprendizado baseado em prática</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#execu%C3%A7%C3%A3o-dos-exemplos"><i class="fa fa-check"></i><b>1.1.3</b> Execução dos exemplos</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#rela%C3%A7%C3%A3o-com-as-aulas"><i class="fa fa-check"></i><b>1.1.4</b> Relação com as aulas</a></li>
+<li class="chapter" data-level="1.1.5" data-path="index.html"><a href="index.html#evolu%C3%A7%C3%A3o-dos-projetos"><i class="fa fa-check"></i><b>1.1.5</b> Evolução dos projetos</a></li>
+<li class="chapter" data-level="1.1.6" data-path="index.html"><a href="index.html#recomenda%C3%A7%C3%B5es-de-estudo"><i class="fa fa-check"></i><b>1.1.6</b> Recomendações de estudo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="apresentação-da-disciplina.html"><a href="apresentação-da-disciplina.html"><i class="fa fa-check"></i><b>2</b> Apresentação da disciplina</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="apresentação-da-disciplina.html"><a href="apresentação-da-disciplina.html#ambiente-de-desenvolvimento-utilizado-na-disciplina"><i class="fa fa-check"></i><b>2.1</b> Ambiente de desenvolvimento utilizado na disciplina</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="apresentação-da-disciplina.html"><a href="apresentação-da-disciplina.html#xampp"><i class="fa fa-check"></i><b>2.1.1</b> XAMPP</a></li>
+<li class="chapter" data-level="2.1.2" data-path="apresentação-da-disciplina.html"><a href="apresentação-da-disciplina.html#visual-studio-code-vscode"><i class="fa fa-check"></i><b>2.1.2</b> Visual Studio Code (VSCode)</a></li>
+<li class="chapter" data-level="2.1.3" data-path="apresentação-da-disciplina.html"><a href="apresentação-da-disciplina.html#estrutura-b%C3%A1sica-de-um-projeto"><i class="fa fa-check"></i><b>2.1.3</b> Estrutura básica de um projeto</a></li>
+<li class="chapter" data-level="2.1.4" data-path="apresentação-da-disciplina.html"><a href="apresentação-da-disciplina.html#fluxo-de-desenvolvimento-utilizado-nas-aulas"><i class="fa fa-check"></i><b>2.1.4</b> Fluxo de desenvolvimento utilizado nas aulas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html"><i class="fa fa-check"></i><b>3</b> Introdução à linguagem PHP</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#como-funciona-uma-aplica%C3%A7%C3%A3o-web"><i class="fa fa-check"></i><b>3.1</b> Como funciona uma aplicação web</a>
+<ul>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#cliente"><i class="fa fa-check"></i>Cliente</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#servidor"><i class="fa fa-check"></i>Servidor</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#banco-de-dados"><i class="fa fa-check"></i>Banco de dados</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#fluxo-de-funcionamento-de-uma-aplica%C3%A7%C3%A3o-web"><i class="fa fa-check"></i>Fluxo de funcionamento de uma aplicação web</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#exemplo-pr%C3%A1tico"><i class="fa fa-check"></i>Exemplo prático</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#papel-do-php-nesse-processo"><i class="fa fa-check"></i>Papel do PHP nesse processo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#o-papel-do-php-no-desenvolvimento-web"><i class="fa fa-check"></i><b>3.2</b> O papel do PHP no desenvolvimento web</a></li>
+<li class="chapter" data-level="3.3" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#php-embutido-em-html"><i class="fa fa-check"></i><b>3.3</b> PHP embutido em HTML</a></li>
+<li class="chapter" data-level="3.4" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#onde-o-php-pode-ser-utilizado"><i class="fa fa-check"></i><b>3.4</b> Onde o PHP pode ser utilizado</a>
+<ul>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#scripts-executados-no-servidor-server-side"><i class="fa fa-check"></i>Scripts executados no servidor (Server-side)</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#scripts-de-linha-de-comando"><i class="fa fa-check"></i>Scripts de linha de comando</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#aplica%C3%A7%C3%B5es-desktop"><i class="fa fa-check"></i>Aplicações desktop</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#ambiente-de-execu%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>3.5</b> Ambiente de execução</a></li>
+<li class="chapter" data-level="3.6" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#estrutura-b%C3%A1sica-de-um-script-php"><i class="fa fa-check"></i><b>3.6</b> Estrutura básica de um script PHP</a></li>
+<li class="chapter" data-level="3.7" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#vari%C3%A1veis-em-php"><i class="fa fa-check"></i><b>3.7</b> Variáveis em PHP</a></li>
+<li class="chapter" data-level="3.8" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#tipos-de-dados-b%C3%A1sicos"><i class="fa fa-check"></i><b>3.8</b> Tipos de dados básicos</a></li>
+<li class="chapter" data-level="3.9" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#descobrindo-o-tipo-de-uma-vari%C3%A1vel"><i class="fa fa-check"></i><b>3.9</b> Descobrindo o tipo de uma variável</a></li>
+<li class="chapter" data-level="3.10" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#exibindo-informa%C3%A7%C3%B5es-na-tela"><i class="fa fa-check"></i><b>3.10</b> Exibindo informações na tela</a></li>
+<li class="chapter" data-level="3.11" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#concatena%C3%A7%C3%A3o-de-strings"><i class="fa fa-check"></i><b>3.11</b> Concatenação de strings</a></li>
+<li class="chapter" data-level="3.12" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#coment%C3%A1rios-no-c%C3%B3digo"><i class="fa fa-check"></i><b>3.12</b> Comentários no código</a></li>
+<li class="chapter" data-level="3.13" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#operadores-matem%C3%A1ticos"><i class="fa fa-check"></i><b>3.13</b> Operadores matemáticos</a></li>
+<li class="chapter" data-level="3.14" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#exemplos-de-opera%C3%A7%C3%B5es"><i class="fa fa-check"></i><b>3.14</b> Exemplos de operações</a></li>
+<li class="chapter" data-level="3.15" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#compara%C3%A7%C3%A3o-com-outras-linguagens"><i class="fa fa-check"></i><b>3.15</b> Comparação com outras linguagens</a></li>
+<li class="chapter" data-level="3.16" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#boas-pr%C3%A1ticas-iniciais"><i class="fa fa-check"></i><b>3.16</b> Boas práticas iniciais</a></li>
+<li class="chapter" data-level="3.17" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#recebendo-dados-do-usu%C3%A1rio-em-php"><i class="fa fa-check"></i><b>3.17</b> Recebendo dados do usuário em PHP</a>
+<ul>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#criando-um-formul%C3%A1rio-html"><i class="fa fa-check"></i>Criando um formulário HTML</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#recebendo-dados-no-php"><i class="fa fa-check"></i>Recebendo dados no PHP</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#exemplo-completo"><i class="fa fa-check"></i>Exemplo completo</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#valida%C3%A7%C3%A3o-b%C3%A1sica"><i class="fa fa-check"></i>Validação básica</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#exerc%C3%ADcios"><i class="fa fa-check"></i><b>3.18</b> Exercícios</a></li>
+<li class="chapter" data-level="3.19" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#leituras-recomendadas"><i class="fa fa-check"></i><b>3.19</b> Leituras recomendadas</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Desenvolvimento de Sistemas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introdução-à-linguagem-php" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Introdução à linguagem PHP<a href="introdução-à-linguagem-php.html#introdu%C3%A7%C3%A3o-%C3%A0-linguagem-php" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Nesta aula iniciaremos o estudo da linguagem <strong>PHP</strong>, uma das tecnologias mais utilizadas para desenvolvimento <strong>web no lado do servidor</strong>.</p>
+<p>Até este momento da disciplina vocês trabalharam com <strong>HTML, CSS e JavaScript</strong>, tecnologias que executam diretamente no navegador. O PHP, por outro lado, é executado <strong>no servidor</strong>, permitindo criar páginas dinâmicas e aplicações web completas.</p>
+<p>Segundo a documentação oficial da linguagem, PHP é uma linguagem de script open source amplamente utilizada e especialmente adequada para desenvolvimento web, podendo ser <strong>embutida dentro do HTML</strong>. :contentReference<span index="1">oaicite:1</span></p>
+<hr />
+<div id="como-funciona-uma-aplicação-web" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Como funciona uma aplicação web<a href="introdução-à-linguagem-php.html#como-funciona-uma-aplica%C3%A7%C3%A3o-web" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Aplicações web modernas são compostas por diferentes componentes que trabalham juntos para processar informações e entregar conteúdo ao usuário. De forma simplificada, uma aplicação web pode ser entendida como uma interação entre três elementos principais:</p>
+<ul>
+<li><strong>Cliente</strong></li>
+<li><strong>Servidor</strong></li>
+<li><strong>Banco de dados</strong></li>
+</ul>
+<p>Cada um desses componentes possui responsabilidades específicas dentro do funcionamento do sistema.</p>
+<div id="cliente" class="section level3 unnumbered hasAnchor">
+<h3>Cliente<a href="introdução-à-linguagem-php.html#cliente" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O <strong>cliente</strong> é o dispositivo utilizado pelo usuário para acessar a aplicação. Na maioria dos casos, o cliente é representado pelo <strong>navegador web</strong>, como Google Chrome, Firefox ou Edge.</p>
+<p>No lado do cliente são executadas principalmente tecnologias como:</p>
+<ul>
+<li><strong>HTML</strong> – estrutura da página;</li>
+<li><strong>CSS</strong> – estilo e aparência visual;</li>
+<li><strong>JavaScript</strong> – interatividade e manipulação da interface.</li>
+</ul>
+<p>Essas tecnologias são responsáveis por apresentar a interface ao usuário e capturar suas ações, como clicar em botões, preencher formulários ou navegar entre páginas.</p>
+<p>Quando o usuário realiza alguma ação que exige processamento adicional (por exemplo, enviar um formulário ou solicitar dados), o navegador envia uma <strong>requisição</strong> para o servidor.</p>
+</div>
+<div id="servidor" class="section level3 unnumbered hasAnchor">
+<h3>Servidor<a href="introdução-à-linguagem-php.html#servidor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O <strong>servidor</strong> é responsável por receber as requisições enviadas pelo cliente, processar as informações e gerar uma resposta adequada.</p>
+<p>No contexto desta disciplina, o processamento no servidor será realizado utilizando <strong>PHP</strong>. O código PHP é executado no servidor web (Apache, no caso do XAMPP) antes que a resposta seja enviada ao navegador.</p>
+<p>O servidor pode realizar diversas tarefas, como:</p>
+<ul>
+<li>processar dados enviados por formulários;</li>
+<li>executar regras de negócio da aplicação;</li>
+<li>acessar bancos de dados;</li>
+<li>gerar conteúdo dinâmico;</li>
+<li>validar informações enviadas pelo usuário.</li>
+</ul>
+<p>Após processar a requisição, o servidor gera uma resposta — geralmente em formato <strong>HTML</strong> — que será enviada de volta ao navegador.</p>
+</div>
+<div id="banco-de-dados" class="section level3 unnumbered hasAnchor">
+<h3>Banco de dados<a href="introdução-à-linguagem-php.html#banco-de-dados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Muitas aplicações web precisam armazenar informações de forma persistente. Para isso, utilizam <strong>bancos de dados</strong>.</p>
+<p>O banco de dados permite armazenar e consultar informações como:</p>
+<ul>
+<li>usuários cadastrados;</li>
+<li>produtos;</li>
+<li>pedidos;</li>
+<li>registros de atividades;</li>
+<li>conteúdos da aplicação.</li>
+</ul>
+<p>Durante a execução de uma aplicação web, o servidor pode consultar ou modificar dados armazenados no banco de dados. Essas operações normalmente são realizadas por meio de comandos específicos de consulta.</p>
+<p>Na disciplina, a integração entre PHP e banco de dados será utilizada para construir aplicações capazes de armazenar e recuperar informações.</p>
+</div>
+<div id="fluxo-de-funcionamento-de-uma-aplicação-web" class="section level3 unnumbered hasAnchor">
+<h3>Fluxo de funcionamento de uma aplicação web<a href="introdução-à-linguagem-php.html#fluxo-de-funcionamento-de-uma-aplica%C3%A7%C3%A3o-web" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O funcionamento básico de uma aplicação web pode ser representado pelo seguinte fluxo:</p>
+<div class="figure"><span style="display:block;" id="fig:fig-produtividade-emprego"></span>
+<img src="fig/aula2/aula2_fluxo.png" alt="Fluxo de uma página web. Fonte: https://jesielviana.gitbook.io/guiaweb." width="480" />
+<p class="caption">
+Figure 3.1: Fluxo de uma página web. Fonte: <a href="https://jesielviana.gitbook.io/guiaweb" class="uri">https://jesielviana.gitbook.io/guiaweb</a>.
+</p>
+</div>
+<p>Esse processo ocorre de forma muito rápida e é repetido sempre que o usuário realiza alguma interação que exige processamento no servidor.</p>
+</div>
+<div id="exemplo-prático" class="section level3 unnumbered hasAnchor">
+<h3>Exemplo prático<a href="introdução-à-linguagem-php.html#exemplo-pr%C3%A1tico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Considere uma aplicação simples de cadastro de usuários.</p>
+<ol style="list-style-type: decimal">
+<li>O usuário acessa uma página com um formulário de cadastro.</li>
+<li>O usuário preenche seus dados e envia o formulário.</li>
+<li>O navegador envia os dados ao servidor.</li>
+<li>O servidor executa um script PHP para processar as informações.</li>
+<li>O script PHP grava os dados no banco de dados.</li>
+<li>O servidor retorna uma mensagem confirmando o cadastro.</li>
+<li>O navegador exibe o resultado ao usuário.</li>
+</ol>
+<p>Nesse processo:</p>
+<ul>
+<li>o <strong>cliente</strong> envia os dados;</li>
+<li>o <strong>servidor</strong> processa as informações;</li>
+<li>o <strong>banco de dados</strong> armazena os registros.</li>
+</ul>
+</div>
+<div id="papel-do-php-nesse-processo" class="section level3 unnumbered hasAnchor">
+<h3>Papel do PHP nesse processo<a href="introdução-à-linguagem-php.html#papel-do-php-nesse-processo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dentro da arquitetura de uma aplicação web, o PHP atua como intermediário entre o cliente e o banco de dados. Ele recebe as requisições do usuário, aplica a lógica da aplicação e gera o conteúdo que será exibido no navegador.</p>
+<p>Ao longo desta disciplina, serão explorados diferentes aspectos dessa interação, incluindo:</p>
+<ul>
+<li>criação de páginas dinâmicas em PHP;</li>
+<li>processamento de formulários enviados pelo usuário;</li>
+<li>organização da aplicação utilizando o padrão MVC;</li>
+<li>integração com bancos de dados para armazenamento e consulta de informações.</li>
+</ul>
+<p>Compreender esse fluxo é essencial para entender como aplicações web são construídas e como diferentes tecnologias trabalham juntas para entregar funcionalidades ao usuário.</p>
+</div>
+</div>
+<div id="o-papel-do-php-no-desenvolvimento-web" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> O papel do PHP no desenvolvimento web<a href="introdução-à-linguagem-php.html#o-papel-do-php-no-desenvolvimento-web" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Quando utilizamos apenas HTML, CSS e JavaScript, o navegador apenas exibe informações previamente definidas.</p>
+<p>Com o PHP, o servidor pode:</p>
+<ul>
+<li>processar dados enviados por formulários</li>
+<li>acessar bancos de dados</li>
+<li>gerar páginas dinamicamente</li>
+<li>autenticar usuários</li>
+<li>manipular arquivos</li>
+<li>integrar APIs</li>
+</ul>
+<p>O fluxo simplificado de uma aplicação PHP é:</p>
+<pre><code>
+Navegador → Servidor Web → Script PHP → HTML gerado → Navegador</code></pre>
+<p>O navegador <strong>nunca recebe o código PHP</strong>, apenas o resultado gerado por ele.</p>
+<hr />
+</div>
+<div id="php-embutido-em-html" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> PHP embutido em HTML<a href="introdução-à-linguagem-php.html#php-embutido-em-html" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Uma característica importante do PHP é a possibilidade de inserir código PHP diretamente dentro de páginas HTML.</p>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb5-1"><a href="introdução-à-linguagem-php.html#cb5-1" tabindex="-1"></a><span class="op">&lt;!</span><span class="cn">DOCTYPE</span> html<span class="op">&gt;</span></span>
+<span id="cb5-2"><a href="introdução-à-linguagem-php.html#cb5-2" tabindex="-1"></a><span class="op">&lt;</span>html<span class="op">&gt;</span></span>
+<span id="cb5-3"><a href="introdução-à-linguagem-php.html#cb5-3" tabindex="-1"></a><span class="op">&lt;</span>head<span class="op">&gt;</span></span>
+<span id="cb5-4"><a href="introdução-à-linguagem-php.html#cb5-4" tabindex="-1"></a><span class="op">&lt;</span>title<span class="op">&gt;</span>Exemplo <span class="cn">PHP</span><span class="op">&lt;/</span>title<span class="op">&gt;</span></span>
+<span id="cb5-5"><a href="introdução-à-linguagem-php.html#cb5-5" tabindex="-1"></a><span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
+<span id="cb5-6"><a href="introdução-à-linguagem-php.html#cb5-6" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="introdução-à-linguagem-php.html#cb5-7" tabindex="-1"></a><span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb5-8"><a href="introdução-à-linguagem-php.html#cb5-8" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="introdução-à-linguagem-php.html#cb5-9" tabindex="-1"></a><span class="op">&lt;</span><span class="ot">?</span>php</span>
+<span id="cb5-10"><a href="introdução-à-linguagem-php.html#cb5-10" tabindex="-1"></a><span class="kw">echo</span> <span class="st">&quot;Olá, eu sou um script PHP!&quot;</span><span class="ot">;</span></span>
+<span id="cb5-11"><a href="introdução-à-linguagem-php.html#cb5-11" tabindex="-1"></a><span class="kw">?&gt;</span></span>
+<span id="cb5-12"><a href="introdução-à-linguagem-php.html#cb5-12" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="introdução-à-linguagem-php.html#cb5-13" tabindex="-1"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb5-14"><a href="introdução-à-linguagem-php.html#cb5-14" tabindex="-1"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
+<p>Neste exemplo:</p>
+<ul>
+<li>HTML define a estrutura da página</li>
+<li>PHP gera conteúdo dinamicamente</li>
+</ul>
+<hr />
+</div>
+<div id="onde-o-php-pode-ser-utilizado" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Onde o PHP pode ser utilizado<a href="introdução-à-linguagem-php.html#onde-o-php-pode-ser-utilizado" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>O PHP pode ser usado em três contextos principais:</p>
+<div id="scripts-executados-no-servidor-server-side" class="section level3 unnumbered hasAnchor">
+<h3>Scripts executados no servidor (Server-side)<a href="introdução-à-linguagem-php.html#scripts-executados-no-servidor-server-side" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Este é o uso mais comum do PHP.</p>
+<p>Neste caso o servidor executa o código e envia o resultado ao navegador.</p>
+</div>
+<div id="scripts-de-linha-de-comando" class="section level3 unnumbered hasAnchor">
+<h3>Scripts de linha de comando<a href="introdução-à-linguagem-php.html#scripts-de-linha-de-comando" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O PHP também pode ser executado diretamente no terminal:</p>
+<pre><code>php script.php</code></pre>
+<p>Esse tipo de uso é comum para:</p>
+<ul>
+<li>rotinas automáticas</li>
+<li>processamento de arquivos</li>
+<li>tarefas agendadas (cron jobs)</li>
+</ul>
+</div>
+<div id="aplicações-desktop" class="section level3 unnumbered hasAnchor">
+<h3>Aplicações desktop<a href="introdução-à-linguagem-php.html#aplica%C3%A7%C3%B5es-desktop" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Embora não seja o uso mais comum, é possível desenvolver aplicações desktop com PHP utilizando bibliotecas como <strong>PHP-GTK</strong>.</p>
+<hr />
+</div>
+</div>
+<div id="ambiente-de-execução" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Ambiente de execução<a href="introdução-à-linguagem-php.html#ambiente-de-execu%C3%A7%C3%A3o" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para executar código PHP é necessário um <strong>servidor web</strong> com o interpretador PHP instalado.</p>
+<p>Uma solução comum para ambientes de desenvolvimento é o <strong>XAMPP</strong>, que inclui:</p>
+<ul>
+<li>Apache (servidor web)</li>
+<li>PHP</li>
+<li>MySQL/MariaDB</li>
+<li>ferramentas administrativas</li>
+</ul>
+<p>O procedimento básico para executar um script PHP é:</p>
+<ol style="list-style-type: decimal">
+<li>iniciar o XAMPP</li>
+<li>iniciar o servidor Apache</li>
+<li>colocar os arquivos PHP na pasta:</li>
+</ol>
+<pre><code>xampp/htdocs</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>acessar o arquivo pelo navegador:</li>
+</ol>
+<pre><code>http://localhost/pasta/arquivo.php</code></pre>
+<p>Diferentemente do HTML, o arquivo <strong>não deve ser aberto diretamente no navegador</strong>, pois precisa ser processado pelo servidor.</p>
+<hr />
+</div>
+<div id="estrutura-básica-de-um-script-php" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Estrutura básica de um script PHP<a href="introdução-à-linguagem-php.html#estrutura-b%C3%A1sica-de-um-script-php" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Todo código PHP deve estar dentro das tags especiais:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb9-1"><a href="introdução-à-linguagem-php.html#cb9-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb9-2"><a href="introdução-à-linguagem-php.html#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="introdução-à-linguagem-php.html#cb9-3" tabindex="-1"></a><span class="co">// código PHP</span></span>
+<span id="cb9-4"><a href="introdução-à-linguagem-php.html#cb9-4" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="introdução-à-linguagem-php.html#cb9-5" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<p>Exemplo simples:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb10-1"><a href="introdução-à-linguagem-php.html#cb10-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb10-2"><a href="introdução-à-linguagem-php.html#cb10-2" tabindex="-1"></a><span class="kw">echo</span> <span class="st">&quot;Olá mundo!&quot;</span><span class="ot">;</span></span>
+<span id="cb10-3"><a href="introdução-à-linguagem-php.html#cb10-3" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="variáveis-em-php" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Variáveis em PHP<a href="introdução-à-linguagem-php.html#vari%C3%A1veis-em-php" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Variáveis são usadas para armazenar informações na memória durante a execução do programa.</p>
+<p>Em PHP:</p>
+<ul>
+<li>todas as variáveis começam com <code>$</code></li>
+<li>não é necessário declarar o tipo da variável</li>
+</ul>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb11-1"><a href="introdução-à-linguagem-php.html#cb11-1" tabindex="-1"></a><span class="va">$nome</span> <span class="op">=</span> <span class="st">&quot;Maria&quot;</span><span class="ot">;</span></span>
+<span id="cb11-2"><a href="introdução-à-linguagem-php.html#cb11-2" tabindex="-1"></a><span class="va">$idade</span> <span class="op">=</span> <span class="dv">20</span><span class="ot">;</span></span></code></pre></div>
+<p>PHP é considerado uma linguagem <strong>fracamente tipada</strong>, pois o tipo da variável é determinado automaticamente.</p>
+<hr />
+</div>
+<div id="tipos-de-dados-básicos" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Tipos de dados básicos<a href="introdução-à-linguagem-php.html#tipos-de-dados-b%C3%A1sicos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Alguns tipos de dados comuns em PHP incluem:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>String</td>
+<td>“Olá mundo”</td>
+</tr>
+<tr class="even">
+<td>Integer</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>Float</td>
+<td>10.5</td>
+</tr>
+<tr class="even">
+<td>Boolean</td>
+<td>true ou false</td>
+</tr>
+<tr class="odd">
+<td>Array</td>
+<td>lista de valores</td>
+</tr>
+<tr class="even">
+<td>Null</td>
+<td>ausência de valor</td>
+</tr>
+</tbody>
+</table>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb12-1"><a href="introdução-à-linguagem-php.html#cb12-1" tabindex="-1"></a><span class="va">$nome</span> <span class="op">=</span> <span class="st">&quot;Ana&quot;</span><span class="ot">;</span></span>
+<span id="cb12-2"><a href="introdução-à-linguagem-php.html#cb12-2" tabindex="-1"></a><span class="va">$idade</span> <span class="op">=</span> <span class="dv">25</span><span class="ot">;</span></span>
+<span id="cb12-3"><a href="introdução-à-linguagem-php.html#cb12-3" tabindex="-1"></a><span class="va">$altura</span> <span class="op">=</span> <span class="fl">1.70</span><span class="ot">;</span></span>
+<span id="cb12-4"><a href="introdução-à-linguagem-php.html#cb12-4" tabindex="-1"></a><span class="va">$ativo</span> <span class="op">=</span> <span class="kw">true</span><span class="ot">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="descobrindo-o-tipo-de-uma-variável" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> Descobrindo o tipo de uma variável<a href="introdução-à-linguagem-php.html#descobrindo-o-tipo-de-uma-vari%C3%A1vel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Podemos utilizar funções da linguagem para identificar o tipo de uma variável.</p>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb13-1"><a href="introdução-à-linguagem-php.html#cb13-1" tabindex="-1"></a><span class="kw">echo</span> <span class="fu">gettype</span>(<span class="va">$nome</span>)<span class="ot">;</span></span></code></pre></div>
+<p>Essa função retorna o tipo da variável em tempo de execução.</p>
+<hr />
+</div>
+<div id="exibindo-informações-na-tela" class="section level2 hasAnchor" number="3.10">
+<h2><span class="header-section-number">3.10</span> Exibindo informações na tela<a href="introdução-à-linguagem-php.html#exibindo-informa%C3%A7%C3%B5es-na-tela" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>O comando mais utilizado para imprimir dados em PHP é:</p>
+<pre><code>echo</code></pre>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb15-1"><a href="introdução-à-linguagem-php.html#cb15-1" tabindex="-1"></a><span class="kw">echo</span> <span class="st">&quot;Olá mundo&quot;</span><span class="ot">;</span></span></code></pre></div>
+<p>Também podemos exibir variáveis:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb16-1"><a href="introdução-à-linguagem-php.html#cb16-1" tabindex="-1"></a><span class="va">$nome</span> <span class="op">=</span> <span class="st">&quot;Carlos&quot;</span><span class="ot">;</span></span>
+<span id="cb16-2"><a href="introdução-à-linguagem-php.html#cb16-2" tabindex="-1"></a><span class="kw">echo</span> <span class="va">$nome</span><span class="ot">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="concatenação-de-strings" class="section level2 hasAnchor" number="3.11">
+<h2><span class="header-section-number">3.11</span> Concatenação de strings<a href="introdução-à-linguagem-php.html#concatena%C3%A7%C3%A3o-de-strings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para juntar textos e variáveis utilizamos o operador <code>.</code></p>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb17-1"><a href="introdução-à-linguagem-php.html#cb17-1" tabindex="-1"></a><span class="kw">echo</span> <span class="st">&quot;Olá &quot;</span> <span class="op">.</span> <span class="va">$nome</span><span class="ot">;</span></span></code></pre></div>
+<p>Outra forma é utilizar aspas duplas:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb18-1"><a href="introdução-à-linguagem-php.html#cb18-1" tabindex="-1"></a><span class="kw">echo</span> <span class="st">&quot;Olá </span><span class="va">$nome</span><span class="st">&quot;</span><span class="ot">;</span></span></code></pre></div>
+<p>Exemplo completo:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb19-1"><a href="introdução-à-linguagem-php.html#cb19-1" tabindex="-1"></a><span class="va">$nome</span> <span class="op">=</span> <span class="st">&quot;Carlos&quot;</span><span class="ot">;</span></span>
+<span id="cb19-2"><a href="introdução-à-linguagem-php.html#cb19-2" tabindex="-1"></a><span class="va">$idade</span> <span class="op">=</span> <span class="dv">30</span><span class="ot">;</span></span>
+<span id="cb19-3"><a href="introdução-à-linguagem-php.html#cb19-3" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="introdução-à-linguagem-php.html#cb19-4" tabindex="-1"></a><span class="kw">echo</span> <span class="st">&quot;Olá </span><span class="va">$nome</span><span class="st">, sua idade é </span><span class="va">$idade</span><span class="st">&quot;</span><span class="ot">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="comentários-no-código" class="section level2 hasAnchor" number="3.12">
+<h2><span class="header-section-number">3.12</span> Comentários no código<a href="introdução-à-linguagem-php.html#coment%C3%A1rios-no-c%C3%B3digo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Comentários são utilizados para documentar o código e facilitar sua compreensão.</p>
+<p>Comentário de uma linha:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb20-1"><a href="introdução-à-linguagem-php.html#cb20-1" tabindex="-1"></a><span class="co">// comentário</span></span></code></pre></div>
+<p>ou</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb21-1"><a href="introdução-à-linguagem-php.html#cb21-1" tabindex="-1"></a><span class="co"># comentário</span></span></code></pre></div>
+<p>Comentário de múltiplas linhas:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb22-1"><a href="introdução-à-linguagem-php.html#cb22-1" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb22-2"><a href="introdução-à-linguagem-php.html#cb22-2" tabindex="-1"></a><span class="co">comentário</span></span>
+<span id="cb22-3"><a href="introdução-à-linguagem-php.html#cb22-3" tabindex="-1"></a><span class="co">em várias linhas</span></span>
+<span id="cb22-4"><a href="introdução-à-linguagem-php.html#cb22-4" tabindex="-1"></a><span class="co">*/</span></span></code></pre></div>
+<hr />
+</div>
+<div id="operadores-matemáticos" class="section level2 hasAnchor" number="3.13">
+<h2><span class="header-section-number">3.13</span> Operadores matemáticos<a href="introdução-à-linguagem-php.html#operadores-matem%C3%A1ticos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>PHP possui operadores matemáticos semelhantes aos utilizados em outras linguagens.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Operador</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+</td>
+<td>soma</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>subtração</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td>multiplicação</td>
+</tr>
+<tr class="even">
+<td>/</td>
+<td>divisão</td>
+</tr>
+<tr class="odd">
+<td>%</td>
+<td>resto da divisão</td>
+</tr>
+<tr class="even">
+<td>**</td>
+<td>potenciação</td>
+</tr>
+</tbody>
+</table>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb23-1"><a href="introdução-à-linguagem-php.html#cb23-1" tabindex="-1"></a><span class="va">$a</span> <span class="op">=</span> <span class="dv">10</span><span class="ot">;</span></span>
+<span id="cb23-2"><a href="introdução-à-linguagem-php.html#cb23-2" tabindex="-1"></a><span class="va">$b</span> <span class="op">=</span> <span class="dv">5</span><span class="ot">;</span></span>
+<span id="cb23-3"><a href="introdução-à-linguagem-php.html#cb23-3" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="introdução-à-linguagem-php.html#cb23-4" tabindex="-1"></a><span class="kw">echo</span> <span class="va">$a</span> <span class="op">+</span> <span class="va">$b</span><span class="ot">;</span></span>
+<span id="cb23-5"><a href="introdução-à-linguagem-php.html#cb23-5" tabindex="-1"></a><span class="kw">echo</span> <span class="va">$a</span> <span class="op">-</span> <span class="va">$b</span><span class="ot">;</span></span>
+<span id="cb23-6"><a href="introdução-à-linguagem-php.html#cb23-6" tabindex="-1"></a><span class="kw">echo</span> <span class="va">$a</span> <span class="op">*</span> <span class="va">$b</span><span class="ot">;</span></span>
+<span id="cb23-7"><a href="introdução-à-linguagem-php.html#cb23-7" tabindex="-1"></a><span class="kw">echo</span> <span class="va">$a</span> <span class="op">/</span> <span class="va">$b</span><span class="ot">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="exemplos-de-operações" class="section level2 hasAnchor" number="3.14">
+<h2><span class="header-section-number">3.14</span> Exemplos de operações<a href="introdução-à-linguagem-php.html#exemplos-de-opera%C3%A7%C3%B5es" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Soma:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb24-1"><a href="introdução-à-linguagem-php.html#cb24-1" tabindex="-1"></a><span class="va">$soma</span> <span class="op">=</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="ot">;</span></span>
+<span id="cb24-2"><a href="introdução-à-linguagem-php.html#cb24-2" tabindex="-1"></a><span class="kw">echo</span> <span class="st">&quot;Resultado: </span><span class="va">$soma</span><span class="st">&quot;</span><span class="ot">;</span></span></code></pre></div>
+<p>Divisão:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb25-1"><a href="introdução-à-linguagem-php.html#cb25-1" tabindex="-1"></a><span class="va">$divisao</span> <span class="op">=</span> <span class="dv">5</span> <span class="op">/</span> <span class="dv">2</span><span class="ot">;</span></span>
+<span id="cb25-2"><a href="introdução-à-linguagem-php.html#cb25-2" tabindex="-1"></a><span class="kw">echo</span> <span class="va">$divisao</span><span class="ot">;</span></span></code></pre></div>
+<p>Potência:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb26-1"><a href="introdução-à-linguagem-php.html#cb26-1" tabindex="-1"></a><span class="va">$potencia</span> <span class="op">=</span> <span class="dv">3</span> <span class="op">**</span> <span class="dv">2</span><span class="ot">;</span></span>
+<span id="cb26-2"><a href="introdução-à-linguagem-php.html#cb26-2" tabindex="-1"></a><span class="kw">echo</span> <span class="va">$potencia</span><span class="ot">;</span></span></code></pre></div>
+<p>Resto da divisão:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb27-1"><a href="introdução-à-linguagem-php.html#cb27-1" tabindex="-1"></a><span class="va">$resto</span> <span class="op">=</span> <span class="dv">10</span> <span class="op">%</span> <span class="dv">3</span><span class="ot">;</span></span>
+<span id="cb27-2"><a href="introdução-à-linguagem-php.html#cb27-2" tabindex="-1"></a><span class="kw">echo</span> <span class="va">$resto</span><span class="ot">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="comparação-com-outras-linguagens" class="section level2 hasAnchor" number="3.15">
+<h2><span class="header-section-number">3.15</span> Comparação com outras linguagens<a href="introdução-à-linguagem-php.html#compara%C3%A7%C3%A3o-com-outras-linguagens" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<thead>
+<tr class="header">
+<th>Conceito</th>
+<th>C / Java</th>
+<th>PHP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>variável</td>
+<td>int idade</td>
+<td>$idade</td>
+</tr>
+<tr class="even">
+<td>imprimir</td>
+<td>printf</td>
+<td>echo</td>
+</tr>
+<tr class="odd">
+<td>concatenação</td>
+<td>+</td>
+<td>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="boas-práticas-iniciais" class="section level2 hasAnchor" number="3.16">
+<h2><span class="header-section-number">3.16</span> Boas práticas iniciais<a href="introdução-à-linguagem-php.html#boas-pr%C3%A1ticas-iniciais" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Algumas recomendações importantes ao programar em PHP:</p>
+<ul>
+<li>utilizar nomes de variáveis descritivos</li>
+<li>manter o código bem indentado</li>
+<li>comentar trechos importantes</li>
+<li>separar lógica de apresentação sempre que possível</li>
+</ul>
+<hr />
+</div>
+<div id="recebendo-dados-do-usuário-em-php" class="section level2 hasAnchor" number="3.17">
+<h2><span class="header-section-number">3.17</span> Recebendo dados do usuário em PHP<a href="introdução-à-linguagem-php.html#recebendo-dados-do-usu%C3%A1rio-em-php" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Uma das principais funcionalidades do PHP em aplicações web é <strong>receber e processar dados enviados pelo usuário</strong>, normalmente por meio de <strong>formulários HTML</strong>.</p>
+<p>Quando um usuário preenche um formulário e clica em um botão de envio, o navegador envia essas informações para o servidor. O PHP então recebe esses dados e pode utilizá-los para realizar cálculos, armazenar informações ou gerar respostas dinâmicas.</p>
+<div id="criando-um-formulário-html" class="section level3 unnumbered hasAnchor">
+<h3>Criando um formulário HTML<a href="introdução-à-linguagem-php.html#criando-um-formul%C3%A1rio-html" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O envio de dados geralmente começa com um formulário HTML.</p>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb28-1"><a href="introdução-à-linguagem-php.html#cb28-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> method</span><span class="op">=</span><span class="st">&quot;post&quot;</span><span class="ot"> action</span><span class="op">=</span><span class="st">&quot;processa.php&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb28-2"><a href="introdução-à-linguagem-php.html#cb28-2" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="introdução-à-linguagem-php.html#cb28-3" tabindex="-1"></a>Nome:</span>
+<span id="cb28-4"><a href="introdução-à-linguagem-php.html#cb28-4" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;nome&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb28-5"><a href="introdução-à-linguagem-php.html#cb28-5" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="introdução-à-linguagem-php.html#cb28-6" tabindex="-1"></a>Idade:</span>
+<span id="cb28-7"><a href="introdução-à-linguagem-php.html#cb28-7" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;number&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;idade&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb28-8"><a href="introdução-à-linguagem-php.html#cb28-8" tabindex="-1"></a></span>
+<span id="cb28-9"><a href="introdução-à-linguagem-php.html#cb28-9" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;submit&quot;</span><span class="dt">&gt;</span>Enviar<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb28-10"><a href="introdução-à-linguagem-php.html#cb28-10" tabindex="-1"></a></span>
+<span id="cb28-11"><a href="introdução-à-linguagem-php.html#cb28-11" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>Elementos importantes do formulário:</p>
+<ul>
+<li><code>method</code> define o método de envio dos dados (<code>GET</code> ou <code>POST</code>)</li>
+<li><code>action</code> define qual arquivo PHP irá receber os dados</li>
+<li><code>name</code> identifica cada campo enviado ao servidor</li>
+</ul>
+</div>
+<div id="recebendo-dados-no-php" class="section level3 unnumbered hasAnchor">
+<h3>Recebendo dados no PHP<a href="introdução-à-linguagem-php.html#recebendo-dados-no-php" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>No arquivo indicado no <code>action</code> do formulário (<code>processa.php</code>, por exemplo), os dados podem ser acessados utilizando <strong>variáveis superglobais</strong> do PHP.</p>
+<p>As mais utilizadas são:</p>
+<ul>
+<li><code>$_POST</code> → recebe dados enviados pelo método POST</li>
+<li><code>$_GET</code> → recebe dados enviados pela URL</li>
+</ul>
+<p>Exemplo de processamento:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb29-1"><a href="introdução-à-linguagem-php.html#cb29-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb29-2"><a href="introdução-à-linguagem-php.html#cb29-2" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="introdução-à-linguagem-php.html#cb29-3" tabindex="-1"></a><span class="va">$nome</span> <span class="op">=</span> <span class="va">$_POST</span>[<span class="st">&#39;nome&#39;</span>]<span class="ot">;</span></span>
+<span id="cb29-4"><a href="introdução-à-linguagem-php.html#cb29-4" tabindex="-1"></a><span class="va">$idade</span> <span class="op">=</span> <span class="va">$_POST</span>[<span class="st">&#39;idade&#39;</span>]<span class="ot">;</span></span>
+<span id="cb29-5"><a href="introdução-à-linguagem-php.html#cb29-5" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="introdução-à-linguagem-php.html#cb29-6" tabindex="-1"></a><span class="kw">echo</span> <span class="st">&quot;Nome: </span><span class="va">$nome</span><span class="st"> &lt;br&gt;&quot;</span><span class="ot">;</span></span>
+<span id="cb29-7"><a href="introdução-à-linguagem-php.html#cb29-7" tabindex="-1"></a><span class="kw">echo</span> <span class="st">&quot;Idade: </span><span class="va">$idade</span><span class="st">&quot;</span><span class="ot">;</span></span>
+<span id="cb29-8"><a href="introdução-à-linguagem-php.html#cb29-8" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="introdução-à-linguagem-php.html#cb29-9" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<p>Neste exemplo:</p>
+<ul>
+<li>o PHP acessa o valor do campo <code>nome</code></li>
+<li>o PHP acessa o valor do campo <code>idade</code></li>
+<li>os valores são exibidos na página</li>
+</ul>
+</div>
+<div id="exemplo-completo" class="section level3 unnumbered hasAnchor">
+<h3>Exemplo completo<a href="introdução-à-linguagem-php.html#exemplo-completo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Arquivo <code>index.html</code>:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb30-1"><a href="introdução-à-linguagem-php.html#cb30-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> method</span><span class="op">=</span><span class="st">&quot;post&quot;</span><span class="ot"> action</span><span class="op">=</span><span class="st">&quot;dados.php&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb30-2"><a href="introdução-à-linguagem-php.html#cb30-2" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="introdução-à-linguagem-php.html#cb30-3" tabindex="-1"></a>Nome:</span>
+<span id="cb30-4"><a href="introdução-à-linguagem-php.html#cb30-4" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;nome&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb30-5"><a href="introdução-à-linguagem-php.html#cb30-5" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="introdução-à-linguagem-php.html#cb30-6" tabindex="-1"></a>Idade:</span>
+<span id="cb30-7"><a href="introdução-à-linguagem-php.html#cb30-7" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;number&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;idade&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb30-8"><a href="introdução-à-linguagem-php.html#cb30-8" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="introdução-à-linguagem-php.html#cb30-9" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;submit&quot;</span><span class="dt">&gt;</span>Enviar<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb30-10"><a href="introdução-à-linguagem-php.html#cb30-10" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="introdução-à-linguagem-php.html#cb30-11" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>Arquivo <code>dados.php</code>:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb31-1"><a href="introdução-à-linguagem-php.html#cb31-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb31-2"><a href="introdução-à-linguagem-php.html#cb31-2" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="introdução-à-linguagem-php.html#cb31-3" tabindex="-1"></a><span class="va">$nome</span> <span class="op">=</span> <span class="va">$_POST</span>[<span class="st">&#39;nome&#39;</span>]<span class="ot">;</span></span>
+<span id="cb31-4"><a href="introdução-à-linguagem-php.html#cb31-4" tabindex="-1"></a><span class="va">$idade</span> <span class="op">=</span> <span class="va">$_POST</span>[<span class="st">&#39;idade&#39;</span>]<span class="ot">;</span></span>
+<span id="cb31-5"><a href="introdução-à-linguagem-php.html#cb31-5" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="introdução-à-linguagem-php.html#cb31-6" tabindex="-1"></a><span class="kw">echo</span> <span class="st">&quot;Olá </span><span class="va">$nome</span><span class="st"> &lt;br&gt;&quot;</span><span class="ot">;</span></span>
+<span id="cb31-7"><a href="introdução-à-linguagem-php.html#cb31-7" tabindex="-1"></a><span class="kw">echo</span> <span class="st">&quot;Sua idade é </span><span class="va">$idade</span><span class="st">&quot;</span><span class="ot">;</span></span>
+<span id="cb31-8"><a href="introdução-à-linguagem-php.html#cb31-8" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="introdução-à-linguagem-php.html#cb31-9" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<p>Quando o usuário envia o formulário:</p>
+<ol style="list-style-type: decimal">
+<li>o navegador envia os dados ao servidor</li>
+<li>o PHP recebe os dados</li>
+<li>o PHP executa o script</li>
+<li>o resultado é exibido na página</li>
+</ol>
+</div>
+<div id="validação-básica" class="section level3 unnumbered hasAnchor">
+<h3>Validação básica<a href="introdução-à-linguagem-php.html#valida%C3%A7%C3%A3o-b%C3%A1sica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Antes de utilizar os dados recebidos, é importante verificar se os campos foram realmente preenchidos.</p>
+<p>Exemplo simples:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb32-1"><a href="introdução-à-linguagem-php.html#cb32-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb32-2"><a href="introdução-à-linguagem-php.html#cb32-2" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="introdução-à-linguagem-php.html#cb32-3" tabindex="-1"></a><span class="cf">if</span> (<span class="kw">empty</span>(<span class="va">$_POST</span>[<span class="st">&#39;nome&#39;</span>]) <span class="op">||</span> <span class="kw">empty</span>(<span class="va">$_POST</span>[<span class="st">&#39;idade&#39;</span>])) {</span>
+<span id="cb32-4"><a href="introdução-à-linguagem-php.html#cb32-4" tabindex="-1"></a>    <span class="kw">echo</span> <span class="st">&quot;Todos os campos devem ser preenchidos.&quot;</span><span class="ot">;</span></span>
+<span id="cb32-5"><a href="introdução-à-linguagem-php.html#cb32-5" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb32-6"><a href="introdução-à-linguagem-php.html#cb32-6" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="introdução-à-linguagem-php.html#cb32-7" tabindex="-1"></a>    <span class="va">$nome</span> <span class="op">=</span> <span class="va">$_POST</span>[<span class="st">&#39;nome&#39;</span>]<span class="ot">;</span></span>
+<span id="cb32-8"><a href="introdução-à-linguagem-php.html#cb32-8" tabindex="-1"></a>    <span class="va">$idade</span> <span class="op">=</span> <span class="va">$_POST</span>[<span class="st">&#39;idade&#39;</span>]<span class="ot">;</span></span>
+<span id="cb32-9"><a href="introdução-à-linguagem-php.html#cb32-9" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="introdução-à-linguagem-php.html#cb32-10" tabindex="-1"></a>    <span class="kw">echo</span> <span class="st">&quot;Nome: </span><span class="va">$nome</span><span class="st"> &lt;br&gt;&quot;</span><span class="ot">;</span></span>
+<span id="cb32-11"><a href="introdução-à-linguagem-php.html#cb32-11" tabindex="-1"></a>    <span class="kw">echo</span> <span class="st">&quot;Idade: </span><span class="va">$idade</span><span class="st">&quot;</span><span class="ot">;</span></span>
+<span id="cb32-12"><a href="introdução-à-linguagem-php.html#cb32-12" tabindex="-1"></a>}</span>
+<span id="cb32-13"><a href="introdução-à-linguagem-php.html#cb32-13" tabindex="-1"></a></span>
+<span id="cb32-14"><a href="introdução-à-linguagem-php.html#cb32-14" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<p>Essa verificação evita erros quando o usuário envia o formulário com campos vazios.</p>
+</div>
+</div>
+<div id="exercícios" class="section level2 hasAnchor" number="3.18">
+<h2><span class="header-section-number">3.18</span> Exercícios<a href="introdução-à-linguagem-php.html#exerc%C3%ADcios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Desenvolva os seguintes exercícios utilizando PHP.</p>
+<ol style="list-style-type: decimal">
+<li>Construir um algoritmo que leia dois números e efetue a soma.</li>
+</ol>
+<ul>
+<li>Se o resultado da soma for maior que 10, apresentar o valor somado a 8.</li>
+<li>Caso contrário, apresentar o valor subtraído de 5.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Ler três números diferentes e exibi-los em <strong>ordem decrescente</strong>.</li>
+<li>Ler:</li>
+</ol>
+<ul>
+<li>nome</li>
+<li>gênero</li>
+<li>idade Se a idade for maior que 25, imprimir:</li>
+</ul>
+<pre><code>Nome: ...
+Gênero: ...
+Você pode se cadastrar</code></pre>
+<p>Caso contrário:</p>
+<pre><code>Nome: ...
+Gênero: ...
+Você não pode se cadastrar</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Ler um número inteiro entre <strong>1 e 12</strong> e exibir o mês correspondente.</li>
+</ol>
+<p>Exemplo:</p>
+<pre><code>1 → Janeiro
+2 → Fevereiro
+...</code></pre>
+<p>Caso o número esteja fora do intervalo, informar que não existe mês correspondente.</p>
+<hr />
+</div>
+<div id="leituras-recomendadas" class="section level2 hasAnchor" number="3.19">
+<h2><span class="header-section-number">3.19</span> Leituras recomendadas<a href="introdução-à-linguagem-php.html#leituras-recomendadas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>BENTO, Evaldo. Desenvolvimento Web com PHP e MySQL.</p>
+<p>SARAIVA, Maurício; BARRETO, Jeanine. Desenvolvimento de Sistemas com PHP.</p>
+<p>Manual oficial da linguagem:</p>
+<p><a href="https://www.php.net/manual/pt_BR" class="uri">https://www.php.net/manual/pt_BR</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="apresentação-da-disciplina.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>
