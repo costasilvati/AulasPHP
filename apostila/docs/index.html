@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Desenvolvimento de Sistemas</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Desenvolvimento de Sistemas" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Desenvolvimento de Sistemas" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Juliana Costa Silva" />
+
+
+<meta name="date" content="2026-03-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="apresentação-da-disciplina.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sobre</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#como-utilizar-este-material"><i class="fa fa-check"></i><b>1.1</b> Como utilizar este material</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#organiza%C3%A7%C3%A3o-dos-cap%C3%ADtulos"><i class="fa fa-check"></i><b>1.1.1</b> Organização dos capítulos</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#aprendizado-baseado-em-pr%C3%A1tica"><i class="fa fa-check"></i><b>1.1.2</b> Aprendizado baseado em prática</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#execu%C3%A7%C3%A3o-dos-exemplos"><i class="fa fa-check"></i><b>1.1.3</b> Execução dos exemplos</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#rela%C3%A7%C3%A3o-com-as-aulas"><i class="fa fa-check"></i><b>1.1.4</b> Relação com as aulas</a></li>
+<li class="chapter" data-level="1.1.5" data-path="index.html"><a href="index.html#evolu%C3%A7%C3%A3o-dos-projetos"><i class="fa fa-check"></i><b>1.1.5</b> Evolução dos projetos</a></li>
+<li class="chapter" data-level="1.1.6" data-path="index.html"><a href="index.html#recomenda%C3%A7%C3%B5es-de-estudo"><i class="fa fa-check"></i><b>1.1.6</b> Recomendações de estudo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="apresentação-da-disciplina.html"><a href="apresentação-da-disciplina.html"><i class="fa fa-check"></i><b>2</b> Apresentação da disciplina</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="apresentação-da-disciplina.html"><a href="apresentação-da-disciplina.html#ambiente-de-desenvolvimento-utilizado-na-disciplina"><i class="fa fa-check"></i><b>2.1</b> Ambiente de desenvolvimento utilizado na disciplina</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="apresentação-da-disciplina.html"><a href="apresentação-da-disciplina.html#xampp"><i class="fa fa-check"></i><b>2.1.1</b> XAMPP</a></li>
+<li class="chapter" data-level="2.1.2" data-path="apresentação-da-disciplina.html"><a href="apresentação-da-disciplina.html#visual-studio-code-vscode"><i class="fa fa-check"></i><b>2.1.2</b> Visual Studio Code (VSCode)</a></li>
+<li class="chapter" data-level="2.1.3" data-path="apresentação-da-disciplina.html"><a href="apresentação-da-disciplina.html#estrutura-b%C3%A1sica-de-um-projeto"><i class="fa fa-check"></i><b>2.1.3</b> Estrutura básica de um projeto</a></li>
+<li class="chapter" data-level="2.1.4" data-path="apresentação-da-disciplina.html"><a href="apresentação-da-disciplina.html#fluxo-de-desenvolvimento-utilizado-nas-aulas"><i class="fa fa-check"></i><b>2.1.4</b> Fluxo de desenvolvimento utilizado nas aulas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html"><i class="fa fa-check"></i><b>3</b> Introdução à linguagem PHP</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#como-funciona-uma-aplica%C3%A7%C3%A3o-web"><i class="fa fa-check"></i><b>3.1</b> Como funciona uma aplicação web</a>
+<ul>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#cliente"><i class="fa fa-check"></i>Cliente</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#servidor"><i class="fa fa-check"></i>Servidor</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#banco-de-dados"><i class="fa fa-check"></i>Banco de dados</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#fluxo-de-funcionamento-de-uma-aplica%C3%A7%C3%A3o-web"><i class="fa fa-check"></i>Fluxo de funcionamento de uma aplicação web</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#exemplo-pr%C3%A1tico"><i class="fa fa-check"></i>Exemplo prático</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#papel-do-php-nesse-processo"><i class="fa fa-check"></i>Papel do PHP nesse processo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#o-papel-do-php-no-desenvolvimento-web"><i class="fa fa-check"></i><b>3.2</b> O papel do PHP no desenvolvimento web</a></li>
+<li class="chapter" data-level="3.3" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#php-embutido-em-html"><i class="fa fa-check"></i><b>3.3</b> PHP embutido em HTML</a></li>
+<li class="chapter" data-level="3.4" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#onde-o-php-pode-ser-utilizado"><i class="fa fa-check"></i><b>3.4</b> Onde o PHP pode ser utilizado</a>
+<ul>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#scripts-executados-no-servidor-server-side"><i class="fa fa-check"></i>Scripts executados no servidor (Server-side)</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#scripts-de-linha-de-comando"><i class="fa fa-check"></i>Scripts de linha de comando</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#aplica%C3%A7%C3%B5es-desktop"><i class="fa fa-check"></i>Aplicações desktop</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#ambiente-de-execu%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>3.5</b> Ambiente de execução</a></li>
+<li class="chapter" data-level="3.6" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#estrutura-b%C3%A1sica-de-um-script-php"><i class="fa fa-check"></i><b>3.6</b> Estrutura básica de um script PHP</a></li>
+<li class="chapter" data-level="3.7" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#vari%C3%A1veis-em-php"><i class="fa fa-check"></i><b>3.7</b> Variáveis em PHP</a></li>
+<li class="chapter" data-level="3.8" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#tipos-de-dados-b%C3%A1sicos"><i class="fa fa-check"></i><b>3.8</b> Tipos de dados básicos</a></li>
+<li class="chapter" data-level="3.9" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#descobrindo-o-tipo-de-uma-vari%C3%A1vel"><i class="fa fa-check"></i><b>3.9</b> Descobrindo o tipo de uma variável</a></li>
+<li class="chapter" data-level="3.10" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#exibindo-informa%C3%A7%C3%B5es-na-tela"><i class="fa fa-check"></i><b>3.10</b> Exibindo informações na tela</a></li>
+<li class="chapter" data-level="3.11" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#concatena%C3%A7%C3%A3o-de-strings"><i class="fa fa-check"></i><b>3.11</b> Concatenação de strings</a></li>
+<li class="chapter" data-level="3.12" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#coment%C3%A1rios-no-c%C3%B3digo"><i class="fa fa-check"></i><b>3.12</b> Comentários no código</a></li>
+<li class="chapter" data-level="3.13" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#operadores-matem%C3%A1ticos"><i class="fa fa-check"></i><b>3.13</b> Operadores matemáticos</a></li>
+<li class="chapter" data-level="3.14" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#exemplos-de-opera%C3%A7%C3%B5es"><i class="fa fa-check"></i><b>3.14</b> Exemplos de operações</a></li>
+<li class="chapter" data-level="3.15" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#compara%C3%A7%C3%A3o-com-outras-linguagens"><i class="fa fa-check"></i><b>3.15</b> Comparação com outras linguagens</a></li>
+<li class="chapter" data-level="3.16" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#boas-pr%C3%A1ticas-iniciais"><i class="fa fa-check"></i><b>3.16</b> Boas práticas iniciais</a></li>
+<li class="chapter" data-level="3.17" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#recebendo-dados-do-usu%C3%A1rio-em-php"><i class="fa fa-check"></i><b>3.17</b> Recebendo dados do usuário em PHP</a>
+<ul>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#criando-um-formul%C3%A1rio-html"><i class="fa fa-check"></i>Criando um formulário HTML</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#recebendo-dados-no-php"><i class="fa fa-check"></i>Recebendo dados no PHP</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#exemplo-completo"><i class="fa fa-check"></i>Exemplo completo</a></li>
+<li class="chapter" data-level="" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#valida%C3%A7%C3%A3o-b%C3%A1sica"><i class="fa fa-check"></i>Validação básica</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#exerc%C3%ADcios"><i class="fa fa-check"></i><b>3.18</b> Exercícios</a></li>
+<li class="chapter" data-level="3.19" data-path="introdução-à-linguagem-php.html"><a href="introdução-à-linguagem-php.html#leituras-recomendadas"><i class="fa fa-check"></i><b>3.19</b> Leituras recomendadas</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
+<li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
+<li class="chapter" data-level="5.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
+<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
+<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Desenvolvimento de Sistemas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Desenvolvimento de Sistemas</h1>
+<p class="author"><em>Juliana Costa Silva</em></p>
+<p class="date"><em>2026-03-13</em></p>
+</div>
+<div id="sobre" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Sobre<a href="index.html#sobre" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Este é um <em>e-book</em> escrito em R <strong>Markdown</strong>. Sera utilizado como material de apoio da disciplina de Desenvolvimento de sistemas.</p>
+<div id="como-utilizar-este-material" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Como utilizar este material<a href="index.html#como-utilizar-este-material" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Este e-book foi elaborado como material de apoio para a disciplina e tem como objetivo complementar as aulas teóricas e práticas. Ao longo dos capítulos serão apresentados conceitos fundamentais do desenvolvimento web utilizando <strong>PHP</strong>, exemplos de código e atividades práticas que permitem aplicar os conteúdos estudados.</p>
+<p>O material foi organizado de forma <strong>progressiva</strong>, partindo dos conceitos básicos da linguagem até tópicos mais estruturados utilizados no desenvolvimento de aplicações web completas. Dessa forma, recomenda-se que os capítulos sejam estudados <strong>na ordem em que são apresentados</strong>, pois muitos conceitos dependem de conteúdos discutidos anteriormente.</p>
+<div id="organização-dos-capítulos" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Organização dos capítulos<a href="index.html#organiza%C3%A7%C3%A3o-dos-cap%C3%ADtulos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cada capítulo do material segue, em geral, a seguinte estrutura:</p>
+<ul>
+<li><strong>Apresentação do conceito</strong> – introdução teórica do tema abordado;</li>
+<li><strong>Exemplos de código</strong> – pequenos trechos de código que ilustram o funcionamento da linguagem;</li>
+<li><strong>Explicações passo a passo</strong> – detalhamento de como o código funciona;</li>
+<li><strong>Atividades ou exercícios</strong> – propostas de implementação para consolidar o aprendizado.</li>
+</ul>
+<p>Os exemplos apresentados no texto foram pensados para serem executados diretamente no ambiente de desenvolvimento utilizado na disciplina.</p>
+</div>
+<div id="aprendizado-baseado-em-prática" class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Aprendizado baseado em prática<a href="index.html#aprendizado-baseado-em-pr%C3%A1tica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A programação é uma habilidade que se desenvolve principalmente por meio da prática. Por esse motivo, é altamente recomendado que o estudante <strong>não apenas leia o código apresentado</strong>, mas também:</p>
+<ul>
+<li>reproduza os exemplos em seu próprio ambiente de desenvolvimento;</li>
+<li>modifique partes do código para observar diferentes comportamentos;</li>
+<li>implemente as atividades propostas ao final de cada capítulo.</li>
+</ul>
+<p>A experimentação é parte fundamental do processo de aprendizagem em programação.</p>
+</div>
+<div id="execução-dos-exemplos" class="section level3 hasAnchor" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Execução dos exemplos<a href="index.html#execu%C3%A7%C3%A3o-dos-exemplos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sempre que um exemplo de código for apresentado, recomenda-se que ele seja salvo como um arquivo PHP dentro da pasta de projetos utilizada na disciplina. Após salvar o arquivo, o estudante poderá executá-lo através do navegador, utilizando o servidor local configurado no ambiente de desenvolvimento.</p>
+<p>Esse processo permite observar como o código PHP é executado no servidor e como o resultado é exibido no navegador.</p>
+</div>
+<div id="relação-com-as-aulas" class="section level3 hasAnchor" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Relação com as aulas<a href="index.html#rela%C3%A7%C3%A3o-com-as-aulas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Este material não substitui as aulas, mas funciona como um <strong>guia de referência e estudo</strong>. Durante as aulas serão apresentados exemplos adicionais, atividades práticas e discussões que complementam o conteúdo descrito no e-book.</p>
+<p>Recomenda-se que os estudantes utilizem este material para:</p>
+<ul>
+<li>revisar conceitos discutidos em aula;</li>
+<li>consultar exemplos de código;</li>
+<li>apoiar a realização das atividades propostas;</li>
+<li>aprofundar o entendimento sobre os tópicos estudados.</li>
+</ul>
+</div>
+<div id="evolução-dos-projetos" class="section level3 hasAnchor" number="1.1.5">
+<h3><span class="header-section-number">1.1.5</span> Evolução dos projetos<a href="index.html#evolu%C3%A7%C3%A3o-dos-projetos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ao longo da disciplina, os exercícios e exemplos irão evoluir gradualmente, permitindo que os estudantes passem de programas simples para estruturas mais organizadas de desenvolvimento, incluindo:</p>
+<ul>
+<li>uso de <strong>programação orientada a objetos em PHP</strong>;</li>
+<li>organização do código utilizando o padrão <strong>Model-View-Controller (MVC)</strong>;</li>
+<li>integração de aplicações com <strong>bancos de dados</strong>.</li>
+</ul>
+<p>Essa progressão busca aproximar o estudante do modo como aplicações web reais são desenvolvidas.</p>
+</div>
+<div id="recomendações-de-estudo" class="section level3 hasAnchor" number="1.1.6">
+<h3><span class="header-section-number">1.1.6</span> Recomendações de estudo<a href="index.html#recomenda%C3%A7%C3%B5es-de-estudo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para aproveitar melhor este material, recomenda-se:</p>
+<ul>
+<li>acompanhar os exemplos com o ambiente de desenvolvimento aberto;</li>
+<li>manter um repositório ou pasta organizada com os exercícios desenvolvidos;</li>
+<li>revisar regularmente os conceitos apresentados nos capítulos anteriores;</li>
+<li>buscar compreender não apenas <em>como</em> o código funciona, mas também <em>por que</em> ele foi estruturado daquela forma.</li>
+</ul>
+<p>A combinação entre leitura, prática e experimentação permitirá desenvolver gradualmente as competências necessárias para a construção de aplicações web utilizando PHP.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="apresentação-da-disciplina.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
