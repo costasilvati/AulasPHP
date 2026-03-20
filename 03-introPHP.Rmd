@@ -1,4 +1,4 @@
-# Introdução à linguagem PHP
+# Linguagem PHP
 
 Nesta aula iniciaremos o estudo da linguagem **PHP**, uma das tecnologias mais utilizadas para desenvolvimento **web no lado do servidor**.
 

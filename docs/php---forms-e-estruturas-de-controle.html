@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 5 PHP - Forms e estruturas de controle | Desenvolvimento de Sistemas</title>
+<meta name="author" content="Juliana Costa Silva">
+<meta name="description" content="Neste capítulo avançaremos no estudo de PHP com foco em três grupos de conceitos muito importantes para o desenvolvimento web: o uso de variáveis superglobais, a recepção de dados enviados por...">
+<meta name="generator" content="bookdown 0.45 with bs4_book()">
+<meta property="og:title" content="Capítulo 5 PHP - Forms e estruturas de controle | Desenvolvimento de Sistemas">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Neste capítulo avançaremos no estudo de PHP com foco em três grupos de conceitos muito importantes para o desenvolvimento web: o uso de variáveis superglobais, a recepção de dados enviados por...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 5 PHP - Forms e estruturas de controle | Desenvolvimento de Sistemas">
+<meta name="twitter:description" content="Neste capítulo avançaremos no estudo de PHP com foco em três grupos de conceitos muito importantes para o desenvolvimento web: o uso de variáveis superglobais, a recepção de dados enviados por...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Desenvolvimento de Sistemas</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Sobre</a></li>
+<li><a class="" href="apresenta%C3%A7%C3%A3o-da-disciplina.html"><span class="header-section-number">2</span> Apresentação da disciplina</a></li>
+<li><a class="" href="programa%C3%A7%C3%A3o-web-front-end.html"><span class="header-section-number">3</span> Programação Web Front-End</a></li>
+<li><a class="" href="linguagem-php.html"><span class="header-section-number">4</span> Linguagem PHP</a></li>
+<li><a class="active" href="php---forms-e-estruturas-de-controle.html"><span class="header-section-number">5</span> PHP - Forms e estruturas de controle</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="php---forms-e-estruturas-de-controle" class="section level1" number="5">
+<h1>
+<span class="header-section-number">Capítulo 5</span> PHP - Forms e estruturas de controle<a class="anchor" aria-label="anchor" href="#php---forms-e-estruturas-de-controle"><i class="fas fa-link"></i></a>
+</h1>
+<p>Neste capítulo avançaremos no estudo de PHP com foco em três grupos de conceitos muito importantes para o desenvolvimento web: o uso de <strong>variáveis superglobais</strong>, a <strong>recepção de dados enviados por formulários HTML</strong> e as <strong>estruturas de controle de fluxo e repetição</strong>.</p>
+<p>Esses conteúdos são fundamentais porque representam uma transição importante entre a escrita de páginas estáticas e a construção de aplicações com comportamento dinâmico. A partir deste ponto, o programa deixa de apenas exibir mensagens fixas e passa a <strong>receber dados do usuário</strong>, <strong>tomar decisões</strong> e <strong>repetir ações conforme determinadas condições</strong>.</p>
+<p>No material da aula, esses conceitos aparecem associados às variáveis globais do PHP, constantes, formulários com método <code>GET</code>, estruturas <code>if/else</code>, <code>switch case</code> e laços <code>while</code>, <code>do while</code> e <code>for</code>. :contentReference<span index="1">oaicite:1</span></p>
+<div id="variáveis-superglobais-em-php" class="section level2" number="5.1">
+<h2>
+<span class="header-section-number">5.1</span> Variáveis superglobais em PHP<a class="anchor" aria-label="anchor" href="#vari%C3%A1veis-superglobais-em-php"><i class="fas fa-link"></i></a>
+</h2>
+<p>Além das variáveis criadas pelo programador, o PHP possui variáveis internas chamadas de <strong>superglobais</strong>. Elas recebem esse nome porque podem ser acessadas em qualquer parte do script, sem necessidade de declaração prévia. O material da aula destaca esse comportamento ao explicar que essas variáveis nativas estão disponíveis em qualquer local do código. :contentReference<span index="2">oaicite:2</span></p>
+<p>As superglobais mais importantes neste momento são:</p>
+<ul>
+<li><code>$GLOBALS</code></li>
+<li><code>$_SERVER</code></li>
+<li><code>$_GET</code></li>
+<li><code>$_POST</code></li>
+<li><code>$_FILES</code></li>
+<li><code>$_COOKIE</code></li>
+<li><code>$_SESSION</code></li>
+<li><code>$_REQUEST</code></li>
+<li><code>$_ENV</code></li>
+</ul>
+<div id="globals" class="section level3 unnumbered">
+<h3>
+<code>$GLOBALS</code><a class="anchor" aria-label="anchor" href="#globals"><i class="fas fa-link"></i></a>
+</h3>
+<p>A variável <code>$GLOBALS</code> armazena, em forma de array associativo, as variáveis globais existentes no script.</p>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb54-1"><a href="php---forms-e-estruturas-de-controle.html#cb54-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb54-2"><a href="php---forms-e-estruturas-de-controle.html#cb54-2" tabindex="-1"></a><span class="va">$curso</span> <span class="op">=</span> <span class="st">"Desenvolvimento de Sistemas"</span><span class="ot">;</span></span>
+<span id="cb54-3"><a href="php---forms-e-estruturas-de-controle.html#cb54-3" tabindex="-1"></a></span>
+<span id="cb54-4"><a href="php---forms-e-estruturas-de-controle.html#cb54-4" tabindex="-1"></a><span class="kw">function</span> mostrarCurso() {</span>
+<span id="cb54-5"><a href="php---forms-e-estruturas-de-controle.html#cb54-5" tabindex="-1"></a>    <span class="kw">echo</span> <span class="va">$GLOBALS</span>[<span class="st">'curso'</span>]<span class="ot">;</span></span>
+<span id="cb54-6"><a href="php---forms-e-estruturas-de-controle.html#cb54-6" tabindex="-1"></a>}</span>
+<span id="cb54-7"><a href="php---forms-e-estruturas-de-controle.html#cb54-7" tabindex="-1"></a></span>
+<span id="cb54-8"><a href="php---forms-e-estruturas-de-controle.html#cb54-8" tabindex="-1"></a>mostrarCurso()<span class="ot">;</span></span>
+<span id="cb54-9"><a href="php---forms-e-estruturas-de-controle.html#cb54-9" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<p>Nesse caso, a função consegue acessar a variável global <code>$curso</code> por meio de <code>$GLOBALS</code>.</p>
+</div>
+<div id="server" class="section level3 unnumbered">
+<h3>
+<code>$_SERVER</code><a class="anchor" aria-label="anchor" href="#server"><i class="fas fa-link"></i></a>
+</h3>
+<p>A superglobal <code>$_SERVER</code> contém informações sobre o servidor e o ambiente de execução do script.</p>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb55-1"><a href="php---forms-e-estruturas-de-controle.html#cb55-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb55-2"><a href="php---forms-e-estruturas-de-controle.html#cb55-2" tabindex="-1"></a><span class="kw">echo</span> <span class="st">"Nome do servidor: "</span> <span class="op">.</span> <span class="va">$_SERVER</span>[<span class="st">'SERVER_NAME'</span>] <span class="op">.</span> <span class="st">"&lt;br&gt;"</span><span class="ot">;</span></span>
+<span id="cb55-3"><a href="php---forms-e-estruturas-de-controle.html#cb55-3" tabindex="-1"></a><span class="kw">echo</span> <span class="st">"Arquivo atual: "</span> <span class="op">.</span> <span class="va">$_SERVER</span>[<span class="st">'PHP_SELF'</span>]<span class="ot">;</span></span>
+<span id="cb55-4"><a href="php---forms-e-estruturas-de-controle.html#cb55-4" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<p>Esse tipo de variável é útil para obter dados técnicos do ambiente da aplicação.</p>
+</div>
+<div id="get-e-_post" class="section level3 unnumbered">
+<h3>
+<code>$_GET</code> e <code>$_POST</code><a class="anchor" aria-label="anchor" href="#get-e-_post"><i class="fas fa-link"></i></a>
+</h3>
+<p>Essas são as superglobais mais utilizadas no início do estudo de PHP web.</p>
+<ul>
+<li>
+<code>$_GET</code> recebe dados enviados pela URL</li>
+<li>
+<code>$_POST</code> recebe dados enviados no corpo da requisição</li>
+</ul>
+<p>No material, o envio por <code>GET</code> é destacado como aquele em que os valores aparecem na barra de endereços do navegador, enquanto no <code>POST</code> isso não ocorre.</p>
+</div>
+<div id="outras-superglobais" class="section level3 unnumbered">
+<h3>Outras superglobais<a class="anchor" aria-label="anchor" href="#outras-superglobais"><i class="fas fa-link"></i></a>
+</h3>
+<p>As demais variáveis têm funções específicas:</p>
+<ul>
+<li>
+<code>$_FILES</code>: dados de arquivos enviados por formulário</li>
+<li>
+<code>$_COOKIE</code>: dados armazenados em cookies</li>
+<li>
+<code>$_SESSION</code>: dados mantidos durante a sessão do usuário</li>
+<li>
+<code>$_REQUEST</code>: combinação de <code>$_GET</code>, <code>$_POST</code> e <code>$_COOKIE</code>
+</li>
+<li>
+<code>$_ENV</code>: informações do ambiente</li>
+</ul>
+<p>Mesmo que nem todas sejam utilizadas agora, é importante conhecê-las como parte do ecossistema da linguagem.</p>
+</div>
+</div>
+<div id="constantes-em-php" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> Constantes em PHP<a class="anchor" aria-label="anchor" href="#constantes-em-php"><i class="fas fa-link"></i></a>
+</h2>
+<p>Uma constante é um identificador cujo valor não muda durante a execução do programa. O material ressalta que constantes podem ser acessadas de qualquer lugar do código e que, por boa prática, seus nomes costumam ser escritos em letras maiúsculas.</p>
+<p>Há duas formas principais de definir constantes em PHP.</p>
+<div id="utilizando-define" class="section level3 unnumbered">
+<h3>Utilizando <code>define()</code><a class="anchor" aria-label="anchor" href="#utilizando-define"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb56"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb56-1"><a href="php---forms-e-estruturas-de-controle.html#cb56-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb56-2"><a href="php---forms-e-estruturas-de-controle.html#cb56-2" tabindex="-1"></a><span class="fu">define</span>(<span class="st">"SAUDACAO"</span><span class="ot">,</span> <span class="st">"Olá, turma!&lt;br&gt;"</span>)<span class="ot">;</span></span>
+<span id="cb56-3"><a href="php---forms-e-estruturas-de-controle.html#cb56-3" tabindex="-1"></a><span class="kw">echo</span> <span class="cn">SAUDACAO</span><span class="ot">;</span></span>
+<span id="cb56-4"><a href="php---forms-e-estruturas-de-controle.html#cb56-4" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+</div>
+<div id="utilizando-const" class="section level3 unnumbered">
+<h3>Utilizando <code>const</code><a class="anchor" aria-label="anchor" href="#utilizando-const"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb57"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb57-1"><a href="php---forms-e-estruturas-de-controle.html#cb57-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb57-2"><a href="php---forms-e-estruturas-de-controle.html#cb57-2" tabindex="-1"></a><span class="kw">const</span> <span class="cn">LIMITE_NOTA</span> <span class="op">=</span> <span class="dv">10</span><span class="ot">;</span></span>
+<span id="cb57-3"><a href="php---forms-e-estruturas-de-controle.html#cb57-3" tabindex="-1"></a><span class="kw">echo</span> <span class="cn">LIMITE_NOTA</span><span class="ot">;</span></span>
+<span id="cb57-4"><a href="php---forms-e-estruturas-de-controle.html#cb57-4" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<p>Diferentemente das variáveis, constantes <strong>não usam o símbolo <code>$</code></strong>.</p>
+</div>
+</div>
+<div id="constantes-mágicas" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> Constantes mágicas<a class="anchor" aria-label="anchor" href="#constantes-m%C3%A1gicas"><i class="fas fa-link"></i></a>
+</h2>
+<p>O material também apresenta as chamadas <strong>constantes mágicas</strong>, que fornecem informações sobre o contexto do código, como linha atual, arquivo, diretório, função e classe.</p>
+<p>Alguns exemplos úteis:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb58-1"><a href="php---forms-e-estruturas-de-controle.html#cb58-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb58-2"><a href="php---forms-e-estruturas-de-controle.html#cb58-2" tabindex="-1"></a><span class="kw">echo</span> <span class="cn">__LINE__</span> <span class="op">.</span> <span class="st">"&lt;br&gt;"</span><span class="ot">;</span></span>
+<span id="cb58-3"><a href="php---forms-e-estruturas-de-controle.html#cb58-3" tabindex="-1"></a><span class="kw">echo</span> <span class="cn">__FILE__</span> <span class="op">.</span> <span class="st">"&lt;br&gt;"</span><span class="ot">;</span></span>
+<span id="cb58-4"><a href="php---forms-e-estruturas-de-controle.html#cb58-4" tabindex="-1"></a><span class="kw">echo</span> <span class="cn">__DIR__</span> <span class="op">.</span> <span class="st">"&lt;br&gt;"</span><span class="ot">;</span></span>
+<span id="cb58-5"><a href="php---forms-e-estruturas-de-controle.html#cb58-5" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<p>Essas constantes são especialmente úteis em depuração, manutenção e organização do código.</p>
+</div>
+<div id="formulários-em-php" class="section level2" number="5.4">
+<h2>
+<span class="header-section-number">5.4</span> Formulários em PHP<a class="anchor" aria-label="anchor" href="#formul%C3%A1rios-em-php"><i class="fas fa-link"></i></a>
+</h2>
+<p>O formulário é a principal forma de interação entre usuário e servidor em aplicações web. Por meio dele, o usuário pode informar dados que serão enviados ao PHP para processamento.</p>
+<p>No material, a configuração do formulário destaca dois atributos fundamentais: <code>method</code>, que define o tipo de envio (<code>GET</code> ou <code>POST</code>), e <code>action</code>, que indica qual arquivo irá processar os dados enviados.</p>
+</div>
+<div id="configurando-formulários" class="section level2" number="5.5">
+<h2>
+<span class="header-section-number">5.5</span> Configurando formulários<a class="anchor" aria-label="anchor" href="#configurando-formul%C3%A1rios"><i class="fas fa-link"></i></a>
+</h2>
+<p>A seguir está uma versão em código PHP/HTML do exemplo apresentado no slide de configuração de formulários.</p>
+<div id="arquivo-index.php" class="section level3 unnumbered">
+<h3>Arquivo <code>index.php</code><a class="anchor" aria-label="anchor" href="#arquivo-index.php"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb59"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb59-1"><a href="php---forms-e-estruturas-de-controle.html#cb59-1" tabindex="-1"></a><span class="op">&lt;!</span><span class="cn">DOCTYPE</span> html<span class="op">&gt;</span></span>
+<span id="cb59-2"><a href="php---forms-e-estruturas-de-controle.html#cb59-2" tabindex="-1"></a><span class="op">&lt;</span>html lang<span class="op">=</span><span class="st">"pt-BR"</span><span class="op">&gt;</span></span>
+<span id="cb59-3"><a href="php---forms-e-estruturas-de-controle.html#cb59-3" tabindex="-1"></a><span class="op">&lt;</span>head<span class="op">&gt;</span></span>
+<span id="cb59-4"><a href="php---forms-e-estruturas-de-controle.html#cb59-4" tabindex="-1"></a>    <span class="op">&lt;</span>meta charset<span class="op">=</span><span class="st">"UTF-8"</span><span class="op">&gt;</span></span>
+<span id="cb59-5"><a href="php---forms-e-estruturas-de-controle.html#cb59-5" tabindex="-1"></a>    <span class="op">&lt;</span>title<span class="op">&gt;</span>Formulário <span class="cn">PHP</span><span class="op">&lt;/</span>title<span class="op">&gt;</span></span>
+<span id="cb59-6"><a href="php---forms-e-estruturas-de-controle.html#cb59-6" tabindex="-1"></a><span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
+<span id="cb59-7"><a href="php---forms-e-estruturas-de-controle.html#cb59-7" tabindex="-1"></a><span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb59-8"><a href="php---forms-e-estruturas-de-controle.html#cb59-8" tabindex="-1"></a></span>
+<span id="cb59-9"><a href="php---forms-e-estruturas-de-controle.html#cb59-9" tabindex="-1"></a>    <span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">"titulo"</span><span class="op">&gt;</span></span>
+<span id="cb59-10"><a href="php---forms-e-estruturas-de-controle.html#cb59-10" tabindex="-1"></a>        <span class="op">&lt;</span>h1<span class="op">&gt;</span>Formulário <span class="cn">PHP</span><span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
+<span id="cb59-11"><a href="php---forms-e-estruturas-de-controle.html#cb59-11" tabindex="-1"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb59-12"><a href="php---forms-e-estruturas-de-controle.html#cb59-12" tabindex="-1"></a></span>
+<span id="cb59-13"><a href="php---forms-e-estruturas-de-controle.html#cb59-13" tabindex="-1"></a>    <span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">"formulario"</span><span class="op">&gt;</span></span>
+<span id="cb59-14"><a href="php---forms-e-estruturas-de-controle.html#cb59-14" tabindex="-1"></a>        <span class="op">&lt;</span>form action<span class="op">=</span><span class="st">"welcome.php"</span> method<span class="op">=</span><span class="st">"get"</span><span class="op">&gt;</span></span>
+<span id="cb59-15"><a href="php---forms-e-estruturas-de-controle.html#cb59-15" tabindex="-1"></a>            <span class="op">&lt;</span>p<span class="op">&gt;</span></span>
+<span id="cb59-16"><a href="php---forms-e-estruturas-de-controle.html#cb59-16" tabindex="-1"></a>                Nome<span class="ot">:</span></span>
+<span id="cb59-17"><a href="php---forms-e-estruturas-de-controle.html#cb59-17" tabindex="-1"></a>                <span class="op">&lt;</span>input <span class="kw">class</span><span class="op">=</span><span class="st">"texto"</span> type<span class="op">=</span><span class="st">"text"</span> name<span class="op">=</span><span class="st">"name"</span><span class="op">&gt;</span></span>
+<span id="cb59-18"><a href="php---forms-e-estruturas-de-controle.html#cb59-18" tabindex="-1"></a>            <span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb59-19"><a href="php---forms-e-estruturas-de-controle.html#cb59-19" tabindex="-1"></a></span>
+<span id="cb59-20"><a href="php---forms-e-estruturas-de-controle.html#cb59-20" tabindex="-1"></a>            <span class="op">&lt;</span>p<span class="op">&gt;</span></span>
+<span id="cb59-21"><a href="php---forms-e-estruturas-de-controle.html#cb59-21" tabindex="-1"></a>                <span class="cn">E</span><span class="op">-</span><span class="fu">mail</span><span class="ot">:</span></span>
+<span id="cb59-22"><a href="php---forms-e-estruturas-de-controle.html#cb59-22" tabindex="-1"></a>                <span class="op">&lt;</span>input <span class="kw">class</span><span class="op">=</span><span class="st">"texto"</span> type<span class="op">=</span><span class="st">"text"</span> name<span class="op">=</span><span class="st">"email"</span><span class="op">&gt;</span></span>
+<span id="cb59-23"><a href="php---forms-e-estruturas-de-controle.html#cb59-23" tabindex="-1"></a>            <span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb59-24"><a href="php---forms-e-estruturas-de-controle.html#cb59-24" tabindex="-1"></a></span>
+<span id="cb59-25"><a href="php---forms-e-estruturas-de-controle.html#cb59-25" tabindex="-1"></a>            <span class="op">&lt;</span>input <span class="kw">class</span><span class="op">=</span><span class="st">"botao"</span> type<span class="op">=</span><span class="st">"submit"</span> value<span class="op">=</span><span class="st">"Enviar"</span><span class="op">&gt;</span></span>
+<span id="cb59-26"><a href="php---forms-e-estruturas-de-controle.html#cb59-26" tabindex="-1"></a>        <span class="op">&lt;/</span>form<span class="op">&gt;</span></span>
+<span id="cb59-27"><a href="php---forms-e-estruturas-de-controle.html#cb59-27" tabindex="-1"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb59-28"><a href="php---forms-e-estruturas-de-controle.html#cb59-28" tabindex="-1"></a></span>
+<span id="cb59-29"><a href="php---forms-e-estruturas-de-controle.html#cb59-29" tabindex="-1"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb59-30"><a href="php---forms-e-estruturas-de-controle.html#cb59-30" tabindex="-1"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
+<p>Nesse formulário:</p>
+<ul>
+<li>
+<code>action="welcome.php"</code> indica o arquivo que receberá os dados</li>
+<li>
+<code>method="get"</code> define que os dados serão enviados pela URL</li>
+<li>
+<code>name="name"</code> e <code>name="email"</code> identificam os campos</li>
+</ul>
+</div>
+</div>
+<div id="recebendo-dados-via-get" class="section level2" number="5.6">
+<h2>
+<span class="header-section-number">5.6</span> Recebendo dados via GET<a class="anchor" aria-label="anchor" href="#recebendo-dados-via-get"><i class="fas fa-link"></i></a>
+</h2>
+<p>O slide sobre <code>$_GET</code> mostra que essa variável funciona como um vetor associativo, em que cada posição corresponde a um parâmetro enviado.</p>
+<p>Abaixo está uma versão equivalente do exemplo apresentado.</p>
+<div id="arquivo-welcome.php" class="section level3 unnumbered">
+<h3>Arquivo <code>welcome.php</code><a class="anchor" aria-label="anchor" href="#arquivo-welcome.php"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb60"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb60-1"><a href="php---forms-e-estruturas-de-controle.html#cb60-1" tabindex="-1"></a><span class="op">&lt;!</span><span class="cn">DOCTYPE</span> html<span class="op">&gt;</span></span>
+<span id="cb60-2"><a href="php---forms-e-estruturas-de-controle.html#cb60-2" tabindex="-1"></a><span class="op">&lt;</span>html lang<span class="op">=</span><span class="st">"pt-BR"</span><span class="op">&gt;</span></span>
+<span id="cb60-3"><a href="php---forms-e-estruturas-de-controle.html#cb60-3" tabindex="-1"></a><span class="op">&lt;</span>head<span class="op">&gt;</span></span>
+<span id="cb60-4"><a href="php---forms-e-estruturas-de-controle.html#cb60-4" tabindex="-1"></a>    <span class="op">&lt;</span>meta charset<span class="op">=</span><span class="st">"UTF-8"</span><span class="op">&gt;</span></span>
+<span id="cb60-5"><a href="php---forms-e-estruturas-de-controle.html#cb60-5" tabindex="-1"></a>    <span class="op">&lt;</span>title<span class="op">&gt;</span>Bem<span class="op">-</span>vindo com <span class="cn">PHP</span><span class="op">&lt;/</span>title<span class="op">&gt;</span></span>
+<span id="cb60-6"><a href="php---forms-e-estruturas-de-controle.html#cb60-6" tabindex="-1"></a><span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
+<span id="cb60-7"><a href="php---forms-e-estruturas-de-controle.html#cb60-7" tabindex="-1"></a><span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb60-8"><a href="php---forms-e-estruturas-de-controle.html#cb60-8" tabindex="-1"></a></span>
+<span id="cb60-9"><a href="php---forms-e-estruturas-de-controle.html#cb60-9" tabindex="-1"></a>    <span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">"titulo"</span><span class="op">&gt;</span></span>
+<span id="cb60-10"><a href="php---forms-e-estruturas-de-controle.html#cb60-10" tabindex="-1"></a>        <span class="op">&lt;</span>h1<span class="op">&gt;</span>Bem<span class="op">-</span>vindo com <span class="cn">PHP</span><span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
+<span id="cb60-11"><a href="php---forms-e-estruturas-de-controle.html#cb60-11" tabindex="-1"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb60-12"><a href="php---forms-e-estruturas-de-controle.html#cb60-12" tabindex="-1"></a></span>
+<span id="cb60-13"><a href="php---forms-e-estruturas-de-controle.html#cb60-13" tabindex="-1"></a>    <span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">"formulario"</span><span class="op">&gt;</span></span>
+<span id="cb60-14"><a href="php---forms-e-estruturas-de-controle.html#cb60-14" tabindex="-1"></a>        Bem<span class="op">-</span>vindo <span class="op">&lt;</span><span class="ot">?</span>php <span class="kw">echo</span> <span class="va">$_GET</span>[<span class="st">"name"</span>]<span class="ot">;</span> <span class="kw">?&gt;</span><span class="op">!</span> <span class="op">&lt;</span>br<span class="op">&gt;</span></span>
+<span id="cb60-15"><a href="php---forms-e-estruturas-de-controle.html#cb60-15" tabindex="-1"></a>        Seu e<span class="op">-</span><span class="fu">mail</span> é<span class="ot">:</span> <span class="op">&lt;</span><span class="ot">?</span>php <span class="kw">echo</span> <span class="va">$_GET</span>[<span class="st">"email"</span>]<span class="ot">;</span> <span class="kw">?&gt;</span></span>
+<span id="cb60-16"><a href="php---forms-e-estruturas-de-controle.html#cb60-16" tabindex="-1"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb60-17"><a href="php---forms-e-estruturas-de-controle.html#cb60-17" tabindex="-1"></a></span>
+<span id="cb60-18"><a href="php---forms-e-estruturas-de-controle.html#cb60-18" tabindex="-1"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb60-19"><a href="php---forms-e-estruturas-de-controle.html#cb60-19" tabindex="-1"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
+<p>Quando o formulário for enviado, o PHP poderá recuperar os dados usando as chaves <code>name</code> e <code>email</code>.</p>
+</div>
+<div id="observação-importante" class="section level3 unnumbered">
+<h3>Observação importante<a class="anchor" aria-label="anchor" href="#observa%C3%A7%C3%A3o-importante"><i class="fas fa-link"></i></a>
+</h3>
+<p>Antes de acessar um índice de <code>$_GET</code>, é boa prática verificar se ele realmente existe.</p>
+<p>Exemplo mais seguro:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb61-1"><a href="php---forms-e-estruturas-de-controle.html#cb61-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb61-2"><a href="php---forms-e-estruturas-de-controle.html#cb61-2" tabindex="-1"></a><span class="cf">if</span> (<span class="kw">isset</span>(<span class="va">$_GET</span>[<span class="st">"name"</span>]) <span class="op">&amp;&amp;</span> <span class="kw">isset</span>(<span class="va">$_GET</span>[<span class="st">"email"</span>])) {</span>
+<span id="cb61-3"><a href="php---forms-e-estruturas-de-controle.html#cb61-3" tabindex="-1"></a>    <span class="va">$nome</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">"name"</span>]<span class="ot">;</span></span>
+<span id="cb61-4"><a href="php---forms-e-estruturas-de-controle.html#cb61-4" tabindex="-1"></a>    <span class="va">$email</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">"email"</span>]<span class="ot">;</span></span>
+<span id="cb61-5"><a href="php---forms-e-estruturas-de-controle.html#cb61-5" tabindex="-1"></a></span>
+<span id="cb61-6"><a href="php---forms-e-estruturas-de-controle.html#cb61-6" tabindex="-1"></a>    <span class="kw">echo</span> <span class="st">"Bem-vindo </span><span class="va">$nome</span><span class="st"> &lt;br&gt;"</span><span class="ot">;</span></span>
+<span id="cb61-7"><a href="php---forms-e-estruturas-de-controle.html#cb61-7" tabindex="-1"></a>    <span class="kw">echo</span> <span class="st">"Seu e-mail é: </span><span class="va">$email</span><span class="st">"</span><span class="ot">;</span></span>
+<span id="cb61-8"><a href="php---forms-e-estruturas-de-controle.html#cb61-8" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb61-9"><a href="php---forms-e-estruturas-de-controle.html#cb61-9" tabindex="-1"></a>    <span class="kw">echo</span> <span class="st">"Dados não enviados."</span><span class="ot">;</span></span>
+<span id="cb61-10"><a href="php---forms-e-estruturas-de-controle.html#cb61-10" tabindex="-1"></a>}</span>
+<span id="cb61-11"><a href="php---forms-e-estruturas-de-controle.html#cb61-11" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+</div>
+</div>
+<div id="operadores-de-comparação" class="section level2" number="5.7">
+<h2>
+<span class="header-section-number">5.7</span> Operadores de comparação<a class="anchor" aria-label="anchor" href="#operadores-de-compara%C3%A7%C3%A3o"><i class="fas fa-link"></i></a>
+</h2>
+<p>Antes de trabalhar com decisões, é importante compreender os operadores de comparação, que retornam <code>true</code> ou <code>false</code>. O material lista os principais operadores: igualdade, identidade, diferença, menor, maior, menor ou igual e maior ou igual.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;P. Dall’Oglio, &lt;em&gt;PHP Programando Com Orienta&lt;span&gt;ç&lt;/span&gt;&lt;span&gt;ã&lt;/span&gt;o a Objetos - 4&lt;span&gt;&lt;/span&gt; Edi&lt;span&gt;ç&lt;/span&gt;&lt;span&gt;ã&lt;/span&gt;o&lt;/em&gt; (Novatec Editora, n.d.), &lt;a href="https://books.google.com.br/books?id=lfxmDwAAQBAJ"&gt;https://books.google.com.br/books?id=lfxmDwAAQBAJ&lt;/a&gt;.&lt;/p&gt;'><sup>5</sup></a></span></p>
+<p>Alguns exemplos:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb62-1"><a href="php---forms-e-estruturas-de-controle.html#cb62-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb62-2"><a href="php---forms-e-estruturas-de-controle.html#cb62-2" tabindex="-1"></a><span class="va">$a</span> <span class="op">=</span> <span class="dv">5</span><span class="ot">;</span></span>
+<span id="cb62-3"><a href="php---forms-e-estruturas-de-controle.html#cb62-3" tabindex="-1"></a><span class="va">$b</span> <span class="op">=</span> <span class="dv">10</span><span class="ot">;</span></span>
+<span id="cb62-4"><a href="php---forms-e-estruturas-de-controle.html#cb62-4" tabindex="-1"></a></span>
+<span id="cb62-5"><a href="php---forms-e-estruturas-de-controle.html#cb62-5" tabindex="-1"></a><span class="fu">var_dump</span>(<span class="va">$a</span> <span class="op">==</span> <span class="va">$b</span>)<span class="ot">;</span>   <span class="co">// false</span></span>
+<span id="cb62-6"><a href="php---forms-e-estruturas-de-controle.html#cb62-6" tabindex="-1"></a><span class="fu">var_dump</span>(<span class="va">$a</span> <span class="op">&lt;</span> <span class="va">$b</span>)<span class="ot">;</span>    <span class="co">// true</span></span>
+<span id="cb62-7"><a href="php---forms-e-estruturas-de-controle.html#cb62-7" tabindex="-1"></a><span class="fu">var_dump</span>(<span class="va">$a</span> <span class="op">&lt;=</span> <span class="dv">5</span>)<span class="ot">;</span>    <span class="co">// true</span></span>
+<span id="cb62-8"><a href="php---forms-e-estruturas-de-controle.html#cb62-8" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<p>Esses operadores são a base das estruturas condicionais.</p>
+</div>
+<div id="if-else---controle-de-fluxo" class="section level2" number="5.8">
+<h2>
+<span class="header-section-number">5.8</span> IF ELSE - Controle de fluxo<a class="anchor" aria-label="anchor" href="#if-else---controle-de-fluxo"><i class="fas fa-link"></i></a>
+</h2>
+<p>O <code>if/else</code> é utilizado para definir ações a partir de uma condição lógica. No material, esse conceito é apresentado com um formulário que recebe duas notas e calcula a média do aluno.</p>
+<div id="formulário-para-enviar-as-notas" class="section level3 unnumbered">
+<h3>Formulário para enviar as notas<a class="anchor" aria-label="anchor" href="#formul%C3%A1rio-para-enviar-as-notas"><i class="fas fa-link"></i></a>
+</h3>
+<div id="arquivo-index.php-1" class="section level4 unnumbered">
+<h4>Arquivo <code>index.php</code><a class="anchor" aria-label="anchor" href="#arquivo-index.php-1"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb63"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb63-1"><a href="php---forms-e-estruturas-de-controle.html#cb63-1" tabindex="-1"></a><span class="op">&lt;!</span><span class="cn">DOCTYPE</span> html<span class="op">&gt;</span></span>
+<span id="cb63-2"><a href="php---forms-e-estruturas-de-controle.html#cb63-2" tabindex="-1"></a><span class="op">&lt;</span>html lang<span class="op">=</span><span class="st">"pt-BR"</span><span class="op">&gt;</span></span>
+<span id="cb63-3"><a href="php---forms-e-estruturas-de-controle.html#cb63-3" tabindex="-1"></a><span class="op">&lt;</span>head<span class="op">&gt;</span></span>
+<span id="cb63-4"><a href="php---forms-e-estruturas-de-controle.html#cb63-4" tabindex="-1"></a>    <span class="op">&lt;</span>meta charset<span class="op">=</span><span class="st">"UTF-8"</span><span class="op">&gt;</span></span>
+<span id="cb63-5"><a href="php---forms-e-estruturas-de-controle.html#cb63-5" tabindex="-1"></a>    <span class="op">&lt;</span>title<span class="op">&gt;</span>Controle de fluxo com <span class="cf">if</span><span class="op">/</span><span class="cf">else</span><span class="op">&lt;/</span>title<span class="op">&gt;</span></span>
+<span id="cb63-6"><a href="php---forms-e-estruturas-de-controle.html#cb63-6" tabindex="-1"></a><span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
+<span id="cb63-7"><a href="php---forms-e-estruturas-de-controle.html#cb63-7" tabindex="-1"></a><span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb63-8"><a href="php---forms-e-estruturas-de-controle.html#cb63-8" tabindex="-1"></a></span>
+<span id="cb63-9"><a href="php---forms-e-estruturas-de-controle.html#cb63-9" tabindex="-1"></a>    <span class="op">&lt;</span>p<span class="op">&gt;</span>Digite <span class="kw">as</span> notas e veja o resultado <span class="kw">final</span> <span class="cf">do</span> semestre<span class="ot">:</span><span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb63-10"><a href="php---forms-e-estruturas-de-controle.html#cb63-10" tabindex="-1"></a></span>
+<span id="cb63-11"><a href="php---forms-e-estruturas-de-controle.html#cb63-11" tabindex="-1"></a>    <span class="op">&lt;</span>form action<span class="op">=</span><span class="st">"condicao.php"</span> method<span class="op">=</span><span class="st">"get"</span><span class="op">&gt;</span></span>
+<span id="cb63-12"><a href="php---forms-e-estruturas-de-controle.html#cb63-12" tabindex="-1"></a>        <span class="op">&lt;</span>p<span class="op">&gt;</span></span>
+<span id="cb63-13"><a href="php---forms-e-estruturas-de-controle.html#cb63-13" tabindex="-1"></a>            Nota <span class="dv">1</span><span class="ot">:</span></span>
+<span id="cb63-14"><a href="php---forms-e-estruturas-de-controle.html#cb63-14" tabindex="-1"></a>            <span class="op">&lt;</span>input <span class="kw">class</span><span class="op">=</span><span class="st">"texto"</span> type<span class="op">=</span><span class="st">"number"</span> name<span class="op">=</span><span class="st">"valor1"</span> step<span class="op">=</span><span class="st">"0.1"</span><span class="op">&gt;</span></span>
+<span id="cb63-15"><a href="php---forms-e-estruturas-de-controle.html#cb63-15" tabindex="-1"></a>        <span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb63-16"><a href="php---forms-e-estruturas-de-controle.html#cb63-16" tabindex="-1"></a></span>
+<span id="cb63-17"><a href="php---forms-e-estruturas-de-controle.html#cb63-17" tabindex="-1"></a>        <span class="op">&lt;</span>p<span class="op">&gt;</span></span>
+<span id="cb63-18"><a href="php---forms-e-estruturas-de-controle.html#cb63-18" tabindex="-1"></a>            Nota <span class="dv">2</span><span class="ot">:</span></span>
+<span id="cb63-19"><a href="php---forms-e-estruturas-de-controle.html#cb63-19" tabindex="-1"></a>            <span class="op">&lt;</span>input <span class="kw">class</span><span class="op">=</span><span class="st">"texto"</span> type<span class="op">=</span><span class="st">"number"</span> name<span class="op">=</span><span class="st">"valor2"</span> step<span class="op">=</span><span class="st">"0.1"</span><span class="op">&gt;</span></span>
+<span id="cb63-20"><a href="php---forms-e-estruturas-de-controle.html#cb63-20" tabindex="-1"></a>        <span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb63-21"><a href="php---forms-e-estruturas-de-controle.html#cb63-21" tabindex="-1"></a></span>
+<span id="cb63-22"><a href="php---forms-e-estruturas-de-controle.html#cb63-22" tabindex="-1"></a>        <span class="op">&lt;</span>input <span class="kw">class</span><span class="op">=</span><span class="st">"botao"</span> type<span class="op">=</span><span class="st">"submit"</span> value<span class="op">=</span><span class="st">"Calcular"</span><span class="op">&gt;</span></span>
+<span id="cb63-23"><a href="php---forms-e-estruturas-de-controle.html#cb63-23" tabindex="-1"></a>    <span class="op">&lt;/</span>form<span class="op">&gt;</span></span>
+<span id="cb63-24"><a href="php---forms-e-estruturas-de-controle.html#cb63-24" tabindex="-1"></a></span>
+<span id="cb63-25"><a href="php---forms-e-estruturas-de-controle.html#cb63-25" tabindex="-1"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb63-26"><a href="php---forms-e-estruturas-de-controle.html#cb63-26" tabindex="-1"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
+</div>
+</div>
+<div id="recebendo-os-valores-e-calculando-a-média" class="section level3 unnumbered">
+<h3>Recebendo os valores e calculando a média<a class="anchor" aria-label="anchor" href="#recebendo-os-valores-e-calculando-a-m%C3%A9dia"><i class="fas fa-link"></i></a>
+</h3>
+<div id="arquivo-condicao.php" class="section level4 unnumbered">
+<h4>Arquivo <code>condicao.php</code><a class="anchor" aria-label="anchor" href="#arquivo-condicao.php"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb64"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb64-1"><a href="php---forms-e-estruturas-de-controle.html#cb64-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb64-2"><a href="php---forms-e-estruturas-de-controle.html#cb64-2" tabindex="-1"></a><span class="va">$nota1</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">"valor1"</span>]<span class="ot">;</span></span>
+<span id="cb64-3"><a href="php---forms-e-estruturas-de-controle.html#cb64-3" tabindex="-1"></a><span class="va">$nota2</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">"valor2"</span>]<span class="ot">;</span></span>
+<span id="cb64-4"><a href="php---forms-e-estruturas-de-controle.html#cb64-4" tabindex="-1"></a><span class="va">$media</span> <span class="op">=</span> (<span class="va">$nota1</span> <span class="op">+</span> <span class="va">$nota2</span>) <span class="op">/</span> <span class="dv">2</span><span class="ot">;</span></span>
+<span id="cb64-5"><a href="php---forms-e-estruturas-de-controle.html#cb64-5" tabindex="-1"></a><span class="kw">?&gt;</span></span>
+<span id="cb64-6"><a href="php---forms-e-estruturas-de-controle.html#cb64-6" tabindex="-1"></a></span>
+<span id="cb64-7"><a href="php---forms-e-estruturas-de-controle.html#cb64-7" tabindex="-1"></a><span class="op">&lt;!</span><span class="cn">DOCTYPE</span> html<span class="op">&gt;</span></span>
+<span id="cb64-8"><a href="php---forms-e-estruturas-de-controle.html#cb64-8" tabindex="-1"></a><span class="op">&lt;</span>html lang<span class="op">=</span><span class="st">"pt-BR"</span><span class="op">&gt;</span></span>
+<span id="cb64-9"><a href="php---forms-e-estruturas-de-controle.html#cb64-9" tabindex="-1"></a><span class="op">&lt;</span>head<span class="op">&gt;</span></span>
+<span id="cb64-10"><a href="php---forms-e-estruturas-de-controle.html#cb64-10" tabindex="-1"></a>    <span class="op">&lt;</span>meta charset<span class="op">=</span><span class="st">"UTF-8"</span><span class="op">&gt;</span></span>
+<span id="cb64-11"><a href="php---forms-e-estruturas-de-controle.html#cb64-11" tabindex="-1"></a>    <span class="op">&lt;</span>title<span class="op">&gt;</span>Resultado da média<span class="op">&lt;/</span>title<span class="op">&gt;</span></span>
+<span id="cb64-12"><a href="php---forms-e-estruturas-de-controle.html#cb64-12" tabindex="-1"></a><span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
+<span id="cb64-13"><a href="php---forms-e-estruturas-de-controle.html#cb64-13" tabindex="-1"></a><span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb64-14"><a href="php---forms-e-estruturas-de-controle.html#cb64-14" tabindex="-1"></a></span>
+<span id="cb64-15"><a href="php---forms-e-estruturas-de-controle.html#cb64-15" tabindex="-1"></a>    <span class="op">&lt;</span>p<span class="op">&gt;</span>Sua média é <span class="op">&lt;</span><span class="ot">?</span>php <span class="kw">echo</span> <span class="va">$media</span><span class="ot">;</span> <span class="kw">?&gt;</span><span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb64-16"><a href="php---forms-e-estruturas-de-controle.html#cb64-16" tabindex="-1"></a></span>
+<span id="cb64-17"><a href="php---forms-e-estruturas-de-controle.html#cb64-17" tabindex="-1"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb64-18"><a href="php---forms-e-estruturas-de-controle.html#cb64-18" tabindex="-1"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
+</div>
+</div>
+<div id="aplicando-as-condições" class="section level3 unnumbered">
+<h3>Aplicando as condições<a class="anchor" aria-label="anchor" href="#aplicando-as-condi%C3%A7%C3%B5es"><i class="fas fa-link"></i></a>
+</h3>
+<p>O exemplo do slide classifica a situação do aluno conforme a média calculada.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb65-1"><a href="php---forms-e-estruturas-de-controle.html#cb65-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb65-2"><a href="php---forms-e-estruturas-de-controle.html#cb65-2" tabindex="-1"></a><span class="va">$nota1</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">"valor1"</span>]<span class="ot">;</span></span>
+<span id="cb65-3"><a href="php---forms-e-estruturas-de-controle.html#cb65-3" tabindex="-1"></a><span class="va">$nota2</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">"valor2"</span>]<span class="ot">;</span></span>
+<span id="cb65-4"><a href="php---forms-e-estruturas-de-controle.html#cb65-4" tabindex="-1"></a><span class="va">$media</span> <span class="op">=</span> (<span class="va">$nota1</span> <span class="op">+</span> <span class="va">$nota2</span>) <span class="op">/</span> <span class="dv">2</span><span class="ot">;</span></span>
+<span id="cb65-5"><a href="php---forms-e-estruturas-de-controle.html#cb65-5" tabindex="-1"></a><span class="kw">?&gt;</span></span>
+<span id="cb65-6"><a href="php---forms-e-estruturas-de-controle.html#cb65-6" tabindex="-1"></a></span>
+<span id="cb65-7"><a href="php---forms-e-estruturas-de-controle.html#cb65-7" tabindex="-1"></a><span class="op">&lt;!</span><span class="cn">DOCTYPE</span> html<span class="op">&gt;</span></span>
+<span id="cb65-8"><a href="php---forms-e-estruturas-de-controle.html#cb65-8" tabindex="-1"></a><span class="op">&lt;</span>html lang<span class="op">=</span><span class="st">"pt-BR"</span><span class="op">&gt;</span></span>
+<span id="cb65-9"><a href="php---forms-e-estruturas-de-controle.html#cb65-9" tabindex="-1"></a><span class="op">&lt;</span>head<span class="op">&gt;</span></span>
+<span id="cb65-10"><a href="php---forms-e-estruturas-de-controle.html#cb65-10" tabindex="-1"></a>    <span class="op">&lt;</span>meta charset<span class="op">=</span><span class="st">"UTF-8"</span><span class="op">&gt;</span></span>
+<span id="cb65-11"><a href="php---forms-e-estruturas-de-controle.html#cb65-11" tabindex="-1"></a>    <span class="op">&lt;</span>title<span class="op">&gt;</span>Situação <span class="kw">final</span><span class="op">&lt;/</span>title<span class="op">&gt;</span></span>
+<span id="cb65-12"><a href="php---forms-e-estruturas-de-controle.html#cb65-12" tabindex="-1"></a><span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
+<span id="cb65-13"><a href="php---forms-e-estruturas-de-controle.html#cb65-13" tabindex="-1"></a><span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb65-14"><a href="php---forms-e-estruturas-de-controle.html#cb65-14" tabindex="-1"></a></span>
+<span id="cb65-15"><a href="php---forms-e-estruturas-de-controle.html#cb65-15" tabindex="-1"></a>    <span class="op">&lt;</span>p<span class="op">&gt;</span>Sua média é <span class="op">&lt;</span><span class="ot">?</span>php <span class="kw">echo</span> <span class="va">$media</span><span class="ot">;</span> <span class="kw">?&gt;</span><span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb65-16"><a href="php---forms-e-estruturas-de-controle.html#cb65-16" tabindex="-1"></a></span>
+<span id="cb65-17"><a href="php---forms-e-estruturas-de-controle.html#cb65-17" tabindex="-1"></a>    <span class="op">&lt;</span>p<span class="op">&gt;</span></span>
+<span id="cb65-18"><a href="php---forms-e-estruturas-de-controle.html#cb65-18" tabindex="-1"></a>        Sua situação é<span class="ot">:</span></span>
+<span id="cb65-19"><a href="php---forms-e-estruturas-de-controle.html#cb65-19" tabindex="-1"></a>        <span class="op">&lt;</span><span class="ot">?</span>php</span>
+<span id="cb65-20"><a href="php---forms-e-estruturas-de-controle.html#cb65-20" tabindex="-1"></a>        <span class="cf">if</span> (<span class="va">$media</span> <span class="op">&gt;=</span> <span class="fl">6.0</span>) {</span>
+<span id="cb65-21"><a href="php---forms-e-estruturas-de-controle.html#cb65-21" tabindex="-1"></a>            <span class="kw">echo</span> <span class="st">"APROVADO!"</span><span class="ot">;</span></span>
+<span id="cb65-22"><a href="php---forms-e-estruturas-de-controle.html#cb65-22" tabindex="-1"></a>        } <span class="cf">else</span> <span class="cf">if</span> (<span class="va">$media</span> <span class="op">&gt;=</span> <span class="fl">2.0</span>) {</span>
+<span id="cb65-23"><a href="php---forms-e-estruturas-de-controle.html#cb65-23" tabindex="-1"></a>            <span class="kw">echo</span> <span class="st">"RECUPERAÇÃO."</span><span class="ot">;</span></span>
+<span id="cb65-24"><a href="php---forms-e-estruturas-de-controle.html#cb65-24" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
+<span id="cb65-25"><a href="php---forms-e-estruturas-de-controle.html#cb65-25" tabindex="-1"></a>            <span class="kw">echo</span> <span class="st">"REPROVADO."</span><span class="ot">;</span></span>
+<span id="cb65-26"><a href="php---forms-e-estruturas-de-controle.html#cb65-26" tabindex="-1"></a>        }</span>
+<span id="cb65-27"><a href="php---forms-e-estruturas-de-controle.html#cb65-27" tabindex="-1"></a>        <span class="kw">?&gt;</span></span>
+<span id="cb65-28"><a href="php---forms-e-estruturas-de-controle.html#cb65-28" tabindex="-1"></a>    <span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb65-29"><a href="php---forms-e-estruturas-de-controle.html#cb65-29" tabindex="-1"></a></span>
+<span id="cb65-30"><a href="php---forms-e-estruturas-de-controle.html#cb65-30" tabindex="-1"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb65-31"><a href="php---forms-e-estruturas-de-controle.html#cb65-31" tabindex="-1"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
+<p>Essa estrutura permite executar blocos diferentes de código conforme o valor da expressão lógica.</p>
+</div>
+</div>
+<div id="switch-case---controle-de-fluxo" class="section level2" number="5.9">
+<h2>
+<span class="header-section-number">5.9</span> Switch case - Controle de fluxo<a class="anchor" aria-label="anchor" href="#switch-case---controle-de-fluxo"><i class="fas fa-link"></i></a>
+</h2>
+<p>A estrutura <code>switch</code> é indicada quando queremos comparar o valor de uma variável com várias opções possíveis. No material, o exemplo usa a variável <code>$favcolor</code> para determinar uma mensagem correspondente.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb66-1"><a href="php---forms-e-estruturas-de-controle.html#cb66-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb66-2"><a href="php---forms-e-estruturas-de-controle.html#cb66-2" tabindex="-1"></a><span class="va">$favcolor</span> <span class="op">=</span> <span class="st">"red"</span><span class="ot">;</span></span>
+<span id="cb66-3"><a href="php---forms-e-estruturas-de-controle.html#cb66-3" tabindex="-1"></a></span>
+<span id="cb66-4"><a href="php---forms-e-estruturas-de-controle.html#cb66-4" tabindex="-1"></a><span class="cf">switch</span> (<span class="va">$favcolor</span>) {</span>
+<span id="cb66-5"><a href="php---forms-e-estruturas-de-controle.html#cb66-5" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">"red"</span><span class="ot">:</span></span>
+<span id="cb66-6"><a href="php---forms-e-estruturas-de-controle.html#cb66-6" tabindex="-1"></a>        <span class="kw">echo</span> <span class="st">"Sua cor favorita é vermelho!"</span><span class="ot">;</span></span>
+<span id="cb66-7"><a href="php---forms-e-estruturas-de-controle.html#cb66-7" tabindex="-1"></a>        <span class="cf">break</span><span class="ot">;</span></span>
+<span id="cb66-8"><a href="php---forms-e-estruturas-de-controle.html#cb66-8" tabindex="-1"></a></span>
+<span id="cb66-9"><a href="php---forms-e-estruturas-de-controle.html#cb66-9" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">"blue"</span><span class="ot">:</span></span>
+<span id="cb66-10"><a href="php---forms-e-estruturas-de-controle.html#cb66-10" tabindex="-1"></a>        <span class="kw">echo</span> <span class="st">"Sua cor favorita é azul!"</span><span class="ot">;</span></span>
+<span id="cb66-11"><a href="php---forms-e-estruturas-de-controle.html#cb66-11" tabindex="-1"></a>        <span class="cf">break</span><span class="ot">;</span></span>
+<span id="cb66-12"><a href="php---forms-e-estruturas-de-controle.html#cb66-12" tabindex="-1"></a></span>
+<span id="cb66-13"><a href="php---forms-e-estruturas-de-controle.html#cb66-13" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">"green"</span><span class="ot">:</span></span>
+<span id="cb66-14"><a href="php---forms-e-estruturas-de-controle.html#cb66-14" tabindex="-1"></a>        <span class="kw">echo</span> <span class="st">"Sua cor favorita é verde!"</span><span class="ot">;</span></span>
+<span id="cb66-15"><a href="php---forms-e-estruturas-de-controle.html#cb66-15" tabindex="-1"></a>        <span class="cf">break</span><span class="ot">;</span></span>
+<span id="cb66-16"><a href="php---forms-e-estruturas-de-controle.html#cb66-16" tabindex="-1"></a></span>
+<span id="cb66-17"><a href="php---forms-e-estruturas-de-controle.html#cb66-17" tabindex="-1"></a>    <span class="cf">default</span><span class="ot">:</span></span>
+<span id="cb66-18"><a href="php---forms-e-estruturas-de-controle.html#cb66-18" tabindex="-1"></a>        <span class="kw">echo</span> <span class="st">"Sua cor favorita não é vermelho, azul nem verde."</span><span class="ot">;</span></span>
+<span id="cb66-19"><a href="php---forms-e-estruturas-de-controle.html#cb66-19" tabindex="-1"></a>}</span>
+<span id="cb66-20"><a href="php---forms-e-estruturas-de-controle.html#cb66-20" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<div id="quando-usar-switch" class="section level3 unnumbered">
+<h3>Quando usar <code>switch</code>?<a class="anchor" aria-label="anchor" href="#quando-usar-switch"><i class="fas fa-link"></i></a>
+</h3>
+<p>O <code>switch</code> é útil quando:</p>
+<ul>
+<li>há várias comparações com a mesma variável</li>
+<li>os casos são valores bem definidos</li>
+<li>deseja-se evitar muitos <code>if/else if</code>
+</li>
+</ul>
+</div>
+</div>
+<div id="loops-em-php" class="section level2" number="5.10">
+<h2>
+<span class="header-section-number">5.10</span> Loops em PHP<a class="anchor" aria-label="anchor" href="#loops-em-php"><i class="fas fa-link"></i></a>
+</h2>
+<p>Laços de repetição permitem executar um mesmo bloco de código várias vezes. O material aborda os laços <code>while</code>, <code>do while</code> e <code>for</code>, que são fundamentais para automação de tarefas e processamento de listas ou sequências.</p>
+<div id="while" class="section level3 unnumbered">
+<h3>while<a class="anchor" aria-label="anchor" href="#while"><i class="fas fa-link"></i></a>
+</h3>
+<p>O <code>while</code> executa um bloco de código enquanto uma condição for verdadeira. O slide apresenta um contador que começa em 1 e é executado enquanto for menor que 6.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb67-1"><a href="php---forms-e-estruturas-de-controle.html#cb67-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb67-2"><a href="php---forms-e-estruturas-de-controle.html#cb67-2" tabindex="-1"></a><span class="va">$i</span> <span class="op">=</span> <span class="dv">1</span><span class="ot">;</span></span>
+<span id="cb67-3"><a href="php---forms-e-estruturas-de-controle.html#cb67-3" tabindex="-1"></a></span>
+<span id="cb67-4"><a href="php---forms-e-estruturas-de-controle.html#cb67-4" tabindex="-1"></a><span class="cf">while</span> (<span class="va">$i</span> <span class="op">&lt;</span> <span class="dv">6</span>) {</span>
+<span id="cb67-5"><a href="php---forms-e-estruturas-de-controle.html#cb67-5" tabindex="-1"></a>    <span class="kw">echo</span> <span class="va">$i</span> <span class="op">.</span> <span class="st">"&lt;br&gt;"</span><span class="ot">;</span></span>
+<span id="cb67-6"><a href="php---forms-e-estruturas-de-controle.html#cb67-6" tabindex="-1"></a>    <span class="va">$i</span><span class="op">++</span><span class="ot">;</span></span>
+<span id="cb67-7"><a href="php---forms-e-estruturas-de-controle.html#cb67-7" tabindex="-1"></a>}</span>
+<span id="cb67-8"><a href="php---forms-e-estruturas-de-controle.html#cb67-8" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<p>Nesse exemplo, o resultado exibido será:</p>
+<pre class="text"><code>1
+2
+3
+4
+5</code></pre>
+</div>
+<div id="do-while" class="section level3 unnumbered">
+<h3>do while<a class="anchor" aria-label="anchor" href="#do-while"><i class="fas fa-link"></i></a>
+</h3>
+<p>O <code>do while</code> é parecido com o <code>while</code>, mas possui uma diferença importante: ele executa o bloco pelo menos uma vez, e só depois testa a condição.</p>
+<p>O material mostra um exemplo em que <code>$i</code> começa com 8 e a condição é <code>$i &lt; 6</code>. Mesmo assim, o código executa uma vez.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb69-1"><a href="php---forms-e-estruturas-de-controle.html#cb69-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb69-2"><a href="php---forms-e-estruturas-de-controle.html#cb69-2" tabindex="-1"></a><span class="va">$i</span> <span class="op">=</span> <span class="dv">8</span><span class="ot">;</span></span>
+<span id="cb69-3"><a href="php---forms-e-estruturas-de-controle.html#cb69-3" tabindex="-1"></a></span>
+<span id="cb69-4"><a href="php---forms-e-estruturas-de-controle.html#cb69-4" tabindex="-1"></a><span class="cf">do</span> {</span>
+<span id="cb69-5"><a href="php---forms-e-estruturas-de-controle.html#cb69-5" tabindex="-1"></a>    <span class="kw">echo</span> <span class="va">$i</span> <span class="op">.</span> <span class="st">"&lt;br&gt;"</span><span class="ot">;</span></span>
+<span id="cb69-6"><a href="php---forms-e-estruturas-de-controle.html#cb69-6" tabindex="-1"></a>    <span class="va">$i</span><span class="op">++</span><span class="ot">;</span></span>
+<span id="cb69-7"><a href="php---forms-e-estruturas-de-controle.html#cb69-7" tabindex="-1"></a>} <span class="cf">while</span> (<span class="va">$i</span> <span class="op">&lt;</span> <span class="dv">6</span>)<span class="ot">;</span></span>
+<span id="cb69-8"><a href="php---forms-e-estruturas-de-controle.html#cb69-8" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<p>Nesse caso, o número <code>8</code> será exibido uma vez, pois o teste ocorre apenas após a execução inicial.</p>
+</div>
+<div id="for" class="section level3 unnumbered">
+<h3>for<a class="anchor" aria-label="anchor" href="#for"><i class="fas fa-link"></i></a>
+</h3>
+<p>O laço <code>for</code> é normalmente utilizado quando já sabemos quantas repetições serão realizadas. O material apresenta um contador de 0 até 10.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb70-1"><a href="php---forms-e-estruturas-de-controle.html#cb70-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb70-2"><a href="php---forms-e-estruturas-de-controle.html#cb70-2" tabindex="-1"></a><span class="cf">for</span> (<span class="va">$x</span> <span class="op">=</span> <span class="dv">0</span><span class="ot">;</span> <span class="va">$x</span> <span class="op">&lt;=</span> <span class="dv">10</span><span class="ot">;</span> <span class="va">$x</span><span class="op">++</span>) {</span>
+<span id="cb70-3"><a href="php---forms-e-estruturas-de-controle.html#cb70-3" tabindex="-1"></a>    <span class="kw">echo</span> <span class="st">"O número é: </span><span class="va">$x</span><span class="st"> &lt;br&gt;"</span><span class="ot">;</span></span>
+<span id="cb70-4"><a href="php---forms-e-estruturas-de-controle.html#cb70-4" tabindex="-1"></a>}</span>
+<span id="cb70-5"><a href="php---forms-e-estruturas-de-controle.html#cb70-5" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<p>A estrutura do <code>for</code> possui três partes:</p>
+<ol style="list-style-type: decimal">
+<li>inicialização da variável de controle</li>
+<li>condição de repetição</li>
+<li>atualização da variável</li>
+</ol>
+</div>
+<div id="foreach" class="section level3 unnumbered">
+<h3>foreach<a class="anchor" aria-label="anchor" href="#foreach"><i class="fas fa-link"></i></a>
+</h3>
+<p>Embora o slide esteja no quadro do <code>for</code>, ele também apresenta um exemplo com <code>foreach</code>, usado para percorrer arrays associativos.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb71-1"><a href="php---forms-e-estruturas-de-controle.html#cb71-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb71-2"><a href="php---forms-e-estruturas-de-controle.html#cb71-2" tabindex="-1"></a><span class="va">$membros</span> <span class="op">=</span> <span class="dt">array</span>(<span class="st">"Peter"</span> =&gt; <span class="st">"35"</span><span class="ot">,</span> <span class="st">"Ben"</span> =&gt; <span class="st">"37"</span><span class="ot">,</span> <span class="st">"Joe"</span> =&gt; <span class="st">"43"</span>)<span class="ot">;</span></span>
+<span id="cb71-3"><a href="php---forms-e-estruturas-de-controle.html#cb71-3" tabindex="-1"></a></span>
+<span id="cb71-4"><a href="php---forms-e-estruturas-de-controle.html#cb71-4" tabindex="-1"></a><span class="cf">foreach</span> (<span class="va">$membros</span> <span class="kw">as</span> <span class="va">$nome</span> =&gt; <span class="va">$idade</span>) {</span>
+<span id="cb71-5"><a href="php---forms-e-estruturas-de-controle.html#cb71-5" tabindex="-1"></a>    <span class="kw">echo</span> <span class="st">"</span><span class="va">$nome</span><span class="st"> : </span><span class="va">$idade</span><span class="st"> &lt;br&gt;"</span><span class="ot">;</span></span>
+<span id="cb71-6"><a href="php---forms-e-estruturas-de-controle.html#cb71-6" tabindex="-1"></a>}</span>
+<span id="cb71-7"><a href="php---forms-e-estruturas-de-controle.html#cb71-7" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<p>O <code>foreach</code> é especialmente útil para percorrer listas, vetores e estruturas associativas sem a necessidade de controlar índices manualmente.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;E. M. Miletto and S. de Castro Bertagnolli, &lt;em&gt;Desenvolvimento de Software II: Introdu&lt;span&gt;ç&lt;/span&gt;&lt;span&gt;ã&lt;/span&gt;o Ao Desenvolvimento Web Com HTML, CSS, JavaScript e PHP - Eixo: Informa&lt;span&gt;ç&lt;/span&gt;&lt;span&gt;ã&lt;/span&gt;o e Comunica&lt;span&gt;ç&lt;/span&gt;&lt;span&gt;ã&lt;/span&gt;o - s&lt;span&gt;é&lt;/span&gt;rie Tekne&lt;/em&gt;, Tekne (Bookman Editora, 2014), &lt;a href="https://books.google.com.br/books?id=lcLFAwAAQBAJ"&gt;https://books.google.com.br/books?id=lcLFAwAAQBAJ&lt;/a&gt;.&lt;/p&gt;'><sup>6</sup></a></span></p>
+</div>
+<div id="comparando-os-laços" class="section level3 unnumbered">
+<h3>Comparando os laços<a class="anchor" aria-label="anchor" href="#comparando-os-la%C3%A7os"><i class="fas fa-link"></i></a>
+</h3>
+<div class="rmdwarning">
+<p>Cada laço possui um contexto de uso mais apropriado:</p>
+<ul>
+<li>
+<code>while</code>: quando a repetição depende de uma condição que pode variar durante a execução</li>
+<li>
+<code>do while</code>: quando o bloco precisa ser executado ao menos uma vez</li>
+<li>
+<code>for</code>: quando a quantidade de repetições é conhecida</li>
+<li>
+<code>foreach</code>: quando se quer percorrer arrays</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="exemplo-integrando-formulário-e-decisão" class="section level2" number="5.11">
+<h2>
+<span class="header-section-number">5.11</span> Exemplo integrando formulário e decisão<a class="anchor" aria-label="anchor" href="#exemplo-integrando-formul%C3%A1rio-e-decis%C3%A3o"><i class="fas fa-link"></i></a>
+</h2>
+<p>A seguir está um exemplo curto que integra formulário, <code>$_GET</code> e <code>if/else</code>.</p>
+<div id="arquivo-form_media.php" class="section level3 unnumbered">
+<h3>Arquivo <code>form_media.php</code><a class="anchor" aria-label="anchor" href="#arquivo-form_media.php"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb72"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb72-1"><a href="php---forms-e-estruturas-de-controle.html#cb72-1" tabindex="-1"></a><span class="op">&lt;!</span><span class="cn">DOCTYPE</span> html<span class="op">&gt;</span></span>
+<span id="cb72-2"><a href="php---forms-e-estruturas-de-controle.html#cb72-2" tabindex="-1"></a><span class="op">&lt;</span>html lang<span class="op">=</span><span class="st">"pt-BR"</span><span class="op">&gt;</span></span>
+<span id="cb72-3"><a href="php---forms-e-estruturas-de-controle.html#cb72-3" tabindex="-1"></a><span class="op">&lt;</span>head<span class="op">&gt;</span></span>
+<span id="cb72-4"><a href="php---forms-e-estruturas-de-controle.html#cb72-4" tabindex="-1"></a>    <span class="op">&lt;</span>meta charset<span class="op">=</span><span class="st">"UTF-8"</span><span class="op">&gt;</span></span>
+<span id="cb72-5"><a href="php---forms-e-estruturas-de-controle.html#cb72-5" tabindex="-1"></a>    <span class="op">&lt;</span>title<span class="op">&gt;</span>Exemplo completo<span class="op">&lt;/</span>title<span class="op">&gt;</span></span>
+<span id="cb72-6"><a href="php---forms-e-estruturas-de-controle.html#cb72-6" tabindex="-1"></a><span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
+<span id="cb72-7"><a href="php---forms-e-estruturas-de-controle.html#cb72-7" tabindex="-1"></a><span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb72-8"><a href="php---forms-e-estruturas-de-controle.html#cb72-8" tabindex="-1"></a></span>
+<span id="cb72-9"><a href="php---forms-e-estruturas-de-controle.html#cb72-9" tabindex="-1"></a>    <span class="op">&lt;</span>h1<span class="op">&gt;</span>Cálculo de média<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
+<span id="cb72-10"><a href="php---forms-e-estruturas-de-controle.html#cb72-10" tabindex="-1"></a></span>
+<span id="cb72-11"><a href="php---forms-e-estruturas-de-controle.html#cb72-11" tabindex="-1"></a>    <span class="op">&lt;</span>form action<span class="op">=</span><span class="st">""</span> method<span class="op">=</span><span class="st">"get"</span><span class="op">&gt;</span></span>
+<span id="cb72-12"><a href="php---forms-e-estruturas-de-controle.html#cb72-12" tabindex="-1"></a>        <span class="op">&lt;</span>p<span class="op">&gt;</span></span>
+<span id="cb72-13"><a href="php---forms-e-estruturas-de-controle.html#cb72-13" tabindex="-1"></a>            Nota <span class="dv">1</span><span class="ot">:</span></span>
+<span id="cb72-14"><a href="php---forms-e-estruturas-de-controle.html#cb72-14" tabindex="-1"></a>            <span class="op">&lt;</span>input type<span class="op">=</span><span class="st">"number"</span> name<span class="op">=</span><span class="st">"n1"</span> step<span class="op">=</span><span class="st">"0.1"</span><span class="op">&gt;</span></span>
+<span id="cb72-15"><a href="php---forms-e-estruturas-de-controle.html#cb72-15" tabindex="-1"></a>        <span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb72-16"><a href="php---forms-e-estruturas-de-controle.html#cb72-16" tabindex="-1"></a></span>
+<span id="cb72-17"><a href="php---forms-e-estruturas-de-controle.html#cb72-17" tabindex="-1"></a>        <span class="op">&lt;</span>p<span class="op">&gt;</span></span>
+<span id="cb72-18"><a href="php---forms-e-estruturas-de-controle.html#cb72-18" tabindex="-1"></a>            Nota <span class="dv">2</span><span class="ot">:</span></span>
+<span id="cb72-19"><a href="php---forms-e-estruturas-de-controle.html#cb72-19" tabindex="-1"></a>            <span class="op">&lt;</span>input type<span class="op">=</span><span class="st">"number"</span> name<span class="op">=</span><span class="st">"n2"</span> step<span class="op">=</span><span class="st">"0.1"</span><span class="op">&gt;</span></span>
+<span id="cb72-20"><a href="php---forms-e-estruturas-de-controle.html#cb72-20" tabindex="-1"></a>        <span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb72-21"><a href="php---forms-e-estruturas-de-controle.html#cb72-21" tabindex="-1"></a></span>
+<span id="cb72-22"><a href="php---forms-e-estruturas-de-controle.html#cb72-22" tabindex="-1"></a>        <span class="op">&lt;</span>button type<span class="op">=</span><span class="st">"submit"</span><span class="op">&gt;</span>Calcular<span class="op">&lt;/</span>button<span class="op">&gt;</span></span>
+<span id="cb72-23"><a href="php---forms-e-estruturas-de-controle.html#cb72-23" tabindex="-1"></a>    <span class="op">&lt;/</span>form<span class="op">&gt;</span></span>
+<span id="cb72-24"><a href="php---forms-e-estruturas-de-controle.html#cb72-24" tabindex="-1"></a></span>
+<span id="cb72-25"><a href="php---forms-e-estruturas-de-controle.html#cb72-25" tabindex="-1"></a>    <span class="op">&lt;</span><span class="ot">?</span>php</span>
+<span id="cb72-26"><a href="php---forms-e-estruturas-de-controle.html#cb72-26" tabindex="-1"></a>    <span class="cf">if</span> (<span class="kw">isset</span>(<span class="va">$_GET</span>[<span class="st">"n1"</span>]) <span class="op">&amp;&amp;</span> <span class="kw">isset</span>(<span class="va">$_GET</span>[<span class="st">"n2"</span>])) {</span>
+<span id="cb72-27"><a href="php---forms-e-estruturas-de-controle.html#cb72-27" tabindex="-1"></a>        <span class="va">$n1</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">"n1"</span>]<span class="ot">;</span></span>
+<span id="cb72-28"><a href="php---forms-e-estruturas-de-controle.html#cb72-28" tabindex="-1"></a>        <span class="va">$n2</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">"n2"</span>]<span class="ot">;</span></span>
+<span id="cb72-29"><a href="php---forms-e-estruturas-de-controle.html#cb72-29" tabindex="-1"></a>        <span class="va">$media</span> <span class="op">=</span> (<span class="va">$n1</span> <span class="op">+</span> <span class="va">$n2</span>) <span class="op">/</span> <span class="dv">2</span><span class="ot">;</span></span>
+<span id="cb72-30"><a href="php---forms-e-estruturas-de-controle.html#cb72-30" tabindex="-1"></a></span>
+<span id="cb72-31"><a href="php---forms-e-estruturas-de-controle.html#cb72-31" tabindex="-1"></a>        <span class="kw">echo</span> <span class="st">"&lt;p&gt;Média: </span><span class="va">$media</span><span class="st">&lt;/p&gt;"</span><span class="ot">;</span></span>
+<span id="cb72-32"><a href="php---forms-e-estruturas-de-controle.html#cb72-32" tabindex="-1"></a></span>
+<span id="cb72-33"><a href="php---forms-e-estruturas-de-controle.html#cb72-33" tabindex="-1"></a>        <span class="cf">if</span> (<span class="va">$media</span> <span class="op">&gt;=</span> <span class="dv">6</span>) {</span>
+<span id="cb72-34"><a href="php---forms-e-estruturas-de-controle.html#cb72-34" tabindex="-1"></a>            <span class="kw">echo</span> <span class="st">"&lt;p&gt;APROVADO&lt;/p&gt;"</span><span class="ot">;</span></span>
+<span id="cb72-35"><a href="php---forms-e-estruturas-de-controle.html#cb72-35" tabindex="-1"></a>        } <span class="cf">else</span> <span class="cf">if</span> (<span class="va">$media</span> <span class="op">&gt;=</span> <span class="dv">2</span>) {</span>
+<span id="cb72-36"><a href="php---forms-e-estruturas-de-controle.html#cb72-36" tabindex="-1"></a>            <span class="kw">echo</span> <span class="st">"&lt;p&gt;RECUPERAÇÃO&lt;/p&gt;"</span><span class="ot">;</span></span>
+<span id="cb72-37"><a href="php---forms-e-estruturas-de-controle.html#cb72-37" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
+<span id="cb72-38"><a href="php---forms-e-estruturas-de-controle.html#cb72-38" tabindex="-1"></a>            <span class="kw">echo</span> <span class="st">"&lt;p&gt;REPROVADO&lt;/p&gt;"</span><span class="ot">;</span></span>
+<span id="cb72-39"><a href="php---forms-e-estruturas-de-controle.html#cb72-39" tabindex="-1"></a>        }</span>
+<span id="cb72-40"><a href="php---forms-e-estruturas-de-controle.html#cb72-40" tabindex="-1"></a>    }</span>
+<span id="cb72-41"><a href="php---forms-e-estruturas-de-controle.html#cb72-41" tabindex="-1"></a>    <span class="kw">?&gt;</span></span>
+<span id="cb72-42"><a href="php---forms-e-estruturas-de-controle.html#cb72-42" tabindex="-1"></a></span>
+<span id="cb72-43"><a href="php---forms-e-estruturas-de-controle.html#cb72-43" tabindex="-1"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb72-44"><a href="php---forms-e-estruturas-de-controle.html#cb72-44" tabindex="-1"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
+<p>Esse tipo de exemplo é útil porque mostra, em um único arquivo, o ciclo completo de:</p>
+<ul>
+<li>exibir formulário</li>
+<li>receber dados</li>
+<li>calcular valores</li>
+<li>tomar decisão</li>
+<li>mostrar resultado</li>
+</ul>
+</div>
+</div>
+<div id="integrando-bootstrap-com-php" class="section level2" number="5.12">
+<h2>
+<span class="header-section-number">5.12</span> Integrando Bootstrap com PHP<a class="anchor" aria-label="anchor" href="#integrando-bootstrap-com-php"><i class="fas fa-link"></i></a>
+</h2>
+<p>Ao desenvolver aplicações web com PHP, é bastante comum utilizar <strong>frameworks CSS</strong> para melhorar a aparência visual das páginas sem a necessidade de escrever todo o estilo manualmente. Um dos frameworks mais populares para esse fim é o <strong>Bootstrap</strong>.</p>
+<p>O Bootstrap fornece um conjunto de classes prontas para estilizar elementos HTML, como:</p>
+<ul>
+<li>botões</li>
+<li>formulários</li>
+<li>tabelas</li>
+<li>cards</li>
+<li>menus</li>
+<li>alertas</li>
+<li>sistemas de grid para layout</li>
+</ul>
+<p>Como o PHP é executado no servidor e o Bootstrap atua na camada de apresentação, a integração entre os dois é bastante simples: o PHP continua sendo responsável pela lógica da aplicação, enquanto o Bootstrap melhora a interface exibida no navegador.</p>
+<div id="como-adicionar-bootstrap-ao-projeto" class="section level3 unnumbered">
+<h3>Como adicionar Bootstrap ao projeto<a class="anchor" aria-label="anchor" href="#como-adicionar-bootstrap-ao-projeto"><i class="fas fa-link"></i></a>
+</h3>
+<p>Uma forma prática de utilizar Bootstrap é incluir seu arquivo CSS por meio de um <strong>CDN</strong>, inserindo a referência no elemento <code>&lt;head&gt;</code> da página.</p>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb73-1"><a href="php---forms-e-estruturas-de-controle.html#cb73-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"</span><span class="ot"> rel</span><span class="op">=</span><span class="st">"stylesheet"</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>Também é possível adicionar o arquivo JavaScript do Bootstrap ao final do <code>body</code>, caso sejam utilizados componentes interativos como menus expansíveis, modais ou carrosséis.</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb74-1"><a href="php---forms-e-estruturas-de-controle.html#cb74-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+</div>
+<div id="relação-entre-php-e-bootstrap" class="section level3 unnumbered">
+<h3>Relação entre PHP e Bootstrap<a class="anchor" aria-label="anchor" href="#rela%C3%A7%C3%A3o-entre-php-e-bootstrap"><i class="fas fa-link"></i></a>
+</h3>
+<p>É importante observar que o Bootstrap <strong>não substitui</strong> o PHP e também <strong>não processa dados</strong>. Seu papel é exclusivamente visual.</p>
+<p>Em uma página PHP com Bootstrap:</p>
+<ul>
+<li>o <strong>PHP</strong> recebe dados, calcula resultados e toma decisões;</li>
+<li>o <strong>Bootstrap</strong> organiza e estiliza os elementos HTML gerados.</li>
+</ul>
+<p>Assim, podemos construir páginas com melhor aparência sem alterar a lógica principal do programa.</p>
+</div>
+<div id="exemplo-formulário-de-média-com-bootstrap" class="section level3" number="5.12.1">
+<h3>
+<span class="header-section-number">5.12.1</span> Exemplo: formulário de média com Bootstrap<a class="anchor" aria-label="anchor" href="#exemplo-formul%C3%A1rio-de-m%C3%A9dia-com-bootstrap"><i class="fas fa-link"></i></a>
+</h3>
+<p>A seguir, temos uma versão estilizada do exemplo <code>form_media.php</code>, utilizando Bootstrap para melhorar a organização visual do formulário e da exibição do resultado.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb75-1"><a href="php---forms-e-estruturas-de-controle.html#cb75-1" tabindex="-1"></a><span class="op">&lt;!</span><span class="cn">DOCTYPE</span> html<span class="op">&gt;</span></span>
+<span id="cb75-2"><a href="php---forms-e-estruturas-de-controle.html#cb75-2" tabindex="-1"></a><span class="op">&lt;</span>html lang<span class="op">=</span><span class="st">"pt-BR"</span><span class="op">&gt;</span></span>
+<span id="cb75-3"><a href="php---forms-e-estruturas-de-controle.html#cb75-3" tabindex="-1"></a><span class="op">&lt;</span>head<span class="op">&gt;</span></span>
+<span id="cb75-4"><a href="php---forms-e-estruturas-de-controle.html#cb75-4" tabindex="-1"></a>    <span class="op">&lt;</span>meta charset<span class="op">=</span><span class="st">"UTF-8"</span><span class="op">&gt;</span></span>
+<span id="cb75-5"><a href="php---forms-e-estruturas-de-controle.html#cb75-5" tabindex="-1"></a>    <span class="op">&lt;</span>meta name<span class="op">=</span><span class="st">"viewport"</span> content<span class="op">=</span><span class="st">"width=device-width, initial-scale=1.0"</span><span class="op">&gt;</span></span>
+<span id="cb75-6"><a href="php---forms-e-estruturas-de-controle.html#cb75-6" tabindex="-1"></a>    <span class="op">&lt;</span>title<span class="op">&gt;</span>Cálculo de Média com <span class="cn">PHP</span> e Bootstrap<span class="op">&lt;/</span>title<span class="op">&gt;</span></span>
+<span id="cb75-7"><a href="php---forms-e-estruturas-de-controle.html#cb75-7" tabindex="-1"></a></span>
+<span id="cb75-8"><a href="php---forms-e-estruturas-de-controle.html#cb75-8" tabindex="-1"></a>    <span class="op">&lt;</span><span class="fu">link</span> href<span class="op">=</span><span class="st">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"</span> rel<span class="op">=</span><span class="st">"stylesheet"</span><span class="op">&gt;</span></span>
+<span id="cb75-9"><a href="php---forms-e-estruturas-de-controle.html#cb75-9" tabindex="-1"></a><span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
+<span id="cb75-10"><a href="php---forms-e-estruturas-de-controle.html#cb75-10" tabindex="-1"></a><span class="op">&lt;</span>body <span class="kw">class</span><span class="op">=</span><span class="st">"bg-light"</span><span class="op">&gt;</span></span>
+<span id="cb75-11"><a href="php---forms-e-estruturas-de-controle.html#cb75-11" tabindex="-1"></a></span>
+<span id="cb75-12"><a href="php---forms-e-estruturas-de-controle.html#cb75-12" tabindex="-1"></a>    <span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">"container py-5"</span><span class="op">&gt;</span></span>
+<span id="cb75-13"><a href="php---forms-e-estruturas-de-controle.html#cb75-13" tabindex="-1"></a>        <span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">"row justify-content-center"</span><span class="op">&gt;</span></span>
+<span id="cb75-14"><a href="php---forms-e-estruturas-de-controle.html#cb75-14" tabindex="-1"></a>            <span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">"col-md-8 col-lg-6"</span><span class="op">&gt;</span></span>
+<span id="cb75-15"><a href="php---forms-e-estruturas-de-controle.html#cb75-15" tabindex="-1"></a></span>
+<span id="cb75-16"><a href="php---forms-e-estruturas-de-controle.html#cb75-16" tabindex="-1"></a>                <span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">"card shadow-sm"</span><span class="op">&gt;</span></span>
+<span id="cb75-17"><a href="php---forms-e-estruturas-de-controle.html#cb75-17" tabindex="-1"></a>                    <span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">"card-header bg-primary text-white"</span><span class="op">&gt;</span></span>
+<span id="cb75-18"><a href="php---forms-e-estruturas-de-controle.html#cb75-18" tabindex="-1"></a>                        <span class="op">&lt;</span>h1 <span class="kw">class</span><span class="op">=</span><span class="st">"h4 mb-0"</span><span class="op">&gt;</span>Cálculo de Média<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
+<span id="cb75-19"><a href="php---forms-e-estruturas-de-controle.html#cb75-19" tabindex="-1"></a>                    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb75-20"><a href="php---forms-e-estruturas-de-controle.html#cb75-20" tabindex="-1"></a></span>
+<span id="cb75-21"><a href="php---forms-e-estruturas-de-controle.html#cb75-21" tabindex="-1"></a>                    <span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">"card-body"</span><span class="op">&gt;</span></span>
+<span id="cb75-22"><a href="php---forms-e-estruturas-de-controle.html#cb75-22" tabindex="-1"></a>                        <span class="op">&lt;</span>p <span class="kw">class</span><span class="op">=</span><span class="st">"text-muted"</span><span class="op">&gt;</span></span>
+<span id="cb75-23"><a href="php---forms-e-estruturas-de-controle.html#cb75-23" tabindex="-1"></a>                            Informe duas notas para calcular a média <span class="kw">final</span> <span class="cf">do</span> aluno<span class="op">.</span></span>
+<span id="cb75-24"><a href="php---forms-e-estruturas-de-controle.html#cb75-24" tabindex="-1"></a>                        <span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb75-25"><a href="php---forms-e-estruturas-de-controle.html#cb75-25" tabindex="-1"></a></span>
+<span id="cb75-26"><a href="php---forms-e-estruturas-de-controle.html#cb75-26" tabindex="-1"></a>                        <span class="op">&lt;</span>form action<span class="op">=</span><span class="st">""</span> method<span class="op">=</span><span class="st">"get"</span><span class="op">&gt;</span></span>
+<span id="cb75-27"><a href="php---forms-e-estruturas-de-controle.html#cb75-27" tabindex="-1"></a>                            <span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">"mb-3"</span><span class="op">&gt;</span></span>
+<span id="cb75-28"><a href="php---forms-e-estruturas-de-controle.html#cb75-28" tabindex="-1"></a>                                <span class="op">&lt;</span>label <span class="cf">for</span><span class="op">=</span><span class="st">"n1"</span> <span class="kw">class</span><span class="op">=</span><span class="st">"form-label"</span><span class="op">&gt;</span>Nota <span class="dv">1</span><span class="op">&lt;/</span>label<span class="op">&gt;</span></span>
+<span id="cb75-29"><a href="php---forms-e-estruturas-de-controle.html#cb75-29" tabindex="-1"></a>                                <span class="op">&lt;</span>input</span>
+<span id="cb75-30"><a href="php---forms-e-estruturas-de-controle.html#cb75-30" tabindex="-1"></a>                                    type<span class="op">=</span><span class="st">"number"</span></span>
+<span id="cb75-31"><a href="php---forms-e-estruturas-de-controle.html#cb75-31" tabindex="-1"></a>                                    <span class="kw">class</span><span class="op">=</span><span class="st">"form-control"</span></span>
+<span id="cb75-32"><a href="php---forms-e-estruturas-de-controle.html#cb75-32" tabindex="-1"></a>                                    id<span class="op">=</span><span class="st">"n1"</span></span>
+<span id="cb75-33"><a href="php---forms-e-estruturas-de-controle.html#cb75-33" tabindex="-1"></a>                                    name<span class="op">=</span><span class="st">"n1"</span></span>
+<span id="cb75-34"><a href="php---forms-e-estruturas-de-controle.html#cb75-34" tabindex="-1"></a>                                    step<span class="op">=</span><span class="st">"0.1"</span></span>
+<span id="cb75-35"><a href="php---forms-e-estruturas-de-controle.html#cb75-35" tabindex="-1"></a>                                    <span class="fu">min</span><span class="op">=</span><span class="st">"0"</span></span>
+<span id="cb75-36"><a href="php---forms-e-estruturas-de-controle.html#cb75-36" tabindex="-1"></a>                                    <span class="fu">max</span><span class="op">=</span><span class="st">"10"</span></span>
+<span id="cb75-37"><a href="php---forms-e-estruturas-de-controle.html#cb75-37" tabindex="-1"></a>                                    required</span>
+<span id="cb75-38"><a href="php---forms-e-estruturas-de-controle.html#cb75-38" tabindex="-1"></a>                                <span class="op">&gt;</span></span>
+<span id="cb75-39"><a href="php---forms-e-estruturas-de-controle.html#cb75-39" tabindex="-1"></a>                            <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb75-40"><a href="php---forms-e-estruturas-de-controle.html#cb75-40" tabindex="-1"></a></span>
+<span id="cb75-41"><a href="php---forms-e-estruturas-de-controle.html#cb75-41" tabindex="-1"></a>                            <span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">"mb-3"</span><span class="op">&gt;</span></span>
+<span id="cb75-42"><a href="php---forms-e-estruturas-de-controle.html#cb75-42" tabindex="-1"></a>                                <span class="op">&lt;</span>label <span class="cf">for</span><span class="op">=</span><span class="st">"n2"</span> <span class="kw">class</span><span class="op">=</span><span class="st">"form-label"</span><span class="op">&gt;</span>Nota <span class="dv">2</span><span class="op">&lt;/</span>label<span class="op">&gt;</span></span>
+<span id="cb75-43"><a href="php---forms-e-estruturas-de-controle.html#cb75-43" tabindex="-1"></a>                                <span class="op">&lt;</span>input</span>
+<span id="cb75-44"><a href="php---forms-e-estruturas-de-controle.html#cb75-44" tabindex="-1"></a>                                    type<span class="op">=</span><span class="st">"number"</span></span>
+<span id="cb75-45"><a href="php---forms-e-estruturas-de-controle.html#cb75-45" tabindex="-1"></a>                                    <span class="kw">class</span><span class="op">=</span><span class="st">"form-control"</span></span>
+<span id="cb75-46"><a href="php---forms-e-estruturas-de-controle.html#cb75-46" tabindex="-1"></a>                                    id<span class="op">=</span><span class="st">"n2"</span></span>
+<span id="cb75-47"><a href="php---forms-e-estruturas-de-controle.html#cb75-47" tabindex="-1"></a>                                    name<span class="op">=</span><span class="st">"n2"</span></span>
+<span id="cb75-48"><a href="php---forms-e-estruturas-de-controle.html#cb75-48" tabindex="-1"></a>                                    step<span class="op">=</span><span class="st">"0.1"</span></span>
+<span id="cb75-49"><a href="php---forms-e-estruturas-de-controle.html#cb75-49" tabindex="-1"></a>                                    <span class="fu">min</span><span class="op">=</span><span class="st">"0"</span></span>
+<span id="cb75-50"><a href="php---forms-e-estruturas-de-controle.html#cb75-50" tabindex="-1"></a>                                    <span class="fu">max</span><span class="op">=</span><span class="st">"10"</span></span>
+<span id="cb75-51"><a href="php---forms-e-estruturas-de-controle.html#cb75-51" tabindex="-1"></a>                                    required</span>
+<span id="cb75-52"><a href="php---forms-e-estruturas-de-controle.html#cb75-52" tabindex="-1"></a>                                <span class="op">&gt;</span></span>
+<span id="cb75-53"><a href="php---forms-e-estruturas-de-controle.html#cb75-53" tabindex="-1"></a>                            <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb75-54"><a href="php---forms-e-estruturas-de-controle.html#cb75-54" tabindex="-1"></a></span>
+<span id="cb75-55"><a href="php---forms-e-estruturas-de-controle.html#cb75-55" tabindex="-1"></a>                            <span class="op">&lt;</span>button type<span class="op">=</span><span class="st">"submit"</span> <span class="kw">class</span><span class="op">=</span><span class="st">"btn btn-success"</span><span class="op">&gt;</span></span>
+<span id="cb75-56"><a href="php---forms-e-estruturas-de-controle.html#cb75-56" tabindex="-1"></a>                                Calcular média</span>
+<span id="cb75-57"><a href="php---forms-e-estruturas-de-controle.html#cb75-57" tabindex="-1"></a>                            <span class="op">&lt;/</span>button<span class="op">&gt;</span></span>
+<span id="cb75-58"><a href="php---forms-e-estruturas-de-controle.html#cb75-58" tabindex="-1"></a>                        <span class="op">&lt;/</span>form<span class="op">&gt;</span></span>
+<span id="cb75-59"><a href="php---forms-e-estruturas-de-controle.html#cb75-59" tabindex="-1"></a></span>
+<span id="cb75-60"><a href="php---forms-e-estruturas-de-controle.html#cb75-60" tabindex="-1"></a>                        <span class="op">&lt;</span><span class="ot">?</span>php</span>
+<span id="cb75-61"><a href="php---forms-e-estruturas-de-controle.html#cb75-61" tabindex="-1"></a>                        <span class="cf">if</span> (<span class="kw">isset</span>(<span class="va">$_GET</span>[<span class="st">"n1"</span>]) <span class="op">&amp;&amp;</span> <span class="kw">isset</span>(<span class="va">$_GET</span>[<span class="st">"n2"</span>])) {</span>
+<span id="cb75-62"><a href="php---forms-e-estruturas-de-controle.html#cb75-62" tabindex="-1"></a>                            <span class="va">$n1</span> <span class="op">=</span> <span class="dt">(float)</span> <span class="va">$_GET</span>[<span class="st">"n1"</span>]<span class="ot">;</span></span>
+<span id="cb75-63"><a href="php---forms-e-estruturas-de-controle.html#cb75-63" tabindex="-1"></a>                            <span class="va">$n2</span> <span class="op">=</span> <span class="dt">(float)</span> <span class="va">$_GET</span>[<span class="st">"n2"</span>]<span class="ot">;</span></span>
+<span id="cb75-64"><a href="php---forms-e-estruturas-de-controle.html#cb75-64" tabindex="-1"></a>                            <span class="va">$media</span> <span class="op">=</span> (<span class="va">$n1</span> <span class="op">+</span> <span class="va">$n2</span>) <span class="op">/</span> <span class="dv">2</span><span class="ot">;</span></span>
+<span id="cb75-65"><a href="php---forms-e-estruturas-de-controle.html#cb75-65" tabindex="-1"></a></span>
+<span id="cb75-66"><a href="php---forms-e-estruturas-de-controle.html#cb75-66" tabindex="-1"></a>                            <span class="kw">echo</span> <span class="st">"&lt;hr&gt;"</span><span class="ot">;</span></span>
+<span id="cb75-67"><a href="php---forms-e-estruturas-de-controle.html#cb75-67" tabindex="-1"></a></span>
+<span id="cb75-68"><a href="php---forms-e-estruturas-de-controle.html#cb75-68" tabindex="-1"></a>                            <span class="kw">echo</span> <span class="st">"&lt;div class='mt-3'&gt;"</span><span class="ot">;</span></span>
+<span id="cb75-69"><a href="php---forms-e-estruturas-de-controle.html#cb75-69" tabindex="-1"></a>                            <span class="kw">echo</span> <span class="st">"&lt;h2 class='h5'&gt;Resultado&lt;/h2&gt;"</span><span class="ot">;</span></span>
+<span id="cb75-70"><a href="php---forms-e-estruturas-de-controle.html#cb75-70" tabindex="-1"></a>                            <span class="kw">echo</span> <span class="st">"&lt;p&gt;&lt;strong&gt;Média:&lt;/strong&gt; "</span> <span class="op">.</span> <span class="fu">number_format</span>(<span class="va">$media</span><span class="ot">,</span> <span class="dv">1</span><span class="ot">,</span> <span class="st">','</span><span class="ot">,</span> <span class="st">'.'</span>) <span class="op">.</span> <span class="st">"&lt;/p&gt;"</span><span class="ot">;</span></span>
+<span id="cb75-71"><a href="php---forms-e-estruturas-de-controle.html#cb75-71" tabindex="-1"></a></span>
+<span id="cb75-72"><a href="php---forms-e-estruturas-de-controle.html#cb75-72" tabindex="-1"></a>                            <span class="cf">if</span> (<span class="va">$media</span> <span class="op">&gt;=</span> <span class="dv">6</span>) {</span>
+<span id="cb75-73"><a href="php---forms-e-estruturas-de-controle.html#cb75-73" tabindex="-1"></a>                                <span class="kw">echo</span> <span class="st">"&lt;div class='alert alert-success' role='alert'&gt;"</span><span class="ot">;</span></span>
+<span id="cb75-74"><a href="php---forms-e-estruturas-de-controle.html#cb75-74" tabindex="-1"></a>                                <span class="kw">echo</span> <span class="st">"Situação: APROVADO"</span><span class="ot">;</span></span>
+<span id="cb75-75"><a href="php---forms-e-estruturas-de-controle.html#cb75-75" tabindex="-1"></a>                                <span class="kw">echo</span> <span class="st">"&lt;/div&gt;"</span><span class="ot">;</span></span>
+<span id="cb75-76"><a href="php---forms-e-estruturas-de-controle.html#cb75-76" tabindex="-1"></a>                            } <span class="cf">elseif</span> (<span class="va">$media</span> <span class="op">&gt;=</span> <span class="dv">2</span>) {</span>
+<span id="cb75-77"><a href="php---forms-e-estruturas-de-controle.html#cb75-77" tabindex="-1"></a>                                <span class="kw">echo</span> <span class="st">"&lt;div class='alert alert-warning' role='alert'&gt;"</span><span class="ot">;</span></span>
+<span id="cb75-78"><a href="php---forms-e-estruturas-de-controle.html#cb75-78" tabindex="-1"></a>                                <span class="kw">echo</span> <span class="st">"Situação: RECUPERAÇÃO"</span><span class="ot">;</span></span>
+<span id="cb75-79"><a href="php---forms-e-estruturas-de-controle.html#cb75-79" tabindex="-1"></a>                                <span class="kw">echo</span> <span class="st">"&lt;/div&gt;"</span><span class="ot">;</span></span>
+<span id="cb75-80"><a href="php---forms-e-estruturas-de-controle.html#cb75-80" tabindex="-1"></a>                            } <span class="cf">else</span> {</span>
+<span id="cb75-81"><a href="php---forms-e-estruturas-de-controle.html#cb75-81" tabindex="-1"></a>                                <span class="kw">echo</span> <span class="st">"&lt;div class='alert alert-danger' role='alert'&gt;"</span><span class="ot">;</span></span>
+<span id="cb75-82"><a href="php---forms-e-estruturas-de-controle.html#cb75-82" tabindex="-1"></a>                                <span class="kw">echo</span> <span class="st">"Situação: REPROVADO"</span><span class="ot">;</span></span>
+<span id="cb75-83"><a href="php---forms-e-estruturas-de-controle.html#cb75-83" tabindex="-1"></a>                                <span class="kw">echo</span> <span class="st">"&lt;/div&gt;"</span><span class="ot">;</span></span>
+<span id="cb75-84"><a href="php---forms-e-estruturas-de-controle.html#cb75-84" tabindex="-1"></a>                            }</span>
+<span id="cb75-85"><a href="php---forms-e-estruturas-de-controle.html#cb75-85" tabindex="-1"></a></span>
+<span id="cb75-86"><a href="php---forms-e-estruturas-de-controle.html#cb75-86" tabindex="-1"></a>                            <span class="kw">echo</span> <span class="st">"&lt;/div&gt;"</span><span class="ot">;</span></span>
+<span id="cb75-87"><a href="php---forms-e-estruturas-de-controle.html#cb75-87" tabindex="-1"></a>                        }</span>
+<span id="cb75-88"><a href="php---forms-e-estruturas-de-controle.html#cb75-88" tabindex="-1"></a>                        <span class="kw">?&gt;</span></span>
+<span id="cb75-89"><a href="php---forms-e-estruturas-de-controle.html#cb75-89" tabindex="-1"></a>                    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb75-90"><a href="php---forms-e-estruturas-de-controle.html#cb75-90" tabindex="-1"></a>                <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb75-91"><a href="php---forms-e-estruturas-de-controle.html#cb75-91" tabindex="-1"></a></span>
+<span id="cb75-92"><a href="php---forms-e-estruturas-de-controle.html#cb75-92" tabindex="-1"></a>            <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb75-93"><a href="php---forms-e-estruturas-de-controle.html#cb75-93" tabindex="-1"></a>        <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb75-94"><a href="php---forms-e-estruturas-de-controle.html#cb75-94" tabindex="-1"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb75-95"><a href="php---forms-e-estruturas-de-controle.html#cb75-95" tabindex="-1"></a></span>
+<span id="cb75-96"><a href="php---forms-e-estruturas-de-controle.html#cb75-96" tabindex="-1"></a>    <span class="op">&lt;</span>script src<span class="op">=</span><span class="st">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"</span><span class="op">&gt;&lt;/</span>script<span class="op">&gt;</span></span>
+<span id="cb75-97"><a href="php---forms-e-estruturas-de-controle.html#cb75-97" tabindex="-1"></a><span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb75-98"><a href="php---forms-e-estruturas-de-controle.html#cb75-98" tabindex="-1"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
+<div class="rmdimportant">
+<p><strong>Explicando a estrutura do exemplo</strong></p>
+<p>Nesse exemplo, o Bootstrap foi utilizado para melhorar a apresentação da página sem alterar a lógica do PHP.</p>
+<p>Algumas classes importantes utilizadas foram:</p>
+<ul>
+<li>
+<code>container</code>: centraliza e limita a largura do conteúdo</li>
+<li>
+<code>row</code> e <code>col-md-8 col-lg-6</code>: organizam o layout em colunas responsivas</li>
+<li>
+<code>card</code>: cria um painel visual para agrupar os elementos</li>
+<li>
+<code>form-control</code>: estiliza os campos do formulário</li>
+<li>
+<code>btn btn-success</code>: estiliza o botão</li>
+<li>
+<code>alert alert-success</code>, <code>alert alert-warning</code> e <code>alert alert-danger</code>: exibem mensagens com destaque visual</li>
+</ul>
+<p>Já o PHP continua responsável por:</p>
+<ul>
+<li>verificar se os dados foram enviados com <code>isset()</code>
+</li>
+<li>converter os valores para número</li>
+<li>calcular a média</li>
+<li>decidir a situação do aluno com <code>if</code>, <code>elseif</code> e <code>else</code>
+</li>
+<li>gerar dinamicamente a mensagem exibida na página</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="vantagens-de-usar-bootstrap-com-php" class="section level2" number="5.13">
+<h2>
+<span class="header-section-number">5.13</span> Vantagens de usar Bootstrap com PHP<a class="anchor" aria-label="anchor" href="#vantagens-de-usar-bootstrap-com-php"><i class="fas fa-link"></i></a>
+</h2>
+<p>A integração entre Bootstrap e PHP traz várias vantagens no desenvolvimento das aplicações da disciplina:</p>
+<ul>
+<li>melhora rapidamente a aparência das páginas;</li>
+<li>facilita a criação de interfaces mais organizadas;</li>
+<li>reduz o tempo gasto com CSS básico;</li>
+<li>permite foco maior na lógica de programação e no funcionamento do back-end;</li>
+<li>ajuda a construir páginas responsivas, adaptáveis a diferentes tamanhos de tela.</li>
+</ul>
+</div>
+<div id="boas-práticas" class="section level2" number="5.14">
+<h2>
+<span class="header-section-number">5.14</span> Boas práticas!<a class="anchor" aria-label="anchor" href="#boas-pr%C3%A1ticas"><i class="fas fa-link"></i></a>
+</h2>
+<p>Ao combinar Bootstrap com PHP, algumas recomendações são importantes:</p>
+<ul>
+<li>manter a lógica PHP organizada e separada da apresentação sempre que possível;</li>
+<li>usar o Bootstrap para estilização, evitando excesso de estilos inline;</li>
+<li>validar os dados recebidos no PHP, mesmo que o formulário tenha validações HTML;</li>
+<li>utilizar nomes de classes e estruturas de layout de forma consistente.</li>
+</ul>
+<p>Ao utilizar formulários e estruturas de controle em PHP, algumas práticas devem ser incentivadas desde o início:</p>
+<ul>
+<li>verificar se os dados realmente foram enviados com <code>isset()</code>
+</li>
+<li>validar campos antes de utilizá-los</li>
+<li>usar nomes de variáveis claros</li>
+<li>separar, sempre que possível, HTML e lógica</li>
+<li>comentar trechos importantes do código</li>
+</ul>
+<!-- ## Sugestão de atividade prática --><!-- Como exercício complementar, você pode adaptar outros exemplos já desenvolvidos na aula para utilizar Bootstrap. Algumas possibilidades são: --><!-- * estilizar o formulário de nome e e-mail enviado via `GET`; --><!-- * criar uma versão com Bootstrap para o exercício de cadastro; --><!-- * exibir mensagens condicionais com `alert`; --><!-- * organizar os resultados em cards ou tabelas. -->
+</div>
+<div id="atividades" class="section level2" number="5.15">
+<h2>
+<span class="header-section-number">5.15</span> Atividades<a class="anchor" aria-label="anchor" href="#atividades"><i class="fas fa-link"></i></a>
+</h2>
+<p>Com base nos conteúdos estudados, desenvolva os exercícios propostos no material da aula. Eles envolvem decisões condicionais, comparação de valores e associação entre entrada do usuário e processamento com PHP.</p>
+<div class="rmdcaution">
+<blockquote>
+<p><strong>Atenção!!!</strong> É obrigatório o uso de <a href="https://getbootstrap.com">Bootstrap</a> para estilizar os formulários.</p>
+</blockquote>
+</div>
+<ol style="list-style-type: decimal">
+<li>Construir um algoritmo que leia dois números e efetue a adição.</li>
+</ol>
+<ul>
+<li>Se a soma for maior que 10, apresentar o resultado somando 8;</li>
+<li>Se a soma for menor ou igual a 10, apresentar o resultado subtraindo 5.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Ler três números diferentes e exibi-los em ordem decrescente.</p></li>
+<li><p>Ler nome, gênero e idade de uma pessoa. Se a idade for 18 ou mais, exibir a mensagem: <code>Você pode se cadastrar</code> Caso contrário, exibir: <code>Você não pode se cadastrar</code></p></li>
+<li><p>Ler um número entre 1 e 12 e exibir o mês correspondente. Caso o valor esteja fora do intervalo, informar que não existe mês correspondente</p></li>
+</ol>
+</div>
+<div id="leituras-recomendadas-1" class="section level2" number="5.16">
+<h2>
+<span class="header-section-number">5.16</span> Leituras recomendadas<a class="anchor" aria-label="anchor" href="#leituras-recomendadas-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>BENTO, Evaldo Junior. <em>Desenvolvimento web com PHP e MySQL</em>. São Paulo: Casa do Código, 2015.</p>
+<p>SARAIVA, Maurício de Oliveira; BARRETO, Jeanine dos Santos. <em>Desenvolvimento de Sistemas PHP</em>. Grupo A, 2018.</p>
+
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="linguagem-php.html"><span class="header-section-number">4</span> Linguagem PHP</a></div>
+<div class="next"><a href="references.html">References</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#php---forms-e-estruturas-de-controle"><span class="header-section-number">5</span> PHP - Forms e estruturas de controle</a></li>
+<li>
+<a class="nav-link" href="#vari%C3%A1veis-superglobais-em-php"><span class="header-section-number">5.1</span> Variáveis superglobais em PHP</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#globals">$GLOBALS</a></li>
+<li><a class="nav-link" href="#server">$_SERVER</a></li>
+<li><a class="nav-link" href="#get-e-_post">$_GET e $_POST</a></li>
+<li><a class="nav-link" href="#outras-superglobais">Outras superglobais</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#constantes-em-php"><span class="header-section-number">5.2</span> Constantes em PHP</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#utilizando-define">Utilizando define()</a></li>
+<li><a class="nav-link" href="#utilizando-const">Utilizando const</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#constantes-m%C3%A1gicas"><span class="header-section-number">5.3</span> Constantes mágicas</a></li>
+<li><a class="nav-link" href="#formul%C3%A1rios-em-php"><span class="header-section-number">5.4</span> Formulários em PHP</a></li>
+<li>
+<a class="nav-link" href="#configurando-formul%C3%A1rios"><span class="header-section-number">5.5</span> Configurando formulários</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#arquivo-index.php">Arquivo index.php</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#recebendo-dados-via-get"><span class="header-section-number">5.6</span> Recebendo dados via GET</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#arquivo-welcome.php">Arquivo welcome.php</a></li>
+<li><a class="nav-link" href="#observa%C3%A7%C3%A3o-importante">Observação importante</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#operadores-de-compara%C3%A7%C3%A3o"><span class="header-section-number">5.7</span> Operadores de comparação</a></li>
+<li>
+<a class="nav-link" href="#if-else---controle-de-fluxo"><span class="header-section-number">5.8</span> IF ELSE - Controle de fluxo</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#formul%C3%A1rio-para-enviar-as-notas">Formulário para enviar as notas</a></li>
+<li><a class="nav-link" href="#recebendo-os-valores-e-calculando-a-m%C3%A9dia">Recebendo os valores e calculando a média</a></li>
+<li><a class="nav-link" href="#aplicando-as-condi%C3%A7%C3%B5es">Aplicando as condições</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#switch-case---controle-de-fluxo"><span class="header-section-number">5.9</span> Switch case - Controle de fluxo</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#quando-usar-switch">Quando usar switch?</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#loops-em-php"><span class="header-section-number">5.10</span> Loops em PHP</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#while">while</a></li>
+<li><a class="nav-link" href="#do-while">do while</a></li>
+<li><a class="nav-link" href="#for">for</a></li>
+<li><a class="nav-link" href="#foreach">foreach</a></li>
+<li><a class="nav-link" href="#comparando-os-la%C3%A7os">Comparando os laços</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#exemplo-integrando-formul%C3%A1rio-e-decis%C3%A3o"><span class="header-section-number">5.11</span> Exemplo integrando formulário e decisão</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#arquivo-form_media.php">Arquivo form_media.php</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#integrando-bootstrap-com-php"><span class="header-section-number">5.12</span> Integrando Bootstrap com PHP</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#como-adicionar-bootstrap-ao-projeto">Como adicionar Bootstrap ao projeto</a></li>
+<li><a class="nav-link" href="#rela%C3%A7%C3%A3o-entre-php-e-bootstrap">Relação entre PHP e Bootstrap</a></li>
+<li><a class="nav-link" href="#exemplo-formul%C3%A1rio-de-m%C3%A9dia-com-bootstrap"><span class="header-section-number">5.12.1</span> Exemplo: formulário de média com Bootstrap</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#vantagens-de-usar-bootstrap-com-php"><span class="header-section-number">5.13</span> Vantagens de usar Bootstrap com PHP</a></li>
+<li><a class="nav-link" href="#boas-pr%C3%A1ticas"><span class="header-section-number">5.14</span> Boas práticas!</a></li>
+<li><a class="nav-link" href="#atividades"><span class="header-section-number">5.15</span> Atividades</a></li>
+<li><a class="nav-link" href="#leituras-recomendadas-1"><span class="header-section-number">5.16</span> Leituras recomendadas</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/04-controle.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/04-controle.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Desenvolvimento de Sistemas</strong>" was written by Juliana Costa Silva. It was last built on 2026-03-20.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
