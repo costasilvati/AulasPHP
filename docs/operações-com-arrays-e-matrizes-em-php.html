@@ -4,22 +4,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Capítulo 6 Operações com arrays e matrizes em PHP | Desenvolvimento de Sistemas</title>
+<title>6 Operações com arrays e matrizes em PHP | Desenvolvimento de Sistemas</title>
 <meta name="author" content="Juliana Costa Silva">
 <meta name="description" content="Neste capítulo serão abordados conceitos fundamentais para manipulação de dados em PHP utilizando arrays e matrizes. Essas estruturas são essenciais para trabalhar com coleções de valores, sendo...">
-<meta name="generator" content="bookdown 0.45 with bs4_book()">
-<meta property="og:title" content="Capítulo 6 Operações com arrays e matrizes em PHP | Desenvolvimento de Sistemas">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="6 Operações com arrays e matrizes em PHP | Desenvolvimento de Sistemas">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Neste capítulo serão abordados conceitos fundamentais para manipulação de dados em PHP utilizando arrays e matrizes. Essas estruturas são essenciais para trabalhar com coleções de valores, sendo...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Capítulo 6 Operações com arrays e matrizes em PHP | Desenvolvimento de Sistemas">
+<meta name="twitter:title" content="6 Operações com arrays e matrizes em PHP | Desenvolvimento de Sistemas">
 <meta name="twitter:description" content="Neste capítulo serão abordados conceitos fundamentais para manipulação de dados em PHP utilizando arrays e matrizes. Essas estruturas são essenciais para trabalhar com coleções de valores, sendo...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="libs/grViz-binding-1.0.11/grViz.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
@@ -73,6 +71,8 @@
 <li><a class="" href="linguagem-php.html"><span class="header-section-number">4</span> Linguagem PHP</a></li>
 <li><a class="" href="php---forms-e-estruturas-de-controle.html"><span class="header-section-number">5</span> PHP - Forms e estruturas de controle</a></li>
 <li><a class="active" href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html"><span class="header-section-number">6</span> Operações com arrays e matrizes em PHP</a></li>
+<li><a class="" href="validar-forms-e-reutilizar-de-scripts-com-include-e-require-em-php.html"><span class="header-section-number">7</span> Validar forms e reutilizar de scripts com include e require em PHP</a></li>
+<li><a class="" href="atividades-de-estudo.html"><span class="header-section-number">8</span> Atividades de estudo</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -83,7 +83,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="operações-com-arrays-e-matrizes-em-php" class="section level1" number="6">
 <h1>
-<span class="header-section-number">Capítulo 6</span> Operações com arrays e matrizes em PHP<a class="anchor" aria-label="anchor" href="#opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6</span> Operações com arrays e matrizes em PHP<a class="anchor" aria-label="anchor" href="#opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php"><i class="fas fa-link"></i></a>
 </h1>
 <p>Neste capítulo serão abordados conceitos fundamentais para manipulação de dados em PHP utilizando <strong>arrays e matrizes</strong>. Essas estruturas são essenciais para trabalhar com coleções de valores, sendo amplamente utilizadas em aplicações web reais, como listas de usuários, produtos e resultados de consultas ao banco de dados.</p>
 <p>Os exemplos apresentados são baseados na documentação oficial do PHP (php.net) e materiais de referência como W3Schools.</p>
@@ -124,21 +124,14 @@
 <hr>
 </div>
 </div>
-<div id="diagrama-estrutura-de-um-array" class="section level2" number="6.2">
+<div id="arrays-associativos" class="section level2" number="6.2">
 <h2>
-<span class="header-section-number">6.2</span> Diagrama: estrutura de um array<a class="anchor" aria-label="anchor" href="#diagrama-estrutura-de-um-array"><i class="fas fa-link"></i></a>
-</h2>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-1a9ad15ad886cb063903" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-1a9ad15ad886cb063903">{"x":{"diagram":"\ndigraph array_simples {\n  graph [layout = dot, rankdir = LR]\n\n  node [shape = rectangle, style = filled, fillcolor = LightBlue, fontname = Helvetica]\n\n  A [label = \"Array frutas\"]\n  B [label = \"0: Maçã\"]\n  C [label = \"1: Banana\"]\n  D [label = \"2: Laranja\"]\n\n  A -> B\n  A -> C\n  A -> D\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
-</div>
-<div id="arrays-associativos" class="section level2" number="6.3">
-<h2>
-<span class="header-section-number">6.3</span> Arrays associativos<a class="anchor" aria-label="anchor" href="#arrays-associativos"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.2</span> Arrays associativos<a class="anchor" aria-label="anchor" href="#arrays-associativos"><i class="fas fa-link"></i></a>
 </h2>
 <p>Arrays associativos utilizam <strong>chaves nomeadas</strong> em vez de índices numéricos.</p>
-<div id="exemplo" class="section level3" number="6.3.1">
+<div id="exemplo" class="section level3" number="6.2.1">
 <h3>
-<span class="header-section-number">6.3.1</span> Exemplo<a class="anchor" aria-label="anchor" href="#exemplo"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.2.1</span> Exemplo<a class="anchor" aria-label="anchor" href="#exemplo"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb78"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb78-1"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb78-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
 <span id="cb78-2"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb78-2" tabindex="-1"></a><span class="va">$pessoa</span> <span class="op">=</span> <span class="dt">array</span>(</span>
@@ -150,9 +143,9 @@
 <span id="cb78-8"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb78-8" tabindex="-1"></a><span class="kw">echo</span> <span class="va">$pessoa</span>[<span class="st">"nome"</span>]<span class="ot">;</span></span>
 <span id="cb78-9"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb78-9" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
 </div>
-<div id="resultado-esperado-1" class="section level3" number="6.3.2">
+<div id="resultado-esperado-1" class="section level3" number="6.2.2">
 <h3>
-<span class="header-section-number">6.3.2</span> Resultado esperado<a class="anchor" aria-label="anchor" href="#resultado-esperado-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.2.2</span> Resultado esperado<a class="anchor" aria-label="anchor" href="#resultado-esperado-1"><i class="fas fa-link"></i></a>
 </h3>
 <pre class="text"><code>Ana</code></pre>
 <p>Neste caso:</p>
@@ -165,14 +158,14 @@
 <hr>
 </div>
 </div>
-<div id="iterando-arrays-com-foreach" class="section level2" number="6.4">
+<div id="iterando-arrays-com-foreach" class="section level2" number="6.3">
 <h2>
-<span class="header-section-number">6.4</span> Iterando arrays com foreach<a class="anchor" aria-label="anchor" href="#iterando-arrays-com-foreach"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.3</span> Iterando arrays com foreach<a class="anchor" aria-label="anchor" href="#iterando-arrays-com-foreach"><i class="fas fa-link"></i></a>
 </h2>
 <p>O <code>foreach</code> é utilizado para percorrer arrays de forma simples.</p>
-<div id="exemplo-1" class="section level3" number="6.4.1">
+<div id="exemplo-1" class="section level3" number="6.3.1">
 <h3>
-<span class="header-section-number">6.4.1</span> Exemplo<a class="anchor" aria-label="anchor" href="#exemplo-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.3.1</span> Exemplo<a class="anchor" aria-label="anchor" href="#exemplo-1"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb80"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb80-1"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb80-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
 <span id="cb80-2"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb80-2" tabindex="-1"></a><span class="va">$frutas</span> <span class="op">=</span> <span class="dt">array</span>(<span class="st">"Maçã"</span><span class="ot">,</span> <span class="st">"Banana"</span><span class="ot">,</span> <span class="st">"Laranja"</span>)<span class="ot">;</span></span>
@@ -182,9 +175,9 @@
 <span id="cb80-6"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb80-6" tabindex="-1"></a>}</span>
 <span id="cb80-7"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb80-7" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
 </div>
-<div id="resultado-esperado-2" class="section level3" number="6.4.2">
+<div id="resultado-esperado-2" class="section level3" number="6.3.2">
 <h3>
-<span class="header-section-number">6.4.2</span> Resultado esperado<a class="anchor" aria-label="anchor" href="#resultado-esperado-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.3.2</span> Resultado esperado<a class="anchor" aria-label="anchor" href="#resultado-esperado-2"><i class="fas fa-link"></i></a>
 </h3>
 <pre class="text"><code>Maçã
 Banana
@@ -192,14 +185,14 @@ Laranja</code></pre>
 <hr>
 </div>
 </div>
-<div id="arrays-multidimensionais-matrizes" class="section level2" number="6.5">
+<div id="arrays-multidimensionais-matrizes" class="section level2" number="6.4">
 <h2>
-<span class="header-section-number">6.5</span> Arrays multidimensionais (matrizes)<a class="anchor" aria-label="anchor" href="#arrays-multidimensionais-matrizes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.4</span> Arrays multidimensionais (matrizes)<a class="anchor" aria-label="anchor" href="#arrays-multidimensionais-matrizes"><i class="fas fa-link"></i></a>
 </h2>
 <p>Uma <strong>matriz</strong> é um array que contém outros arrays.</p>
-<div id="exemplo-2" class="section level3" number="6.5.1">
+<div id="exemplo-2" class="section level3" number="6.4.1">
 <h3>
-<span class="header-section-number">6.5.1</span> Exemplo<a class="anchor" aria-label="anchor" href="#exemplo-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.4.1</span> Exemplo<a class="anchor" aria-label="anchor" href="#exemplo-2"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb82"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb82-1"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb82-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
 <span id="cb82-2"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb82-2" tabindex="-1"></a><span class="va">$alunos</span> <span class="op">=</span> <span class="dt">array</span>(</span>
@@ -211,34 +204,21 @@ Laranja</code></pre>
 <span id="cb82-8"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb82-8" tabindex="-1"></a><span class="kw">echo</span> <span class="va">$alunos</span>[<span class="dv">0</span>][<span class="dv">0</span>]<span class="ot">;</span></span>
 <span id="cb82-9"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb82-9" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
 </div>
-<div id="resultado-esperado-3" class="section level3" number="6.5.2">
+<div id="resultado-esperado-3" class="section level3" number="6.4.2">
 <h3>
-<span class="header-section-number">6.5.2</span> Resultado esperado<a class="anchor" aria-label="anchor" href="#resultado-esperado-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.4.2</span> Resultado esperado<a class="anchor" aria-label="anchor" href="#resultado-esperado-3"><i class="fas fa-link"></i></a>
 </h3>
 <pre class="text"><code>Ana</code></pre>
-<hr>
 </div>
 </div>
-<div id="diagrama-matriz-em-php" class="section level2" number="6.6">
+<div id="percorrendo-matrizes" class="section level2" number="6.5">
 <h2>
-<span class="header-section-number">6.6</span> Diagrama: matriz em PHP<a class="anchor" aria-label="anchor" href="#diagrama-matriz-em-php"><i class="fas fa-link"></i></a>
-</h2>
-</div>
-<div id="diagrama-matriz-em-php-1" class="section level2" number="6.7">
-<h2>
-<span class="header-section-number">6.7</span> Diagrama: matriz em PHP<a class="anchor" aria-label="anchor" href="#diagrama-matriz-em-php-1"><i class="fas fa-link"></i></a>
-</h2>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-62ae98c6420046deff8d" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-62ae98c6420046deff8d">{"x":{"diagram":"\ndigraph matriz_php {\n  graph [layout = dot, rankdir = TB]\n\n  node [shape = rectangle, style = filled, fillcolor = LightYellow, fontname = Helvetica]\n\n  A  [label = \"alunos\"]\n  B  [label = \"0\"]\n  C  [label = \"1\"]\n  D  [label = \"2\"]\n\n  B1 [label = \"Ana\"]\n  B2 [label = \"8.5\"]\n\n  C1 [label = \"Carlos\"]\n  C2 [label = \"6.0\"]\n\n  D1 [label = \"Maria\"]\n  D2 [label = \"9.2\"]\n\n  A -> B\n  A -> C\n  A -> D\n\n  B -> B1\n  B -> B2\n\n  C -> C1\n  C -> C2\n\n  D -> D1\n  D -> D2\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
-</div>
-<div id="percorrendo-matrizes" class="section level2" number="6.8">
-<h2>
-<span class="header-section-number">6.8</span> Percorrendo matrizes<a class="anchor" aria-label="anchor" href="#percorrendo-matrizes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.5</span> Percorrendo matrizes<a class="anchor" aria-label="anchor" href="#percorrendo-matrizes"><i class="fas fa-link"></i></a>
 </h2>
 <p>Para percorrer uma matriz, utilizamos loops aninhados.</p>
-<div id="exemplo-3" class="section level3" number="6.8.1">
+<div id="exemplo-3" class="section level3" number="6.5.1">
 <h3>
-<span class="header-section-number">6.8.1</span> Exemplo<a class="anchor" aria-label="anchor" href="#exemplo-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.5.1</span> Exemplo<a class="anchor" aria-label="anchor" href="#exemplo-3"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb84"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb84-1"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb84-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
 <span id="cb84-2"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb84-2" tabindex="-1"></a><span class="va">$alunos</span> <span class="op">=</span> <span class="dt">array</span>(</span>
@@ -252,9 +232,9 @@ Laranja</code></pre>
 <span id="cb84-10"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb84-10" tabindex="-1"></a>}</span>
 <span id="cb84-11"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb84-11" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
 </div>
-<div id="resultado-esperado-4" class="section level3" number="6.8.2">
+<div id="resultado-esperado-4" class="section level3" number="6.5.2">
 <h3>
-<span class="header-section-number">6.8.2</span> Resultado esperado<a class="anchor" aria-label="anchor" href="#resultado-esperado-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.5.2</span> Resultado esperado<a class="anchor" aria-label="anchor" href="#resultado-esperado-4"><i class="fas fa-link"></i></a>
 </h3>
 <pre class="text"><code>Aluno: Ana - Nota: 8.5
 Aluno: Carlos - Nota: 6.0
@@ -262,14 +242,14 @@ Aluno: Maria - Nota: 9.2</code></pre>
 <hr>
 </div>
 </div>
-<div id="funções-úteis-para-arrays" class="section level2" number="6.9">
+<div id="funções-úteis-para-arrays" class="section level2" number="6.6">
 <h2>
-<span class="header-section-number">6.9</span> Funções úteis para arrays<a class="anchor" aria-label="anchor" href="#fun%C3%A7%C3%B5es-%C3%BAteis-para-arrays"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.6</span> Funções úteis para arrays<a class="anchor" aria-label="anchor" href="#fun%C3%A7%C3%B5es-%C3%BAteis-para-arrays"><i class="fas fa-link"></i></a>
 </h2>
 <p>PHP possui diversas funções para manipulação de arrays.</p>
-<div id="count" class="section level3" number="6.9.1">
+<div id="count" class="section level3" number="6.6.1">
 <h3>
-<span class="header-section-number">6.9.1</span> count()<a class="anchor" aria-label="anchor" href="#count"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.6.1</span> count()<a class="anchor" aria-label="anchor" href="#count"><i class="fas fa-link"></i></a>
 </h3>
 <p>Conta o número de elementos</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb86-1"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb86-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
@@ -280,9 +260,9 @@ Aluno: Maria - Nota: 9.2</code></pre>
 <pre class="text"><code>3</code></pre>
 <hr>
 </div>
-<div id="array_push" class="section level3" number="6.9.2">
+<div id="array_push" class="section level3" number="6.6.2">
 <h3>
-<span class="header-section-number">6.9.2</span> array_push()<a class="anchor" aria-label="anchor" href="#array_push"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.6.2</span> array_push()<a class="anchor" aria-label="anchor" href="#array_push"><i class="fas fa-link"></i></a>
 </h3>
 <p>Adiciona elementos ao final</p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb88-1"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb88-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
@@ -295,9 +275,9 @@ Aluno: Maria - Nota: 9.2</code></pre>
 <pre class="text"><code>Array ( [0] =&gt; Maçã [1] =&gt; Banana [2] =&gt; Laranja )</code></pre>
 <hr>
 </div>
-<div id="sort" class="section level3" number="6.9.3">
+<div id="sort" class="section level3" number="6.6.3">
 <h3>
-<span class="header-section-number">6.9.3</span> sort()<a class="anchor" aria-label="anchor" href="#sort"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.6.3</span> sort()<a class="anchor" aria-label="anchor" href="#sort"><i class="fas fa-link"></i></a>
 </h3>
 <p>Ordena o array</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb90-1"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb90-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
@@ -308,29 +288,16 @@ Aluno: Maria - Nota: 9.2</code></pre>
 <span id="cb90-6"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb90-6" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
 <p>Resultado:</p>
 <pre class="text"><code>Array ( [0] =&gt; 1 [1] =&gt; 2 [2] =&gt; 3 )</code></pre>
-<hr>
 </div>
 </div>
-<div id="fluxo-de-processamento-com-arrays" class="section level2" number="6.10">
+<div id="exemplo-prático-formulário-com-arrays" class="section level2" number="6.7">
 <h2>
-<span class="header-section-number">6.10</span> Fluxo de processamento com arrays<a class="anchor" aria-label="anchor" href="#fluxo-de-processamento-com-arrays"><i class="fas fa-link"></i></a>
-</h2>
-</div>
-<div id="fluxo-de-processamento-com-arrays-1" class="section level2" number="6.11">
-<h2>
-<span class="header-section-number">6.11</span> Fluxo de processamento com arrays<a class="anchor" aria-label="anchor" href="#fluxo-de-processamento-com-arrays-1"><i class="fas fa-link"></i></a>
-</h2>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-a808748020aec39bd355" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-a808748020aec39bd355">{"x":{"diagram":"\ndigraph fluxo_arrays {\n  graph [layout = dot, rankdir = TB]\n\n  node [shape = rectangle, style = rounded, fontname = Helvetica, color = DarkGreen]\n\n  A [label = \"Entrada de dados\"]\n  B [label = \"Armazenar em array\"]\n  C [label = \"Processamento\"]\n  D [label = \"Exibir resultado\"]\n\n  A -> B -> C -> D\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
-</div>
-<div id="exemplo-prático-formulário-com-arrays" class="section level2" number="6.12">
-<h2>
-<span class="header-section-number">6.12</span> Exemplo prático: formulário com arrays<a class="anchor" aria-label="anchor" href="#exemplo-pr%C3%A1tico-formul%C3%A1rio-com-arrays"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.7</span> Exemplo prático: formulário com arrays<a class="anchor" aria-label="anchor" href="#exemplo-pr%C3%A1tico-formul%C3%A1rio-com-arrays"><i class="fas fa-link"></i></a>
 </h2>
 <p>Neste exemplo, o usuário digita três notas, que são armazenadas em um array e processadas pelo PHP.</p>
-<div id="código-completo" class="section level3" number="6.12.1">
+<div id="código-completo" class="section level3" number="6.7.1">
 <h3>
-<span class="header-section-number">6.12.1</span> Código completo<a class="anchor" aria-label="anchor" href="#c%C3%B3digo-completo"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.7.1</span> Código completo<a class="anchor" aria-label="anchor" href="#c%C3%B3digo-completo"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb92"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb92-1"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb92-1" tabindex="-1"></a><span class="op">&lt;!</span><span class="cn">DOCTYPE</span> html<span class="op">&gt;</span></span>
 <span id="cb92-2"><a href="opera%C3%A7%C3%B5es-com-arrays-e-matrizes-em-php.html#cb92-2" tabindex="-1"></a><span class="op">&lt;</span>html lang<span class="op">=</span><span class="st">"pt-BR"</span><span class="op">&gt;</span></span>
@@ -384,9 +351,9 @@ Aluno: Maria - Nota: 9.2</code></pre>
 <hr>
 </div>
 </div>
-<div id="explicação-do-exemplo" class="section level2" number="6.13">
+<div id="explicação-do-exemplo" class="section level2" number="6.8">
 <h2>
-<span class="header-section-number">6.13</span> Explicação do exemplo<a class="anchor" aria-label="anchor" href="#explica%C3%A7%C3%A3o-do-exemplo"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.8</span> Explicação do exemplo<a class="anchor" aria-label="anchor" href="#explica%C3%A7%C3%A3o-do-exemplo"><i class="fas fa-link"></i></a>
 </h2>
 <p>Neste exemplo:</p>
 <ul>
@@ -399,50 +366,46 @@ Aluno: Maria - Nota: 9.2</code></pre>
 </ul>
 <hr>
 </div>
-<div id="resultado-esperado-5" class="section level2" number="6.14">
+<div id="resultado-esperado-5" class="section level2" number="6.9">
 <h2>
-<span class="header-section-number">6.14</span> Resultado esperado<a class="anchor" aria-label="anchor" href="#resultado-esperado-5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.9</span> Resultado esperado<a class="anchor" aria-label="anchor" href="#resultado-esperado-5"><i class="fas fa-link"></i></a>
 </h2>
 <p>Se o usuário digitar:</p>
 <pre class="text"><code>7, 8, 9</code></pre>
 <p>Saída:</p>
-<pre class="text"><code>Notas: 7, 8, 9
-Média: 8.00
-Situação: APROVADO</code></pre>
+<pre><code>&gt; Notas: 7, 8, 9
+&gt; Média: 8.00
+&gt; Situação: APROVADO</code></pre>
 <hr>
 </div>
-<div id="boas-práticas-1" class="section level2" number="6.15">
+<div id="atividade-de-aula" class="section level2" number="6.10">
 <h2>
-<span class="header-section-number">6.15</span> Boas práticas<a class="anchor" aria-label="anchor" href="#boas-pr%C3%A1ticas-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.10</span> Atividade de aula<a class="anchor" aria-label="anchor" href="#atividade-de-aula"><i class="fas fa-link"></i></a>
 </h2>
-<p>Ao trabalhar com arrays em PHP:</p>
-<ul>
-<li>validar os dados recebidos</li>
-<li>usar nomes claros para variáveis</li>
-<li>utilizar funções nativas da linguagem</li>
-<li>evitar repetir código desnecessariamente</li>
-<li>comentar trechos importantes</li>
-</ul>
-<hr>
-</div>
-<div id="considerações-finais" class="section level2" number="6.16">
-<h2>
-<span class="header-section-number">6.16</span> Considerações finais<a class="anchor" aria-label="anchor" href="#considera%C3%A7%C3%B5es-finais"><i class="fas fa-link"></i></a>
-</h2>
-<p>Arrays e matrizes são estruturas fundamentais para o desenvolvimento em PHP. Elas permitem trabalhar com grandes volumes de dados de forma organizada e eficiente.</p>
-<p>Ao longo da disciplina, essas estruturas serão utilizadas em conjunto com:</p>
-<ul>
-<li>formulários</li>
-<li>banco de dados</li>
-<li>padrão MVC</li>
-</ul>
-<p>Esses conceitos formarão a base para o desenvolvimento de aplicações web completas.</p>
+<p>Desenvolva uma página PHP com Bootstrap para simular o registro de um pedido em uma lanchonete.</p>
+<p>O formulário deve conter os seguintes campos:
+- nome do cliente
+- produto principal (select)
+- tamanho do pedido (radio)
+- adicionais desejados (checkbox)
+- quantidade</p>
+<p>Ao enviar o formulário, o PHP deve:
+- receber os dados via POST
+- exibir o nome do cliente
+- exibir o produto escolhido
+- exibir o tamanho selecionado
+- exibir os adicionais marcados
+- exibir a quantidade informada
+- mostrar um resumo final do pedido</p>
+<p>Utilize Bootstrap para estilizar a página, o formulário, o botão e a área de resultado.</p>
+<p>Desafio extra:
+- exibir uma mensagem especial para pedidos com mais de 3 unidades ou com 2 ou mais adicionais.</p>
 
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="php---forms-e-estruturas-de-controle.html"><span class="header-section-number">5</span> PHP - Forms e estruturas de controle</a></div>
-<div class="next"><a href="references.html">References</a></div>
+<div class="next"><a href="validar-forms-e-reutilizar-de-scripts-com-include-e-require-em-php.html"><span class="header-section-number">7</span> Validar forms e reutilizar de scripts com include e require em PHP</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -453,49 +416,43 @@ Situação: APROVADO</code></pre>
 <li><a class="nav-link" href="#resultado-esperado"><span class="header-section-number">6.1.2</span> Resultado esperado</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#diagrama-estrutura-de-um-array"><span class="header-section-number">6.2</span> Diagrama: estrutura de um array</a></li>
 <li>
-<a class="nav-link" href="#arrays-associativos"><span class="header-section-number">6.3</span> Arrays associativos</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exemplo"><span class="header-section-number">6.3.1</span> Exemplo</a></li>
-<li><a class="nav-link" href="#resultado-esperado-1"><span class="header-section-number">6.3.2</span> Resultado esperado</a></li>
+<a class="nav-link" href="#arrays-associativos"><span class="header-section-number">6.2</span> Arrays associativos</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exemplo"><span class="header-section-number">6.2.1</span> Exemplo</a></li>
+<li><a class="nav-link" href="#resultado-esperado-1"><span class="header-section-number">6.2.2</span> Resultado esperado</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#iterando-arrays-com-foreach"><span class="header-section-number">6.4</span> Iterando arrays com foreach</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exemplo-1"><span class="header-section-number">6.4.1</span> Exemplo</a></li>
-<li><a class="nav-link" href="#resultado-esperado-2"><span class="header-section-number">6.4.2</span> Resultado esperado</a></li>
+<a class="nav-link" href="#iterando-arrays-com-foreach"><span class="header-section-number">6.3</span> Iterando arrays com foreach</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exemplo-1"><span class="header-section-number">6.3.1</span> Exemplo</a></li>
+<li><a class="nav-link" href="#resultado-esperado-2"><span class="header-section-number">6.3.2</span> Resultado esperado</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#arrays-multidimensionais-matrizes"><span class="header-section-number">6.5</span> Arrays multidimensionais (matrizes)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exemplo-2"><span class="header-section-number">6.5.1</span> Exemplo</a></li>
-<li><a class="nav-link" href="#resultado-esperado-3"><span class="header-section-number">6.5.2</span> Resultado esperado</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#diagrama-matriz-em-php"><span class="header-section-number">6.6</span> Diagrama: matriz em PHP</a></li>
-<li><a class="nav-link" href="#diagrama-matriz-em-php-1"><span class="header-section-number">6.7</span> Diagrama: matriz em PHP</a></li>
-<li>
-<a class="nav-link" href="#percorrendo-matrizes"><span class="header-section-number">6.8</span> Percorrendo matrizes</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exemplo-3"><span class="header-section-number">6.8.1</span> Exemplo</a></li>
-<li><a class="nav-link" href="#resultado-esperado-4"><span class="header-section-number">6.8.2</span> Resultado esperado</a></li>
+<a class="nav-link" href="#arrays-multidimensionais-matrizes"><span class="header-section-number">6.4</span> Arrays multidimensionais (matrizes)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exemplo-2"><span class="header-section-number">6.4.1</span> Exemplo</a></li>
+<li><a class="nav-link" href="#resultado-esperado-3"><span class="header-section-number">6.4.2</span> Resultado esperado</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#fun%C3%A7%C3%B5es-%C3%BAteis-para-arrays"><span class="header-section-number">6.9</span> Funções úteis para arrays</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#count"><span class="header-section-number">6.9.1</span> count()</a></li>
-<li><a class="nav-link" href="#array_push"><span class="header-section-number">6.9.2</span> array_push()</a></li>
-<li><a class="nav-link" href="#sort"><span class="header-section-number">6.9.3</span> sort()</a></li>
+<a class="nav-link" href="#percorrendo-matrizes"><span class="header-section-number">6.5</span> Percorrendo matrizes</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exemplo-3"><span class="header-section-number">6.5.1</span> Exemplo</a></li>
+<li><a class="nav-link" href="#resultado-esperado-4"><span class="header-section-number">6.5.2</span> Resultado esperado</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#fluxo-de-processamento-com-arrays"><span class="header-section-number">6.10</span> Fluxo de processamento com arrays</a></li>
-<li><a class="nav-link" href="#fluxo-de-processamento-com-arrays-1"><span class="header-section-number">6.11</span> Fluxo de processamento com arrays</a></li>
 <li>
-<a class="nav-link" href="#exemplo-pr%C3%A1tico-formul%C3%A1rio-com-arrays"><span class="header-section-number">6.12</span> Exemplo prático: formulário com arrays</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#c%C3%B3digo-completo"><span class="header-section-number">6.12.1</span> Código completo</a></li></ul>
+<a class="nav-link" href="#fun%C3%A7%C3%B5es-%C3%BAteis-para-arrays"><span class="header-section-number">6.6</span> Funções úteis para arrays</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#count"><span class="header-section-number">6.6.1</span> count()</a></li>
+<li><a class="nav-link" href="#array_push"><span class="header-section-number">6.6.2</span> array_push()</a></li>
+<li><a class="nav-link" href="#sort"><span class="header-section-number">6.6.3</span> sort()</a></li>
+</ul>
 </li>
-<li><a class="nav-link" href="#explica%C3%A7%C3%A3o-do-exemplo"><span class="header-section-number">6.13</span> Explicação do exemplo</a></li>
-<li><a class="nav-link" href="#resultado-esperado-5"><span class="header-section-number">6.14</span> Resultado esperado</a></li>
-<li><a class="nav-link" href="#boas-pr%C3%A1ticas-1"><span class="header-section-number">6.15</span> Boas práticas</a></li>
-<li><a class="nav-link" href="#considera%C3%A7%C3%B5es-finais"><span class="header-section-number">6.16</span> Considerações finais</a></li>
+<li>
+<a class="nav-link" href="#exemplo-pr%C3%A1tico-formul%C3%A1rio-com-arrays"><span class="header-section-number">6.7</span> Exemplo prático: formulário com arrays</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#c%C3%B3digo-completo"><span class="header-section-number">6.7.1</span> Código completo</a></li></ul>
+</li>
+<li><a class="nav-link" href="#explica%C3%A7%C3%A3o-do-exemplo"><span class="header-section-number">6.8</span> Explicação do exemplo</a></li>
+<li><a class="nav-link" href="#resultado-esperado-5"><span class="header-section-number">6.9</span> Resultado esperado</a></li>
+<li><a class="nav-link" href="#atividade-de-aula"><span class="header-section-number">6.10</span> Atividade de aula</a></li>
 </ul>
 
       <div class="book-extra">
@@ -513,7 +470,7 @@ Situação: APROVADO</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Desenvolvimento de Sistemas</strong>" was written by Juliana Costa Silva. It was last built on 2026-03-27.</p>
+    <p>"<strong>Desenvolvimento de Sistemas</strong>" was written by Juliana Costa Silva. It was last built on 2026.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

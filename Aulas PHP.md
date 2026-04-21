@@ -2382,8 +2382,8 @@ Neste exemplo:
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-a8b691ec1ec81488e116" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-a8b691ec1ec81488e116">{"x":{"diagram":"\ndigraph array_simples {\n  graph [layout = dot, rankdir = LR]\n\n  node [shape = rectangle, style = filled, fillcolor = LightBlue, fontname = Helvetica]\n\n  A [label = \"Array frutas\"]\n  B [label = \"0: Maçã\"]\n  C [label = \"1: Banana\"]\n  D [label = \"2: Laranja\"]\n\n  A -> B\n  A -> C\n  A -> D\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-b5a1dde0bfbea7edd4ee" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-b5a1dde0bfbea7edd4ee">{"x":{"diagram":"\ndigraph array_simples {\n  graph [layout = dot, rankdir = LR]\n\n  node [shape = rectangle, style = filled, fillcolor = LightBlue, fontname = Helvetica]\n\n  A [label = \"Array frutas\"]\n  B [label = \"0: Maçã\"]\n  C [label = \"1: Banana\"]\n  D [label = \"2: Laranja\"]\n\n  A -> B\n  A -> C\n  A -> D\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -2475,8 +2475,8 @@ Ana
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-4db6a6d4d26de8b60313" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-4db6a6d4d26de8b60313">{"x":{"diagram":"\ndigraph matriz_php {\n  graph [layout = dot, rankdir = TB]\n\n  node [shape = rectangle, style = filled, fillcolor = LightYellow, fontname = Helvetica]\n\n  A  [label = \"alunos\"]\n  B  [label = \"0\"]\n  C  [label = \"1\"]\n  D  [label = \"2\"]\n\n  B1 [label = \"Ana\"]\n  B2 [label = \"8.5\"]\n\n  C1 [label = \"Carlos\"]\n  C2 [label = \"6.0\"]\n\n  D1 [label = \"Maria\"]\n  D2 [label = \"9.2\"]\n\n  A -> B\n  A -> C\n  A -> D\n\n  B -> B1\n  B -> B2\n\n  C -> C1\n  C -> C2\n\n  D -> D1\n  D -> D2\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-6b615bca9b572da4c8e0" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-6b615bca9b572da4c8e0">{"x":{"diagram":"\ndigraph matriz_php {\n  graph [layout = dot, rankdir = TB]\n\n  node [shape = rectangle, style = filled, fillcolor = LightYellow, fontname = Helvetica]\n\n  A  [label = \"alunos\"]\n  B  [label = \"0\"]\n  C  [label = \"1\"]\n  D  [label = \"2\"]\n\n  B1 [label = \"Ana\"]\n  B2 [label = \"8.5\"]\n\n  C1 [label = \"Carlos\"]\n  C2 [label = \"6.0\"]\n\n  D1 [label = \"Maria\"]\n  D2 [label = \"9.2\"]\n\n  A -> B\n  A -> C\n  A -> D\n\n  B -> B1\n  B -> B2\n\n  C -> C1\n  C -> C2\n\n  D -> D1\n  D -> D2\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -2581,8 +2581,8 @@ Array ( [0] => 1 [1] => 2 [2] => 3 )
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-5f0284646da6a5d074d5" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-5f0284646da6a5d074d5">{"x":{"diagram":"\ndigraph fluxo_arrays {\n  graph [layout = dot, rankdir = TB]\n\n  node [shape = rectangle, style = rounded, fontname = Helvetica, color = DarkGreen]\n\n  A [label = \"Entrada de dados\"]\n  B [label = \"Armazenar em array\"]\n  C [label = \"Processamento\"]\n  D [label = \"Exibir resultado\"]\n\n  A -> B -> C -> D\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-eb61e12d593cbe735c7e" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-eb61e12d593cbe735c7e">{"x":{"diagram":"\ndigraph fluxo_arrays {\n  graph [layout = dot, rankdir = TB]\n\n  node [shape = rectangle, style = rounded, fontname = Helvetica, color = DarkGreen]\n\n  A [label = \"Entrada de dados\"]\n  B [label = \"Armazenar em array\"]\n  C [label = \"Processamento\"]\n  D [label = \"Exibir resultado\"]\n\n  A -> B -> C -> D\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 

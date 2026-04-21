@@ -1,0 +1,466 @@
+# Atividades de estudo
+
+## Lista de atividades para revisão da avaliação {-}
+
+Esta lista de exercícios foi elaborada como material de revisão para a avaliação da disciplina. Os exercícios retomam os conteúdos trabalhados nas aulas e no e-book, com foco em conceitos fundamentais para o desenvolvimento de aplicações web com HTML, CSS e PHP.
+
+Os tópicos abordados incluem:
+
+- estrutura e interpretação de páginas HTML;
+- seletores e organização visual com CSS;
+- sintaxe básica do PHP;
+- formulários e recebimento de dados;
+- estruturas de decisão e repetição;
+- arrays e matrizes;
+- validação de formulários;
+- reutilização de código com `include` e `require`.
+
+A proposta desta lista é ajudar no estudo progressivo, combinando questões conceituais com exercícios práticos curtos.
+
+## Orientações {-}
+
+- Resolva os exercícios com base nas anotações de aula e nos capítulos do e-book.
+- Sempre que possível, teste os códigos no seu ambiente local.
+- Nos exercícios práticos, priorize organização, clareza e funcionamento correto.
+- Em questões discursivas, responda com suas próprias palavras.
+- Nos exercícios com PHP, considere que os arquivos serão executados em ambiente local com servidor web.
+
+## Revisando conceitos {-}
+
+## Exercício
+
+Explique, com suas palavras, a diferença entre tecnologias executadas no **cliente** e tecnologias executadas no **servidor**. Cite exemplos estudados na disciplina.
+
+ 
+
+## Exercício
+
+Descreva a função de cada uma das seguintes tecnologias no desenvolvimento web:
+
+- HTML
+- CSS
+- PHP
+
+ 
+
+## Exercício
+
+Na linguagem HTML, qual é a diferença entre elementos com comportamento **block-level** e **inline**? Dê dois exemplos de cada categoria. Esse conteúdo já apareceu em avaliações anteriores da disciplina.
+
+ 
+
+## Exercício
+
+Explique a diferença entre os seguintes seletores CSS:
+
+- seletor de elemento
+- seletor de classe
+- seletor de id
+
+Esse conteúdo também foi explorado nas provas anteriores.
+
+
+
+## Exercício
+
+Explique o papel do atributo `href` em links HTML e mostre um exemplo de link que abra uma página em nova guia.
+
+ 
+
+## Exercício
+
+Explique o que é um formulário HTML e qual sua importância em aplicações web. Relacione sua resposta com a ideia de envio de dados do usuário para o servidor. Esse tema também aparece nas avaliações anteriores.
+
+
+## PHP básico {-}
+
+## Exercício
+
+Escreva um script PHP que:
+
+- declare uma variável chamada `$nome`;
+- atribua a ela o nome de um aluno;
+- exiba uma mensagem de boas-vindas utilizando `echo`.
+
+
+
+## Exercício
+
+Explique a diferença entre:
+
+- variável
+- constante
+
+Em seguida, escreva um exemplo de cada em PHP.
+
+
+
+## Exercício
+
+Considere o trecho abaixo:
+
+```php
+<?php
+$idade = 20;
+echo "A idade do aluno é $idade anos.";
+?>
+```
+
+Explique o que esse código faz e qual será a saída esperada.
+
+
+
+## Exercício
+
+Escreva um exemplo de comentário de uma linha e de comentário de múltiplas linhas em PHP.
+
+## Estruturas de decisão {-}
+
+## Exercício
+
+Escreva um script PHP que receba um número e informe se ele é:
+
+- positivo
+- negativo
+- zero
+
+Utilize `if`, `elseif` e `else`.
+
+
+
+## Exercício
+
+Escreva um script PHP que receba a nota de um aluno e exiba:
+
+- **Aprovado**, se nota maior ou igual a 6,0
+- **Recuperação**, se nota maior ou igual a 2,0 e menor que 6,0
+- **Reprovado**, se nota menor que 2,0
+
+
+
+## Exercício
+
+Explique em que situações a estrutura `switch` pode ser mais adequada do que vários `if/elseif`.
+
+
+
+## Exercício
+
+Escreva um exemplo em PHP utilizando `switch` para exibir o nome do mês correspondente a um número entre 1 e 12.
+
+## Estruturas de repetição {-}
+
+## Exercício
+
+Explique a diferença entre os laços:
+
+- `while`
+- `do while`
+- `for`
+
+
+
+## Exercício
+
+Escreva um script PHP que exiba os números de 1 a 10 utilizando `while`.
+
+
+
+## Exercício
+
+Escreva um script PHP que exiba os números de 10 até 1 utilizando `for`.
+
+
+
+## Exercício
+
+Explique por que o `do while` executa o bloco ao menos uma vez, mesmo quando a condição é falsa.
+
+
+## Formulários e recebimento de dados {-}
+
+## Exercício
+
+Explique a diferença entre os métodos `GET` e `POST` em formulários HTML/PHP.
+
+
+
+## Exercício
+
+Crie um formulário HTML com os campos:
+
+- nome
+- e-mail
+
+O formulário deve enviar os dados para um arquivo PHP chamado `dados.php`.
+
+
+
+## Exercício
+
+Escreva o conteúdo do arquivo `dados.php` para:
+
+- receber os valores enviados;
+- exibir o nome e o e-mail informados.
+
+
+
+## Exercício
+
+Explique o papel das superglobais:
+
+- `$_GET`
+- `$_POST`
+- `$_SERVER`
+
+
+
+## Exercício
+
+Escreva um exemplo de uso de `$_SERVER["REQUEST_METHOD"]` para verificar se um formulário foi enviado por `POST`. Esse padrão aparece no capítulo sobre validação de formulários. 
+
+## Arrays e matrizes {-}
+
+## Exercício
+
+Explique o que é um array em PHP e apresente um exemplo de array indexado.
+
+
+
+## Exercício
+
+Crie um array com o nome de cinco disciplinas e exiba o primeiro e o último elemento.
+
+
+
+## Exercício
+
+Crie um array associativo com as seguintes informações de um aluno:
+
+- nome
+- idade
+- curso
+
+Depois, exiba os valores armazenados.
+
+
+
+## Exercício
+
+Explique o que é uma matriz em PHP e escreva um exemplo com pelo menos três linhas e duas colunas.
+
+
+
+## Exercício
+
+Crie um array com quatro notas, percorra esse array com `foreach` e exiba cada valor na tela.
+
+
+
+## Exercício
+
+Dado o array abaixo:
+
+```php
+$notas = array(7.0, 8.5, 6.0, 9.0);
+```
+
+faça o que se pede:
+
+- calcule a soma das notas;
+- calcule a média;
+- exiba uma mensagem informando se a média é suficiente para aprovação.
+
+## Validação de formulários {-}
+
+## Exercício
+
+Explique por que a validação de formulários é importante em sistemas web. Relacione sua resposta com:
+
+- integridade dos dados
+- segurança
+- experiência do usuário
+
+Esse caminho de explicação aparece no capítulo sobre validação em PHP.
+
+
+
+## Exercício
+
+Explique a diferença entre:
+
+- sanitização
+- validação
+
+
+
+## Exercício
+
+Escreva uma função PHP chamada `limpar_entrada()` que utilize:
+
+- `trim()`
+- `stripslashes()`
+- `htmlspecialchars()`
+
+Depois, explique a função de cada uma dessas operações.
+
+
+
+## Exercício
+
+Escreva um trecho de código PHP que valide se um e-mail possui formato correto.
+
+
+
+## Exercício
+
+Crie um formulário com os campos:
+
+- nome
+- e-mail
+- idade
+
+Depois, faça um script PHP que valide:
+
+- se o nome foi preenchido;
+- se o e-mail é válido;
+- se a idade está entre 16 e 100.
+
+
+
+## Exercício
+
+Explique por que `htmlspecialchars()` ajuda a evitar problemas quando os dados digitados pelo usuário são exibidos novamente na página. Esse ponto aparece no material sobre validação.
+
+## include e require {-}
+
+## Exercício
+
+Explique o que fazem as instruções:
+
+- `include`
+- `require`
+
+Depois, explique a principal diferença entre elas. Esse conteúdo está diretamente no capítulo sobre reutilização de código.
+
+
+
+## Exercício
+
+Explique a utilidade de:
+
+- `include_once`
+- `require_once`
+
+
+
+## Exercício
+
+Imagine um sistema com várias páginas que utilizam o mesmo menu de navegação. Explique por que o uso de `include` pode facilitar a manutenção desse sistema. Esse cenário foi usado como exemplo no capítulo.
+
+
+
+## Exercício
+
+Escreva o conteúdo de um arquivo `menu.php` contendo uma barra de navegação simples em HTML.
+
+
+
+## Exercício
+
+Escreva o código de uma página `index.php` que utilize `include` para importar o arquivo `menu.php`.
+
+
+
+## Exercício
+
+Crie um arquivo `funcoes.php` contendo uma função chamada `saudacao($nome)` que exiba uma mensagem de boas-vindas. Depois, escreva uma página PHP que importe esse arquivo utilizando `require_once` e chame a função.
+
+## Exercícios integradores {-}
+
+## Exercício
+
+Desenvolva uma página PHP com Bootstrap contendo um formulário de cadastro de aluno com os campos:
+
+- nome
+- e-mail
+- idade
+- curso
+- turno
+
+Ao enviar o formulário, o sistema deve:
+
+- validar os campos no servidor;
+- exibir mensagens de erro quando necessário;
+- reapresentar os valores digitados;
+- mostrar um resumo dos dados quando tudo estiver correto.
+
+Esse exercício retoma diretamente a lógica do capítulo sobre validação e reutilização de código.
+
+
+
+## Exercício
+
+Refatore o exercício anterior separando:
+
+- o menu em um arquivo `menu.php`;
+- as funções de validação em um arquivo `funcoes.php`.
+
+Na página principal, utilize:
+
+- `include` para o menu;
+- `require_once` para as funções.
+
+
+
+## Exercício
+
+Desenvolva uma página PHP que receba, por formulário, três notas de um aluno. O sistema deve:
+
+- armazenar as notas em um array;
+- calcular a média;
+- exibir a situação final do aluno;
+- apresentar o resultado com Bootstrap.
+
+
+
+## Exercício
+
+Desenvolva uma pequena aplicação de revisão para a avaliação com duas páginas:
+
+- `cadastro.php`
+- `resumo.php`
+
+Na primeira página, o usuário informa:
+
+- nome
+- disciplina favorita
+- nota esperada na avaliação
+
+Na segunda página, o sistema exibe os dados recebidos. Organize o menu de navegação em arquivo separado.
+
+## Desafio {-}
+
+## Exercício
+
+Desenvolva um mini sistema em PHP com Bootstrap contendo:
+
+- uma página inicial;
+- uma página de cadastro;
+- um menu reutilizável com `include`;
+- um arquivo de funções com `require_once`;
+- validação de formulário;
+- uso de pelo menos um array;
+- exibição formatada dos resultados.
+
+Organize os arquivos em pastas e escreva um breve comentário explicando a função de cada arquivo no sistema.
+
+## Sugestão de estudo  {-}
+
+Para revisar antes da avaliação, recomenda-se:
+
+- reler os capítulos do e-book;
+- testar todos os exemplos no ambiente local;
+- revisar as questões das avaliações anteriores, especialmente os tópicos de HTML, CSS e formulários; 
+- refazer ao menos um exercício integrador completo.
+
