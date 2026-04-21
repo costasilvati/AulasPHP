@@ -6,14 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>7 Validar forms e reutilizar de scripts com include e require em PHP | Desenvolvimento de Sistemas</title>
 <meta name="author" content="Juliana Costa Silva">
-<meta name="description" content="Neste capítulo, avançaremos no estudo de PHP com foco em dois temas muito importantes para o desenvolvimento de sistemas web: a validação de formulários e a reutilização de código por meio de...">
+<meta name="description" content="Códigos desenvolvidos em sala de aula Neste capítulo, avançaremos no estudo de PHP com foco em dois temas muito importantes para o desenvolvimento de sistemas web: a validação de formulários e a...">
 <meta name="generator" content="bookdown 0.46 with bs4_book()">
 <meta property="og:title" content="7 Validar forms e reutilizar de scripts com include e require em PHP | Desenvolvimento de Sistemas">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Neste capítulo, avançaremos no estudo de PHP com foco em dois temas muito importantes para o desenvolvimento de sistemas web: a validação de formulários e a reutilização de código por meio de...">
+<meta property="og:description" content="Códigos desenvolvidos em sala de aula Neste capítulo, avançaremos no estudo de PHP com foco em dois temas muito importantes para o desenvolvimento de sistemas web: a validação de formulários e a...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="7 Validar forms e reutilizar de scripts com include e require em PHP | Desenvolvimento de Sistemas">
-<meta name="twitter:description" content="Neste capítulo, avançaremos no estudo de PHP com foco em dois temas muito importantes para o desenvolvimento de sistemas web: a validação de formulários e a reutilização de código por meio de...">
+<meta name="twitter:description" content="Códigos desenvolvidos em sala de aula Neste capítulo, avançaremos no estudo de PHP com foco em dois temas muito importantes para o desenvolvimento de sistemas web: a validação de formulários e a...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -85,6 +85,7 @@
 <h1>
 <span class="header-section-number">7</span> Validar forms e reutilizar de scripts com include e require em PHP<a class="anchor" aria-label="anchor" href="#validar-forms-e-reutilizar-de-scripts-com-include-e-require-em-php"><i class="fas fa-link"></i></a>
 </h1>
+<p><a href="https://github.com/costasilvati/AulasPHP/tree/main/code/aula_17042026">Códigos desenvolvidos em sala de aula</a></p>
 <p>Neste capítulo, avançaremos no estudo de PHP com foco em dois temas muito importantes para o desenvolvimento de sistemas web: a <strong>validação de formulários</strong> e a <strong>reutilização de código por meio de arquivos externos</strong>.</p>
 <p>Ao desenvolver aplicações web, não basta apenas receber os dados digitados pelo usuário. Também é necessário verificar se esses dados foram preenchidos corretamente, se estão em um formato esperado e se podem ser utilizados com segurança no sistema. Esse processo é chamado de <strong>validação</strong>. A validação no servidor é indispensável para garantir integridade e segurança, mesmo quando o formulário já possui validações no HTML ou em JavaScript.</p>
 <p>Além disso, à medida que um sistema cresce, torna-se inconveniente repetir os mesmos trechos de código em várias páginas. Um exemplo clássico é o menu de navegação. Em PHP, esse problema pode ser resolvido com <code>include</code>, <code>require</code>, <code>include_once</code> e <code>require_once</code>, que permitem importar arquivos contendo HTML, funções e outras estruturas reutilizáveis. A diferença principal é que <code>include</code> gera aviso e permite que o script continue, enquanto <code>require</code> interrompe a execução em caso de falha.</p>

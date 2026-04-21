@@ -1,5 +1,7 @@
 # Validar forms e reutilizar de scripts com include e require em PHP
 
+[Códigos desenvolvidos em sala de aula](https://github.com/costasilvati/AulasPHP/tree/main/code/aula_17042026)
+
 Neste capítulo, avançaremos no estudo de PHP com foco em dois temas muito importantes para o desenvolvimento de sistemas web: a **validação de formulários** e a **reutilização de código por meio de arquivos externos**.
 
 Ao desenvolver aplicações web, não basta apenas receber os dados digitados pelo usuário. Também é necessário verificar se esses dados foram preenchidos corretamente, se estão em um formato esperado e se podem ser utilizados com segurança no sistema. Esse processo é chamado de **validação**. A validação no servidor é indispensável para garantir integridade e segurança, mesmo quando o formulário já possui validações no HTML ou em JavaScript.
