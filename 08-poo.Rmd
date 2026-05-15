@@ -1,0 +1,1246 @@
+# POO em PHP
+
+Neste capítulo, estudaremos os principais conceitos de **orientação a objetos em PHP**, incluindo criação de classes, atributos, métodos, objetos, construtores, destrutores, herança e sobrescrita de métodos.
+
+A orientação a objetos permite organizar o código em unidades chamadas **classes**, que funcionam como modelos para a criação de **objetos**. Segundo a documentação do PHP, uma classe pode conter propriedades, métodos e constantes, servindo como estrutura para representar entidades do sistema [@php_oop_manual]. A W3Schools também define orientação a objetos como uma forma de organizar o código em classes e objetos, favorecendo reutilização, manutenção e estruturação da aplicação [@w3schools_php_oop].
+
+## O que é orientação a objetos
+
+Na programação procedural, normalmente escrevemos uma sequência de comandos e funções que manipulam dados diretamente. Na programação orientada a objetos, agrupamos dados e comportamentos relacionados em uma mesma estrutura.
+
+Por exemplo, em um sistema de cadastro de clientes, poderíamos representar um cliente com variáveis separadas:
+
+```php
+$nome = "Ana Silva";
+$email = "ana@email.com";
+$telefone = "(43) 99999-0000";
+```
+
+
+Na orientação a objetos, podemos criar uma classe `Cliente` para representar esse conceito:
+
+```php
+class Cliente {
+    public string $nome;
+    public string $email;
+    public string $telefone;
+}
+```
+
+A classe funciona como um modelo. O objeto é uma instância concreta desse modelo.
+
+```php
+$cliente = new Cliente();
+
+$cliente->nome = "Ana Silva";
+$cliente->email = "ana@email.com";
+$cliente->telefone = "(43) 99999-0000";
+```
+
+Neste exemplo, `Cliente` é a classe e `$cliente` é um objeto.
+
+## Classes em PHP
+
+Uma classe é declarada com a palavra-chave `class`.
+
+```php
+class Produto {
+    public string $nome;
+    public float $preco;
+}
+```
+
+Neste exemplo, a classe `Produto` possui dois atributos:
+
+* `nome`
+* `preco`
+
+Em PHP, atributos também podem ser chamados de **propriedades**.
+
+## Objetos
+
+Para criar um objeto a partir de uma classe, usamos a palavra-chave `new`.
+
+```php
+$produto = new Produto();
+
+$produto->nome = "Teclado";
+$produto->preco = 150.00;
+
+echo $produto->nome;
+echo $produto->preco;
+```
+
+O operador `->` é utilizado para acessar atributos e métodos de um objeto.
+
+## Métodos
+
+Métodos são funções declaradas dentro de uma classe. Eles representam comportamentos do objeto.
+
+```php
+class Produto {
+    public string $nome;
+    public float $preco;
+
+    public function exibirResumo(): string {
+        return "Produto: {$this->nome} - Preço: R$ {$this->preco}";
+    }
+}
+```
+
+Uso:
+
+```php
+$produto = new Produto();
+
+$produto->nome = "Mouse";
+$produto->preco = 80.00;
+
+echo $produto->exibirResumo();
+```
+
+A palavra-chave `$this` representa o próprio objeto que está executando o método.
+
+## Passagem de parâmetros para métodos
+
+Os métodos também podem receber parâmetros.
+
+```php
+class CalculadoraDesconto {
+    public function aplicarDesconto(float $preco, float $percentual): float {
+        return $preco - ($preco * $percentual / 100);
+    }
+}
+```
+
+Uso:
+
+```php
+$calculadora = new CalculadoraDesconto();
+
+$valorFinal = $calculadora->aplicarDesconto(200.00, 10);
+
+echo $valorFinal;
+```
+
+Resultado:
+
+```text
+180
+```
+
+## Construtores
+
+O construtor é um método especial executado automaticamente quando um objeto é criado.
+
+Em PHP, o construtor é declarado com o nome `__construct`.
+
+```php
+class Cliente {
+    public string $nome;
+    public string $email;
+
+    public function __construct(string $nome, string $email) {
+        $this->nome = $nome;
+        $this->email = $email;
+    }
+
+    public function exibirDados(): string {
+        return "Cliente: {$this->nome} - E-mail: {$this->email}";
+    }
+}
+```
+
+Uso:
+
+```php
+$cliente = new Cliente("Maria Oliveira", "maria@email.com");
+
+echo $cliente->exibirDados();
+```
+
+Neste exemplo, o objeto já nasce com nome e e-mail definidos.
+
+## Destrutores
+
+O destrutor é um método especial executado quando o objeto deixa de existir ou quando o script termina.
+
+Em PHP, o destrutor é declarado com o nome `__destruct`.
+
+```php
+class ConexaoTeste {
+    public function __construct() {
+        echo "Objeto criado<br>";
+    }
+
+    public function __destruct() {
+        echo "Objeto destruído<br>";
+    }
+}
+
+$objeto = new ConexaoTeste();
+```
+
+O destrutor pode ser usado, por exemplo, para liberar recursos, fechar conexões ou registrar mensagens de finalização.
+
+## Modificadores de acesso
+
+PHP permite controlar o acesso a atributos e métodos usando modificadores de visibilidade.
+
+Os principais são:
+
+* `public`: pode ser acessado de qualquer lugar
+* `private`: só pode ser acessado dentro da própria classe
+* `protected`: pode ser acessado na própria classe e em classes filhas
+
+Exemplo:
+
+```php
+class Usuario {
+    private string $senha;
+
+    public function definirSenha(string $senha): void {
+        $this->senha = $senha;
+    }
+
+    public function verificarSenha(string $senhaDigitada): bool {
+        return $this->senha === $senhaDigitada;
+    }
+}
+```
+
+Uso:
+
+```php
+$usuario = new Usuario();
+
+$usuario->definirSenha("12345678");
+
+if ($usuario->verificarSenha("12345678")) {
+    echo "Senha correta";
+} else {
+    echo "Senha incorreta";
+}
+```
+
+Neste exemplo, a senha não é acessada diretamente fora da classe. O acesso ocorre por meio dos métodos públicos.
+
+## Herança
+
+Herança permite criar uma classe com base em outra classe.
+
+A classe original é chamada de classe pai, superclasse ou classe base. A nova classe é chamada de classe filha ou subclasse.
+
+Em PHP, usamos a palavra-chave `extends`.
+
+```php
+class Pessoa {
+    protected string $nome;
+
+    public function __construct(string $nome) {
+        $this->nome = $nome;
+    }
+
+    public function apresentar(): string {
+        return "Meu nome é {$this->nome}";
+    }
+}
+```
+
+Classe filha:
+
+```php
+class Cliente extends Pessoa {
+    private string $email;
+
+    public function __construct(string $nome, string $email) {
+        parent::__construct($nome);
+        $this->email = $email;
+    }
+
+    public function exibirEmail(): string {
+        return "E-mail: {$this->email}";
+    }
+}
+```
+
+Uso:
+
+```php
+$cliente = new Cliente("Carlos Souza", "carlos@email.com");
+
+echo $cliente->apresentar();
+echo "<br>";
+echo $cliente->exibirEmail();
+```
+
+A classe `Cliente` herda o método `apresentar()` da classe `Pessoa`.
+
+## Sobrescrita de métodos
+
+A sobrescrita ocorre quando uma classe filha redefine um método herdado da classe pai.
+
+```php
+class Pessoa {
+    protected string $nome;
+
+    public function __construct(string $nome) {
+        $this->nome = $nome;
+    }
+
+    public function apresentar(): string {
+        return "Meu nome é {$this->nome}";
+    }
+}
+
+class Cliente extends Pessoa {
+    private string $email;
+
+    public function __construct(string $nome, string $email) {
+        parent::__construct($nome);
+        $this->email = $email;
+    }
+
+    public function apresentar(): string {
+        return "Cliente: {$this->nome} - E-mail: {$this->email}";
+    }
+}
+```
+
+Uso:
+
+```php
+$cliente = new Cliente("Fernanda Lima", "fernanda@email.com");
+
+echo $cliente->apresentar();
+```
+
+Neste caso, o método `apresentar()` da classe `Cliente` substitui o comportamento definido na classe `Pessoa`.
+
+## Exemplo completo de classe Cliente
+
+```php
+<?php
+
+class Cliente {
+    private string $nome;
+    private string $email;
+    private string $telefone;
+
+    public function __construct(string $nome, string $email, string $telefone) {
+        $this->nome = $nome;
+        $this->email = $email;
+        $this->telefone = $telefone;
+    }
+
+    public function getNome(): string {
+        return $this->nome;
+    }
+
+    public function getEmail(): string {
+        return $this->email;
+    }
+
+    public function getTelefone(): string {
+        return $this->telefone;
+    }
+
+    public function exibirResumo(): string {
+        return "Cliente: {$this->nome} | E-mail: {$this->email} | Telefone: {$this->telefone}";
+    }
+
+    public function __destruct() {
+        // Executado ao final do uso do objeto
+    }
+}
+```
+
+Uso:
+
+```php
+$cliente = new Cliente(
+    "Ana Silva",
+    "ana@email.com",
+    "(43) 99999-0000"
+);
+
+echo $cliente->exibirResumo();
+```
+
+## Tipos de retorno em métodos PHP
+
+Nos exemplos anteriores, vários métodos foram declarados utilizando `:` após os parâmetros. Esse símbolo é utilizado para definir o **tipo de retorno** do método.
+
+Exemplo:
+
+```php
+public function exibirResumo(): string {
+    return "Produto: {$this->nome}";
+}
+```
+
+Neste caso:
+
+```php
+: string
+```
+
+significa que o método obrigatoriamente deve retornar uma `string`.
+
+Segundo a documentação oficial do PHP, a linguagem permite definir tipos tanto para parâmetros quanto para retornos de funções e métodos [@php_oop_manual].
+
+## Por que definir o tipo de retorno
+
+Definir o tipo de retorno ajuda a:
+
+* deixar o código mais organizado
+* evitar erros
+* facilitar manutenção
+* melhorar leitura do código
+* auxiliar IDEs e ferramentas de análise
+
+Exemplo sem tipo:
+
+```php
+public function calcular() {
+    return 10;
+}
+```
+
+Exemplo com tipo:
+
+```php
+public function calcular(): int {
+    return 10;
+}
+```
+
+O segundo exemplo deixa explícito que o método retorna um número inteiro.
+
+## Principais tipos de retorno em PHP
+
+### string {-}
+
+Retorna texto.
+
+```php
+public function obterNome(): string {
+    return "Juliana";
+}
+```
+
+
+
+### int {-}
+
+Retorna números inteiros.
+
+```php
+public function obterIdade(): int {
+    return 25;
+}
+```
+
+
+
+### float {-}
+
+Retorna números reais.
+
+```php
+public function calcularMedia(): float {
+    return 8.5;
+}
+```
+
+
+
+### bool {-}
+
+Retorna verdadeiro ou falso.
+
+```php
+public function verificarLogin(): bool {
+    return true;
+}
+```
+
+
+
+### array {-}
+
+Retorna arrays.
+
+```php
+public function listarUsuarios(): array {
+    return ["Ana", "Carlos", "Maria"];
+}
+```
+
+
+
+### void {-}
+
+Indica que o método não retorna nenhum valor.
+
+```php
+public function exibirMensagem(): void {
+    echo "Olá";
+}
+```
+
+Métodos `void` executam ações, mas não retornam dados.
+
+
+
+### mixed {-}
+
+Indica que o método pode retornar vários tipos diferentes.
+
+```php
+public function buscarValor(): mixed {
+    return "Teste";
+}
+```
+
+Esse tipo deve ser usado com cuidado.
+
+## Tipagem de parâmetros
+
+Além do retorno, PHP também permite tipar parâmetros.
+
+```php
+public function somar(int $a, int $b): int {
+    return $a + $b;
+}
+```
+
+Uso:
+
+```php
+echo somar(10, 20);
+```
+
+Resultado:
+
+```text
+30
+```
+
+## Exemplo completo com parâmetros e retorno
+
+```php
+class Produto {
+    private string $nome;
+    private float $preco;
+
+    public function __construct(string $nome, float $preco) {
+        $this->nome = $nome;
+        $this->preco = $preco;
+    }
+
+    public function calcularDesconto(float $percentual): float {
+        return $this->preco - ($this->preco * $percentual / 100);
+    }
+
+    public function exibirResumo(): string {
+        return "Produto: {$this->nome} - Preço: R$ {$this->preco}";
+    }
+}
+```
+
+Neste exemplo:
+
+| Método               | Tipo de retorno |
+| -------------------- | --------------- |
+| `__construct()`      | nenhum          |
+| `calcularDesconto()` | `float`         |
+| `exibirResumo()`     | `string`        |
+
+## O que acontece se o retorno estiver incorreto
+
+Se o método retornar um tipo diferente do declarado, o PHP pode gerar erro.
+
+Exemplo:
+
+```php
+public function obterNumero(): int {
+    return "texto";
+}
+```
+
+Resultado esperado:
+
+```text
+Fatal error: Uncaught TypeError
+```
+
+## Orientação a objetos e organização de sistemas
+
+Em sistemas maiores, as classes ajudam a separar responsabilidades.
+
+Por exemplo:
+
+* uma classe `Cliente` representa os dados do cliente
+* uma classe `ClienteDAO` ou `ClienteModel` pode cuidar da comunicação com o banco
+* um `Controller` pode receber dados do formulário e decidir o que fazer
+* uma `View` pode conter o HTML exibido ao usuário
+
+Essa organização nos aproxima do padrão MVC.
+
+## O que é MVC
+
+MVC significa:
+
+* **Model**
+* **View**
+* **Controller**
+
+Esse padrão separa a aplicação em três responsabilidades principais.
+
+### Model {-}
+
+O Model representa os dados e as regras de acesso a esses dados.
+
+No exemplo deste capítulo, o Model será responsável por inserir clientes no banco de dados.
+
+### View {-}
+
+A View representa a interface com o usuário.
+
+No exemplo, a View será o formulário HTML com Bootstrap.
+
+### Controller {-}
+
+O Controller recebe a requisição, valida os dados e chama o Model.
+
+No exemplo, o Controller receberá os dados enviados pelo formulário e solicitará o cadastro do cliente.
+
+## Exemplo prático: cadastro de clientes com MVC
+
+Neste exemplo, criaremos um pequeno sistema de cadastro de clientes usando:
+
+* PHP orientado a objetos
+* PDO
+* MySQL
+* Bootstrap
+* padrão MVC simplificado
+
+## Estrutura de pastas
+
+```text
+cadastro-clientes/
+├── config/
+│   └── Database.php
+├── controllers/
+│   └── ClienteController.php
+├── models/
+│   └── Cliente.php
+├── views/
+│   ├── form_cliente.php
+│   └── mensagem.php
+└── index.php
+```
+
+## Banco de dados
+
+Antes de desenvolver o código PHP, crie o banco de dados e a tabela.
+
+```sql
+CREATE DATABASE sistema_clientes
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+USE sistema_clientes;
+
+CREATE TABLE clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(120) NOT NULL UNIQUE,
+    telefone VARCHAR(20) NOT NULL,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+## O que é PDO
+
+PDO significa:
+
+```text
+PHP Data Objects
+```
+
+PDO é uma biblioteca do PHP utilizada para realizar conexões com bancos de dados.
+
+Segundo a documentação oficial do PHP, PDO fornece uma interface consistente para acesso a diferentes bancos de dados [@php_pdo_manual].
+
+Com PDO, podemos trabalhar com:
+
+* MySQL
+* PostgreSQL
+* SQLite
+* SQL Server
+* Oracle
+* entre outros
+
+## Por que usar PDO
+
+PDO oferece diversas vantagens:
+
+* maior segurança
+* suporte a múltiplos bancos
+* código mais organizado
+* prevenção contra SQL Injection
+* tratamento de erros mais robusto
+* orientação a objetos
+
+Hoje, PDO é uma das formas mais recomendadas para acesso a banco de dados em PHP.
+
+## Como funciona uma conexão PDO
+
+Exemplo simples:
+
+```php
+<?php
+
+$host = "localhost";
+$banco = "sistema";
+$usuario = "root";
+$senha = "";
+
+try {
+
+    $conexao = new PDO(
+        "mysql:host=$host;dbname=$banco;charset=utf8mb4",
+        $usuario,
+        $senha
+    );
+
+    echo "Conexão realizada com sucesso";
+
+} catch (PDOException $erro) {
+
+    echo "Erro na conexão: " . $erro->getMessage();
+}
+```
+
+## Explicando a conexão
+
+### new PDO(...) {-}
+
+Cria um objeto PDO responsável pela conexão.
+
+```php
+$conexao = new PDO(...);
+```
+
+
+
+### mysql:host {-}
+
+Define o tipo do banco e o servidor.
+
+```php
+mysql:host=localhost
+```
+
+
+### dbname {-}
+
+Define qual banco será utilizado.
+
+```php
+dbname=sistema
+```
+
+
+### charset=utf8mb4 {-}
+
+Define a codificação de caracteres.
+
+O `utf8mb4` é recomendado porque suporta corretamente caracteres especiais e emojis.
+
+
+
+### try/catch {-}
+
+Usado para tratamento de erros.
+
+```php
+try {
+
+} catch (PDOException $erro) {
+
+}
+```
+
+Se ocorrer erro na conexão, o `catch` captura a exceção.
+
+## PDO e SQL Injection
+
+Uma das principais vantagens do PDO é o uso de **prepared statements**.
+
+Isso ajuda a evitar SQL Injection.
+
+### Exemplo inseguro {-}
+
+```php
+$sql = "SELECT * FROM usuarios
+        WHERE email = '$email'";
+```
+
+Problema:
+
+Se o usuário digitar comandos SQL maliciosos, a consulta pode ser manipulada.
+
+
+### Exemplo seguro com PDO {-}
+
+```php
+$sql = "SELECT * FROM usuarios
+        WHERE email = :email";
+
+$stmt = $conexao->prepare($sql);
+
+$stmt->bindParam(":email", $email);
+
+$stmt->execute();
+```
+
+Neste caso:
+
+* o SQL é preparado separadamente
+* os dados são enviados depois
+* o PDO trata os valores corretamente
+
+Isso reduz riscos de SQL Injection.
+
+## Método prepare()
+
+O método `prepare()` prepara a instrução SQL.
+
+```php
+$stmt = $conexao->prepare($sql);
+```
+
+O resultado é armazenado em um objeto chamado statement.
+
+## Método bindParam()
+
+Associa valores aos parâmetros da consulta.
+
+```php
+$stmt->bindParam(":email", $email);
+```
+
+## Método execute()
+
+Executa a consulta.
+
+```php
+$stmt->execute();
+```
+
+## Inserindo dados com PDO
+
+```php
+$sql = "INSERT INTO clientes
+(nome, email)
+VALUES (:nome, :email)";
+
+$stmt = $conexao->prepare($sql);
+
+$stmt->bindParam(":nome", $nome);
+$stmt->bindParam(":email", $email);
+
+$stmt->execute();
+```
+
+## Buscando dados com PDO
+
+```php
+$sql = "SELECT * FROM clientes";
+
+$stmt = $conexao->prepare($sql);
+
+$stmt->execute();
+
+$clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+```
+
+## O que é FETCH_ASSOC
+
+Retorna os dados como array associativo.
+
+Exemplo:
+
+```php
+Array (
+    [0] => Array (
+        [nome] => Ana
+        [email] => ana@email.com
+    )
+)
+```
+
+## PDO dentro do MVC
+
+No exemplo MVC apresentado anteriormente:
+
+* a classe `Database` cria a conexão PDO
+* a classe `Cliente` usa PDO para executar SQL
+* o Controller apenas coordena a operação
+* a View não acessa o banco diretamente
+
+Essa separação é importante para organização do sistema.
+
+## Exemplo simplificado do fluxo
+
+```text
+Formulário HTML
+       ↓
+Controller
+       ↓
+Model
+       ↓
+PDO
+       ↓
+Banco de Dados
+```
+
+
+## Arquivo config/Database.php
+
+Este arquivo será responsável pela conexão com o banco de dados.
+
+```php
+<?php
+
+class Database {
+    private string $host = "localhost";
+    private string $dbname = "sistema_clientes";
+    private string $usuario = "root";
+    private string $senha = "";
+    private ?PDO $conexao = null;
+
+    public function conectar(): PDO {
+        if ($this->conexao === null) {
+            try {
+                $this->conexao = new PDO(
+                    "mysql:host={$this->host};dbname={$this->dbname};charset=utf8mb4",
+                    $this->usuario,
+                    $this->senha
+                );
+
+                $this->conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            } catch (PDOException $erro) {
+                die("Erro ao conectar ao banco de dados: " . $erro->getMessage());
+            }
+        }
+
+        return $this->conexao;
+    }
+}
+```
+
+## Arquivo models/Cliente.php
+
+Este arquivo representa o Model.
+
+Ele contém os atributos do cliente e o método responsável por salvar os dados no banco.
+
+```php
+<?php
+
+require_once __DIR__ . "/../config/Database.php";
+
+class Cliente {
+    private string $nome;
+    private string $email;
+    private string $telefone;
+    private PDO $conexao;
+
+    public function __construct(string $nome, string $email, string $telefone) {
+        $this->nome = $nome;
+        $this->email = $email;
+        $this->telefone = $telefone;
+
+        $database = new Database();
+        $this->conexao = $database->conectar();
+    }
+
+    public function salvar(): bool {
+        $sql = "INSERT INTO clientes (nome, email, telefone)
+                VALUES (:nome, :email, :telefone)";
+
+        $stmt = $this->conexao->prepare($sql);
+
+        $stmt->bindParam(":nome", $this->nome);
+        $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":telefone", $this->telefone);
+
+        return $stmt->execute();
+    }
+
+    public function __destruct() {
+        // Ao final do script, a conexão PDO será encerrada automaticamente.
+    }
+}
+```
+
+## Arquivo controllers/ClienteController.php
+
+Este arquivo representa o Controller.
+
+Ele recebe os dados enviados pelo formulário, valida os campos e cria um objeto da classe `Cliente`.
+
+```php
+<?php
+
+require_once __DIR__ . "/../models/Cliente.php";
+
+class ClienteController {
+    public function cadastrar(): array {
+        if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+            return [
+                "sucesso" => false,
+                "mensagem" => "Requisição inválida."
+            ];
+        }
+
+        $nome = trim($_POST["nome"] ?? "");
+        $email = trim($_POST["email"] ?? "");
+        $telefone = trim($_POST["telefone"] ?? "");
+
+        if (empty($nome) || empty($email) || empty($telefone)) {
+            return [
+                "sucesso" => false,
+                "mensagem" => "Todos os campos devem ser preenchidos."
+            ];
+        }
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return [
+                "sucesso" => false,
+                "mensagem" => "Informe um e-mail válido."
+            ];
+        }
+
+        try {
+            $cliente = new Cliente($nome, $email, $telefone);
+            $cliente->salvar();
+
+            return [
+                "sucesso" => true,
+                "mensagem" => "Cliente cadastrado com sucesso!"
+            ];
+
+        } catch (PDOException $erro) {
+            return [
+                "sucesso" => false,
+                "mensagem" => "Erro ao cadastrar cliente. Verifique se o e-mail já está cadastrado."
+            ];
+        }
+    }
+}
+```
+
+## Arquivo views/form_cliente.php
+
+Este arquivo representa a View com o formulário HTML usando Bootstrap.
+
+```php
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Clientes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h1 class="h4 mb-0">Cadastro de Clientes</h1>
+                </div>
+
+                <div class="card-body">
+                    <form action="index.php?acao=cadastrar" method="POST">
+
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input 
+                                type="text" 
+                                name="nome" 
+                                id="nome" 
+                                class="form-control" 
+                                placeholder="Digite o nome do cliente"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input 
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                class="form-control" 
+                                placeholder="Digite o e-mail do cliente"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input 
+                                type="text" 
+                                name="telefone" 
+                                id="telefone" 
+                                class="form-control" 
+                                placeholder="Digite o telefone do cliente"
+                                required>
+                        </div>
+
+                        <button type="submit" class="btn btn-success">
+                            Cadastrar Cliente
+                        </button>
+
+                        <a href="index.php" class="btn btn-secondary">
+                            Limpar
+                        </a>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+```
+
+## Arquivo views/mensagem.php
+
+Este arquivo exibe a mensagem de sucesso ou erro.
+
+```php
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado do Cadastro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h1 class="h4 mb-0">Resultado</h1>
+                </div>
+
+                <div class="card-body">
+
+                    <?php if ($resultado["sucesso"]): ?>
+                        <div class="alert alert-success">
+                            <?php echo $resultado["mensagem"]; ?>
+                        </div>
+                    <?php else: ?>
+                        <div class="alert alert-danger">
+                            <?php echo $resultado["mensagem"]; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <a href="index.php" class="btn btn-primary">
+                        Voltar ao formulário
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+```
+
+## Arquivo index.php
+
+Este arquivo funciona como ponto de entrada da aplicação.
+
+Ele decide qual ação será executada.
+
+```php
+<?php
+
+require_once __DIR__ . "/controllers/ClienteController.php";
+
+$acao = $_GET["acao"] ?? "formulario";
+
+if ($acao === "cadastrar") {
+    $controller = new ClienteController();
+    $resultado = $controller->cadastrar();
+
+    require_once __DIR__ . "/views/mensagem.php";
+} else {
+    require_once __DIR__ . "/views/form_cliente.php";
+}
+```
+
+## Fluxo da aplicação MVC
+
+O funcionamento do sistema ocorre da seguinte forma:
+
+1. O usuário acessa `index.php`.
+2. O arquivo `index.php` carrega a View `form_cliente.php`.
+3. O usuário preenche o formulário e envia os dados.
+4. O formulário envia os dados para `index.php?acao=cadastrar`.
+5. O `index.php` chama o `ClienteController`.
+6. O `ClienteController` valida os dados.
+7. O Controller cria um objeto `Cliente`.
+8. O objeto `Cliente` salva os dados no banco.
+9. A View `mensagem.php` mostra o resultado ao usuário.
+
+## Considerações importantes sobre o exemplo
+
+Este exemplo utiliza orientação a objetos para separar responsabilidades.
+
+A classe `Database` cuida da conexão.
+
+A classe `Cliente` representa o Model.
+
+A classe `ClienteController` recebe, valida e processa a requisição.
+
+As Views cuidam apenas da interface.
+
+Essa organização ajuda a evitar que todo o código fique misturado em um único arquivo. Isso torna o projeto mais fácil de manter, corrigir e expandir.
+
+## Exercício prático
+
+Com base no exemplo desenvolvido, implemente as seguintes melhorias:
+
+1. Adicione o campo `data_nascimento` ao formulário.
+2. Altere a tabela `clientes` para armazenar a data de nascimento.
+3. Inclua uma validação para impedir cadastro com nome vazio.
+4. Inclua uma validação para impedir cadastro com telefone vazio.
+5. Crie uma página para listar todos os clientes cadastrados.
+6. Crie um botão para voltar da listagem para o formulário.
+7. Mantenha a organização em MVC.
+
+
+[1]: https://www.php.net/manual/en/language.oop5.php "PHP: Classes and Objects - Manual"
